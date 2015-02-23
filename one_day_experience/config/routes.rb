@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :professions do
-    devise_for :professionals
-  end
-
+  resources :professions
+  devise_for :professionals, :controllers => {:registrations => 'professionals'}
+  
   root to: 'application#index'
 
 end
