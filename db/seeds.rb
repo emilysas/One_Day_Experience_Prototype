@@ -6,4 +6,4 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# professions = Profession.create([{role: 'Doctor'}, {role: 'Hairdresser'}, {role: 'Software Engineer'}])
+professions = Profession.create([{role: 'Doctor'}, {role: 'Hairdresser'}, {role: 'Software Engineer'}])

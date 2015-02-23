@@ -27,7 +27,8 @@
   </div>
 
   <div class="field">
-    <%= f.collection_select(:professional, :profession_id, Profession.all, :id, :role) %>
+    <%= f.label :profession_id %><br />
+    <%= f.collection_select(:profession_id, Profession.all, :id, :role, :include_blank => true) %>
   </div>
 
   <div class="actions">
