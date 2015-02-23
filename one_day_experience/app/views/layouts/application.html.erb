@@ -9,6 +9,14 @@
 <body>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+
+  <% if professional_signed_in? %>
+    <%= link_to "Sign out", destroy_professional_session_path, method: :delete %>
+  <% else %>
+    <%= link_to "Sign in", new_professional_session_path %>
+    <%= link_to "Sign up", new_professional_registration_path %>
+  <% end %>
+
   <%= yield %>
 
 
