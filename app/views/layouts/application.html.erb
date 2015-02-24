@@ -32,6 +32,9 @@
   <% end %>
   <br>
 
+  <!-- Sign in for students with Facebook -->
+  <%= link_to "Student sign in with Facebook", student_omniauth_authorize_path(:facebook) %>
+
   <!-- Main page content -->
   <%= yield %>
 
