@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OneDayExperience</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+  <!-- Sign in for professionals/buddies -->
+  <% if professional_signed_in? %>
+    <%= link_to "Sign out", destroy_professional_session_path, method: :delete %>
+  <% else %>
+    <%= link_to "Sign in", new_professional_session_path %>
+    <%= link_to "Sign up", new_professional_registration_path %>
+  <% end %>
+  <br>
+
+  <!-- Sign in for students -->
+  <% if student_signed_in? %>
+    <%= link_to "Student sign out", destroy_student_session_path, method: :delete %>
+  <% else %>
+    <%= link_to "Student sign in", new_student_session_path %>
+    <%= link_to "Student sign up", new_student_registration_path %>
+  <% end %>
+  <br>
+
+  <!-- Main page content -->
+  <%= yield %>
+
+
+</body>
+</html>
