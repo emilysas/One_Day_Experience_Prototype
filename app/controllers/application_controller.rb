@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def index
-  	@professional = Professional.all
+  	@professionals = Professional.all
+  	@professional = @professionals.sample
   end
 
  protected
