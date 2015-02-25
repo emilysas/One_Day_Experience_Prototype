@@ -1,15 +1,20 @@
 <section class="profile_container">
   <section class="ProfileImg">Profile Picture</section>
   <section class="professional_info">
-    <%= @profile.name %>
-    <%= @profile.profession.role %>
-    <%= @profile.company %>
-    Located at: <%= @profile.work_address %>
+    <%= @profile.name %><br></br>
+    <%= @profile.profession.role %><br></br>
+    <%= @profile.company %><br></br>
+    Located at: <%= @profile.work_address %><br></br>
   </section>
   <section class="ode_info">
-    Summary: <%= @profile.info %>
-    More about the day: <%= @profile.full_description %>
-    What you can expect on your day with us: <%= @profile.expectations %>
-    People in my profession require the following qualifications (not necessary for your one day experience)<%= @profile.req_quals %>
-    People in my profession, often have the following skills: <%= @profile.req_skills %>
+    <em>Summary: </em><br></br>
+    <%= @profile.info %><br></br>
+    <em>More about the day: </em><br></br>
+    <%= @profile.full_description %><br></br>
+    <em>What you can expect on your day with us: </em><br></br>
+    <%= @profile.expectations %><br></br>
+    <em>People in my profession require the following qualifications (not necessary for your one day experience): </em><br></br>
+    <%= @profile.req_quals %><br></br>
+    <em>People in my profession, often have the following skills: </em><br></br>
+    <%= @profile.req_skills %><br></br>
   </section>
