@@ -25,7 +25,7 @@ Feature: Professional creating a profile.
 
   Scenario: Completing the Profession field.
     Given I am on the questionnaire 
-    And I have entered my Job position and Professional Sector
+    And I have entered my Job position and selected my Professional Sector from the drop down selection
     When I press save
     Then I should be able to save my entries. 
 
@@ -46,3 +46,9 @@ Feature: Professional creating a profile.
     And I have entered details of any previous experiences I have had similar to One Day and my motivation to become a mentor
     When I press save
     Then I should be able to save my entries.
+
+  Scenario: Uploading a profile picture
+    Given I am on the questionnaire  
+    And I have entered a profile picture
+    When I press save
+    Then I should be able to save my profile picture.
