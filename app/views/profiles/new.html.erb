@@ -1,4 +1,5 @@
 <%= form_for @profile do |f| %>
+  <%= f.file_field :image %>
   <%= f.label :name %>
   <%= f.text_field :name %>
   <%= f.label :profession_id %>
