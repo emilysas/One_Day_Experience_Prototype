@@ -13,11 +13,6 @@ Feature: Professional interested in One Day
     When I have entered my name and email in their fields
     Then I have registered my contact details.
 
-Feature: Professional creating a profile.
-  In order to allow my details to be viewed by potential Youths
-  As a registered professional
-  I want to create a Professional Profile on One Day.
-
   Scenario: Creating my profile.
     Given I have registered my interest
     When I click on "Create my profile"

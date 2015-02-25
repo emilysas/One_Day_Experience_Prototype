@@ -1,18 +1,13 @@
 Feature: As a Super Administrator
   In order to maintain and add staff as Administrators
   As a One Day Super Administrator
-  I want to have access to the website to maintain the list of Administrators.
+  I want to have access to the website to maintain the list of Administrators, Professionals and Mentees.
 
   Scenario: Signing in  
     Given I am on the home page
     And I have entered my details in the "Sign in" field
     When I press submit
     Then I should see the Super Administrator page
-
-Feature: Super Administrator access
-  In order to maintain and update the website
-  As a One Day Super Administrator
-  I want to have access to the website as a Super Administrator
 
   Scenario: Adding a Super Administrator
     Given I am on the Super User page
