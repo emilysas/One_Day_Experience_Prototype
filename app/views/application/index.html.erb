@@ -1,61 +1,21 @@
-
-<header class="title">
-<h2> Tell me and I'll forget · Show me and I'll remember · Involve me and I'll understand </h2>
-</header>
-
 <section class="col1">
+
+	<diamond class="diamond" id="back"></diamond>
+	<circle id="no"></circle>
 
 </section>
 
 <section class="col2">
 
-	<box id="pro-name">
-		<h3 class="pro-details"> @professional.name </h3>
-	</box>
+	<box id="pro-img"><img id="tokyo" src="/images/tokyo-city.jpg" id="tokyo"/></box>
 
-	
-
-	<box id="pro-img"><img src="/images/tokyo-city.jpg" id="tokyo"/>
-		
-	</box>
-	<box id="pro-prof">	
-		<h3 class="pro-details"> @professional.profession </h3>
-	</box>
-	<box id="pro-details">
-		<h3 class="pro-details"> @professional.info </h3>
-	</box>
-
-	<span class="answers"> Yes </span>
-	<span class="answers"> No </span>
 
 </section>
 
 <section class="col3">
 
-<% if !student_signed_in? %>
-	    <% if professional_signed_in? %>
-	      <%= link_to "Sign out", destroy_professional_session_path, method: :delete %>
-	    <% else %>
-	      <%= link_to "Sign in", new_professional_session_path %>
-	      <%= link_to "Sign up", new_professional_registration_path %>
-	    <% end %>
-	  <% end %>
-	  <br>
-
-	  <!-- Sign in for students -->
-	  <% if !professional_signed_in? %>
-	    <% if student_signed_in? %>
-	      <%= link_to "Student sign out", destroy_student_session_path, method: :delete %>
-	    <% else %>
-	      <%= link_to "Student sign in", new_student_session_path %>
-	      <%= link_to "Student sign up", new_student_registration_path %>
-	    <% end %>
-	  <% end %>
-	  <br>
-
-	  <!-- Sign in for students with Facebook -->
-	  <%= link_to "Student sign in with Facebook", student_omniauth_authorize_path(:facebook) %>
-  	
+	<circle id="yes"></circle>
+	<diamond class="diamond" id="forward"></diamond>
 
 </section>
 
