@@ -4,6 +4,12 @@ Rails.application.routes.draw do
   resources :professions
   resources :profiles
   root to: 'application#index'
+  
+  # api for serving index profile infos
+  namespace :api do
+    resources :profiles
+  end
+
   # devise_scope :student do
     # get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_student_session
   # end
