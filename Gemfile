@@ -53,3 +53,6 @@ group :test do
   gem 'cucumber'
 end
 
+# gem 'paperclip'
+# gem 'paperclip', github: 'thoughtbot/paperclip'
+gem 'paperclip', '~> 4.2'
