@@ -20,11 +20,6 @@ class ProfessionalsController < Devise::RegistrationsController
 
   private
 
-  def after_sign_up_path_for(resource)
-    # new_profile_path(:professional_id=>'1')
-    'profiles/new'
-  end
-
   def registration_params
     params.require(:user).permit(:email, :name, :password, :password_confirmation)
   end

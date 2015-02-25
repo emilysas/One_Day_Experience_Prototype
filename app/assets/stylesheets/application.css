@@ -14,12 +14,31 @@
  *= require_self
  */
 
+/*********************************
+			Main html parts
+*********************************/
+
 html {
 	box-sizing: border-box;
 }
 
 body {
-	background-image: url("http://freehdwalls.net/wp-content/uploads/mood-paint-brush-hd-wallpaper.jpg") no-repeat center fixed; 
+}
+
+/*********************************
+This is for the background-image
+*********************************/
+body::after {
+  content: "";
+  background: url('../images/paintbrush.jpg');	
+  opacity: 0.5;
+  top: 0!important;
+  left: 0!important;
+  bottom: 0!important;
+  right: 0!important;
+  background-size: cover;
+  position: absolute;
+  z-index: -1;   
 }
 
 *, *:before, *:after {
@@ -58,10 +77,12 @@ h2 {
 	width: 33%;
 }
 
+
 .pro-details {
 	text-align: center;
 }
 
+/*TODO: refactor all pro things into one class if possible*/
 #pro-name {
 	display: block;
 	border: solid black 1px;
