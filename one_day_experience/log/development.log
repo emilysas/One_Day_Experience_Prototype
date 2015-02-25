@@ -1,0 +1,914 @@
+  [1m[36m (15.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (3.3ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateProfessionals (20150223144625)
+  [1m[35m (0.1ms)[0m  BEGIN
+DEPRECATION WARNING: `#timestamp` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /Users/huyle/One_Day_Experience_Prototype/one_day_experience/db/migrate/20150223144625_devise_create_professionals.rb:34)
+  [1m[36m (26.2ms)[0m  [1mCREATE TABLE "professionals" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX  "index_professionals_on_email" ON "professionals"  ("email")
+  [1m[36m (1.9ms)[0m  [1mCREATE UNIQUE INDEX  "index_professionals_on_reset_password_token" ON "professionals"  ("reset_password_token")[0m
+  [1m[35mSQL (5.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150223144625"]]
+  [1m[36m (6.2ms)[0m  [1mCOMMIT[0m
+Migrating to AddNameToProfessionals (20150223144816)
+  [1m[35m (5.7ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "professionals" ADD "name" character varying[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150223144816"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateProfessions (20150223151959)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "professions" ("id" serial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150223151959"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddDescriptionToProfession (20150223152142)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.3ms)[0m  [1mALTER TABLE "professions" ADD "role" text[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150223152142"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'professionals'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.6ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'professions'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddDescriptionToProfession (20150223154206)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "professions" ADD "description" text[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150223154206"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'professionals'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.9ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'professions'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddProfessionIdToProfessional (20150223155408)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.9ms)[0m  [1mALTER TABLE "professionals" ADD "profession_id" integer[0m
+  [1m[35m (1.8ms)[0m  CREATE  INDEX  "index_professionals_on_profession_id" ON "professionals"  ("profession_id")
+  [1m[36m (3.3ms)[0m  [1mALTER TABLE "professionals" ADD CONSTRAINT "fk_rails_b7e4ad1cfe"
+FOREIGN KEY ("profession_id")
+  REFERENCES "professions" ("id")
+[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150223155408"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'professionals'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'professions'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+
+
+Started GET "/" for ::1 at 2015-02-23 15:57:07 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApplicationController#index as HTML
+  [1m[35mProfessional Load (0.8ms)[0m  SELECT "professionals".* FROM "professionals"
+  Rendered application/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 1735ms (Views: 1716.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/professionals-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-23 15:57:09 +0000
+
+
+Started GET "/assets/application-5266d2988799ecc8fe6e81eaab412e7d.css?body=1" for ::1 at 2015-02-23 15:57:09 +0000
+
+
+Started GET "/assets/professions-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-23 15:57:09 +0000
+
+
+Started GET "/assets/application-d5dd9df895e734baa4e6c45e5b5415a9.js?body=1" for ::1 at 2015-02-23 15:57:09 +0000
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-23 15:57:09 +0000
+
+
+Started GET "/assets/professionals-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-23 15:57:09 +0000
+
+
+Started GET "/assets/professions-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-23 15:57:09 +0000
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-23 15:57:09 +0000
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-02-23 15:57:09 +0000
+
+
+Started GET "/professionals/sign_up" for ::1 at 2015-02-23 15:57:36 +0000
+
+ActionController::RoutingError (No route matches [GET] "/professionals/sign_up"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/huyle/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/huyle/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/huyle/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (3.0ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (8.9ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.3ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (53.6ms)
+
+
+Started GET "/professional/sign_up" for ::1 at 2015-02-23 15:57:50 +0000
+
+ActionController::RoutingError (No route matches [GET] "/professional/sign_up"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/huyle/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/huyle/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/huyle/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (1.2ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (1.4ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (29.7ms)
+
+
+Started GET "/professional" for ::1 at 2015-02-23 15:58:13 +0000
+
+ActionController::RoutingError (No route matches [GET] "/professional"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/huyle/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/huyle/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/huyle/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (1.2ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (0.9ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.2ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (28.0ms)
+
+
+Started GET "/profession" for ::1 at 2015-02-23 16:05:33 +0000
+
+ActionController::RoutingError (No route matches [GET] "/profession"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/huyle/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/huyle/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/huyle/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (1.6ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (0.9ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.4ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (33.9ms)
+
+
+Started GET "/professional" for ::1 at 2015-02-23 16:05:37 +0000
+
+ActionController::RoutingError (No route matches [GET] "/professional"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/huyle/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/huyle/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/huyle/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (1.5ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (1.4ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.1ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (36.7ms)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (6.4ms)[0m  INSERT INTO "professions" ("role", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["role", "Doctor"], ["created_at", "2015-02-23 16:19:21.196155"], ["updated_at", "2015-02-23 16:19:21.196155"]]
+  [1m[36m (12.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "professions" ("role", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["role", "Hairdresser"], ["created_at", "2015-02-23 16:19:30.258772"], ["updated_at", "2015-02-23 16:19:30.258772"]]
+  [1m[35m (0.9ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "professions" ("role", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["role", "Bicycle Mechanic"], ["created_at", "2015-02-23 16:19:39.970574"], ["updated_at", "2015-02-23 16:19:39.970574"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "professions" ("role", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["role", "Software Engineer"], ["created_at", "2015-02-23 16:19:58.693421"], ["updated_at", "2015-02-23 16:19:58.693421"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36mProfession Load (0.7ms)[0m  [1mSELECT "professions".* FROM "professions"[0m
+
+
+Started GET "/professional" for ::1 at 2015-02-23 16:50:20 +0000
+
+ActionController::RoutingError (No route matches [GET] "/professional"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/huyle/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/huyle/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/huyle/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (1.7ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (2.0ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (39.4ms)
+
+
+Started GET "/professional/sign_up" for ::1 at 2015-02-23 16:50:35 +0000
+
+ActionController::RoutingError (No route matches [GET] "/professional/sign_up"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/huyle/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/huyle/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/huyle/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (1.3ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (1.5ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (28.1ms)
+
+
+Started GET "/professionals/sign_up" for ::1 at 2015-02-23 16:50:44 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mProfession Load (0.6ms)[0m  [1mSELECT "professions".* FROM "professions"[0m
+  Rendered devise/shared/_links.html.erb (5.5ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (59.4ms)
+Completed 200 OK in 143ms (Views: 119.9ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-23 16:50:44 +0000
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-23 16:50:44 +0000
+
+
+Started GET "/assets/application-5266d2988799ecc8fe6e81eaab412e7d.css?body=1" for ::1 at 2015-02-23 16:50:44 +0000
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-02-23 16:50:44 +0000
+
+
+Started POST "/professionals" for ::1 at 2015-02-23 16:51:19 +0000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qnF52yN2pFxmhrUGNz2GgPGQnglijLuKg3QAC5lxeRWoiChWNbj7ToAaX6Tb33sGuFGCcOhIYLJFXm4lEvcZZQ==", "professional"=>{"name"=>"Huy", "email"=>"h@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "profession_id"=>"1"}, "commit"=>"Sign up"}
+Unpermitted parameter: profession_id
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mProfessional Exists (2.4ms)[0m  [1mSELECT  1 AS one FROM "professionals" WHERE "professionals"."email" = 'h@test.com' LIMIT 1[0m
+  [1m[35mSQL (22.6ms)[0m  INSERT INTO "professionals" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["email", "h@test.com"], ["encrypted_password", "$2a$10$XypXYTa5WPipVG6hwQPcze./KjjbOKOadGS8yerGO/je0PN.jAdBu"], ["name", "Huy"], ["created_at", "2015-02-23 16:51:19.705187"], ["updated_at", "2015-02-23 16:51:19.705187"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "professionals" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "professionals"."id" = $7[0m  [["last_sign_in_at", "2015-02-23 16:51:19.731439"], ["current_sign_in_at", "2015-02-23 16:51:19.731439"], ["last_sign_in_ip", "::1/128"], ["current_sign_in_ip", "::1/128"], ["sign_in_count", 1], ["updated_at", "2015-02-23 16:51:19.732790"], ["id", 1]]
+  [1m[35m (7.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 160ms (ActiveRecord: 33.7ms)
+
+
+Started GET "/" for ::1 at 2015-02-23 16:51:19 +0000
+Processing by ApplicationController#index as HTML
+  [1m[36mProfessional Load (0.4ms)[0m  [1mSELECT "professionals".* FROM "professionals"[0m
+  Rendered application/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 63ms (Views: 61.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application-5266d2988799ecc8fe6e81eaab412e7d.css?body=1" for ::1 at 2015-02-23 16:51:19 +0000
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-23 16:51:19 +0000
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-23 16:51:19 +0000
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-02-23 16:51:19 +0000
+  [1m[36mProfessional Load (0.8ms)[0m  [1mSELECT "professionals".* FROM "professionals"[0m
+  [1m[35mProfessional Load (0.4ms)[0m  SELECT  "professionals".* FROM "professionals" WHERE "professionals"."id" = $1 LIMIT 1  [["id", 1]]
+
+
+Started POST "/professionals" for ::1 at 2015-02-23 17:00:32 +0000
+Processing by ProfessionalsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qnF52yN2pFxmhrUGNz2GgPGQnglijLuKg3QAC5lxeRWoiChWNbj7ToAaX6Tb33sGuFGCcOhIYLJFXm4lEvcZZQ==", "professional"=>{"name"=>"Luke", "email"=>"l@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "profession_id"=>"2"}, "commit"=>"Sign up"}
+  [1m[35mProfessional Load (0.7ms)[0m  SELECT  "professionals".* FROM "professionals" WHERE "professionals"."id" = $1  ORDER BY "professionals"."id" ASC LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 58ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/" for ::1 at 2015-02-23 17:00:32 +0000
+Processing by ApplicationController#index as HTML
+  [1m[36mProfessional Load (0.4ms)[0m  [1mSELECT "professionals".* FROM "professionals"[0m
+  Rendered application/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 57ms (Views: 56.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-23 17:00:32 +0000
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-23 17:00:32 +0000
+
+
+Started GET "/assets/application-5266d2988799ecc8fe6e81eaab412e7d.css?body=1" for ::1 at 2015-02-23 17:00:32 +0000
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-02-23 17:00:32 +0000
+
+
+Started GET "/professionals/sign_up" for ::1 at 2015-02-23 17:04:41 +0000
+Processing by ProfessionalsController#new as HTML
+  [1m[35mProfessional Load (0.4ms)[0m  SELECT  "professionals".* FROM "professionals" WHERE "professionals"."id" = $1  ORDER BY "professionals"."id" ASC LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2015-02-23 17:04:41 +0000
+Processing by ApplicationController#index as HTML
+  [1m[36mProfessional Load (0.3ms)[0m  [1mSELECT "professionals".* FROM "professionals"[0m
+  Rendered application/index.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 74ms
+
+ActionView::Template::Error (undefined method `user_signed_in?' for #<#<Class:0x007fb0793d7e40>:0x007fb074203b00>):
+     9: <body>
+    10:   <p class="notice"><%= notice %></p>
+    11:   <p class="alert"><%= alert %></p>
+    12:   <% if user_signed_in? %>
+    13:     <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+    14:   <% else %>
+    15:     <% link_to "Sign in", new_user_session_path %>
+  app/views/layouts/application.html.erb:12:in `_app_views_layouts_application_html_erb___4252140831311630623_70197919588060'
+
+
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.4ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.5ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (32.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-23 17:07:00 +0000
+Processing by ApplicationController#index as HTML
+  [1m[35mProfessional Load (0.5ms)[0m  SELECT "professionals".* FROM "professionals"
+  Rendered application/index.html.erb within layouts/application (9.3ms)
+Completed 500 Internal Server Error in 79ms
+
+ActionView::Template::Error (undefined method `user_signed_in?' for #<#<Class:0x007fb07a789218>:0x007fb07a7816f8>):
+    10:   <p class="notice"><%= notice %></p>
+    11:   <p class="alert"><%= alert %></p>
+    12:   
+    13:   <% if user_signed_in? %>
+    14:     <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+    15:   <% else %>
+    16:     <% link_to "Sign in", new_user_session_path %>
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb___4252140831311630623_70197972815100'
+
+
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (5.3ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (4.3ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (26.3ms)
+
+
+Started GET "/" for ::1 at 2015-02-23 17:08:38 +0000
+Processing by ApplicationController#index as HTML
+  [1m[36mProfessional Load (0.3ms)[0m  [1mSELECT "professionals".* FROM "professionals"[0m
+  Rendered application/index.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 70ms
+
+ActionView::Template::Error (undefined method `user_signed_in?' for #<#<Class:0x007fb07a789218>:0x007fb079345108>):
+    10:   <p class="notice"><%= notice %></p>
+    11:   <p class="alert"><%= alert %></p>
+    12:   
+    13:   <% if user_signed_in? %>
+    14:     <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+    15:   <% else %>
+    16:     <% link_to "Sign in", new_user_session_path %>
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb___4252140831311630623_70197972815100'
+
+
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.6ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.8ms)
+  Rendered /Users/huyle/.rvm/gems/ruby-2.1.5/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (26.7ms)
+
+
+Started GET "/" for ::1 at 2015-02-23 17:10:17 +0000
+Processing by ApplicationController#index as HTML
+  [1m[35mProfessional Load (0.5ms)[0m  SELECT "professionals".* FROM "professionals"
+  Rendered application/index.html.erb within layouts/application (10.0ms)
+  [1m[36mProfessional Load (0.5ms)[0m  [1mSELECT  "professionals".* FROM "professionals" WHERE "professionals"."id" = $1  ORDER BY "professionals"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 61ms (Views: 52.9ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/assets/professionals-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-23 17:10:17 +0000
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-23 17:10:17 +0000
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-23 17:10:17 +0000
+
+
+Started GET "/assets/application-5266d2988799ecc8fe6e81eaab412e7d.css?body=1" for ::1 at 2015-02-23 17:10:17 +0000
+
+
+Started GET "/assets/professions-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-23 17:10:17 +0000
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-02-23 17:10:17 +0000
+
+
+Started GET "/assets/professionals-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-23 17:10:17 +0000
+
+
+Started GET "/assets/professions-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-23 17:10:17 +0000
+
+
+Started GET "/assets/application-d5dd9df895e734baa4e6c45e5b5415a9.js?body=1" for ::1 at 2015-02-23 17:10:17 +0000
+
+
+Started DELETE "/professionals/sign_out" for ::1 at 2015-02-23 17:10:19 +0000
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"esDbc6pLWCMT0RCwcyjf9U4YPjtUVluoGsCDZMjg81R4OYr+vIUHMfVN+hKfyiJzB9kiQt6SgJDc6u1KQ2aTJA=="}
+  [1m[35mProfessional Load (0.4ms)[0m  SELECT  "professionals".* FROM "professionals" WHERE "professionals"."id" = $1  ORDER BY "professionals"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 12ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2015-02-23 17:10:19 +0000
+Processing by ApplicationController#index as HTML
+  [1m[36mProfessional Load (0.4ms)[0m  [1mSELECT "professionals".* FROM "professionals"[0m
+  Rendered application/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 74ms (Views: 72.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/professionals-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-23 17:10:19 +0000
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-23 17:10:19 +0000
+
+
+Started GET "/assets/professions-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-23 17:10:19 +0000
+
+
+Started GET "/assets/application-5266d2988799ecc8fe6e81eaab412e7d.css?body=1" for ::1 at 2015-02-23 17:10:19 +0000
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-02-23 17:10:20 +0000
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-23 17:10:20 +0000
+
+
+Started GET "/assets/professionals-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-23 17:10:20 +0000
+
+
+Started GET "/assets/professions-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-23 17:10:20 +0000
+
+
+Started GET "/assets/application-d5dd9df895e734baa4e6c45e5b5415a9.js?body=1" for ::1 at 2015-02-23 17:10:20 +0000
+
+
+Started GET "/" for ::1 at 2015-02-23 17:10:27 +0000
+Processing by ApplicationController#index as HTML
+  [1m[35mProfessional Load (0.3ms)[0m  SELECT "professionals".* FROM "professionals"
+  Rendered application/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 72ms (Views: 71.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/professionals-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-23 17:10:27 +0000
+
+
+Started GET "/assets/professions-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-23 17:10:27 +0000
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-23 17:10:27 +0000
+
+
+Started GET "/assets/application-5266d2988799ecc8fe6e81eaab412e7d.css?body=1" for ::1 at 2015-02-23 17:10:27 +0000
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-02-23 17:10:27 +0000
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-23 17:10:27 +0000
+
+
+Started GET "/assets/professionals-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-23 17:10:27 +0000
+
+
+Started GET "/assets/professions-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-23 17:10:27 +0000
+
+
+Started GET "/assets/application-d5dd9df895e734baa4e6c45e5b5415a9.js?body=1" for ::1 at 2015-02-23 17:10:27 +0000
+
+
+Started GET "/" for ::1 at 2015-02-23 17:10:51 +0000
+Processing by ApplicationController#index as HTML
+  [1m[36mProfessional Load (0.3ms)[0m  [1mSELECT "professionals".* FROM "professionals"[0m
+  Rendered application/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 58ms (Views: 57.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/professionals-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-23 17:10:51 +0000
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-02-23 17:10:51 +0000
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-23 17:10:51 +0000
+
+
+Started GET "/assets/application-5266d2988799ecc8fe6e81eaab412e7d.css?body=1" for ::1 at 2015-02-23 17:10:51 +0000
+
+
+Started GET "/assets/professions-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-23 17:10:51 +0000
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-23 17:10:51 +0000
+
+
+Started GET "/assets/professionals-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-23 17:10:51 +0000
+
+
+Started GET "/assets/professions-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-23 17:10:51 +0000
+
+
+Started GET "/assets/application-d5dd9df895e734baa4e6c45e5b5415a9.js?body=1" for ::1 at 2015-02-23 17:10:51 +0000
+
+
+Started GET "/professionals/sign_up" for ::1 at 2015-02-23 17:10:55 +0000
+Processing by ProfessionalsController#new as HTML
+  [1m[35mProfession Load (0.4ms)[0m  SELECT "professions".* FROM "professions"
+  Rendered devise/shared/_links.html.erb (9.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (28.9ms)
+Completed 200 OK in 91ms (Views: 87.5ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/professionals" for ::1 at 2015-02-23 17:11:12 +0000
+Processing by ProfessionalsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3ck01JZfX4TI9jobKS1sQ6hdWtBTnws+bvGWSg4zF9U3zQ8i0E6gCXf/rFzWwrE2UYM34YSuEz6EdhqpBY8Z9Q==", "professional"=>{"name"=>"Luke", "email"=>"l@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "profession_id"=>"2"}, "commit"=>"Sign up"}
+Unpermitted parameter: profession_id
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mProfessional Exists (0.4ms)[0m  SELECT  1 AS one FROM "professionals" WHERE "professionals"."email" = 'l@test.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "professionals" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "l@test.com"], ["encrypted_password", "$2a$10$8jU6kmj0E/Lvgd2ekfzPHu7H4fQRsDch9PyYeMNqXsxibNTBTkLHi"], ["name", "Luke"], ["created_at", "2015-02-23 17:11:12.825491"], ["updated_at", "2015-02-23 17:11:12.825491"]]
+  [1m[35m (0.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "professionals" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "professionals"."id" = $7  [["last_sign_in_at", "2015-02-23 17:11:12.829123"], ["current_sign_in_at", "2015-02-23 17:11:12.829123"], ["last_sign_in_ip", "::1/128"], ["current_sign_in_ip", "::1/128"], ["sign_in_count", 1], ["updated_at", "2015-02-23 17:11:12.831174"], ["id", 2]]
+  [1m[36m (5.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 105ms (ActiveRecord: 8.2ms)
+
+
+Started GET "/" for ::1 at 2015-02-23 17:11:12 +0000
+Processing by ApplicationController#index as HTML
+  [1m[35mProfessional Load (0.4ms)[0m  SELECT "professionals".* FROM "professionals"
+  Rendered application/index.html.erb within layouts/application (1.3ms)
+  [1m[36mProfessional Load (0.4ms)[0m  [1mSELECT  "professionals".* FROM "professionals" WHERE "professionals"."id" = $1  ORDER BY "professionals"."id" ASC LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 60ms (Views: 58.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/professions-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-23 17:11:12 +0000
+
+
+Started GET "/assets/professionals-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-23 17:11:12 +0000
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-02-23 17:11:12 +0000
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-23 17:11:12 +0000
+
+
+Started GET "/assets/application-5266d2988799ecc8fe6e81eaab412e7d.css?body=1" for ::1 at 2015-02-23 17:11:12 +0000
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-23 17:11:12 +0000
+
+
+Started GET "/assets/professionals-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-23 17:11:12 +0000
+
+
+Started GET "/assets/professions-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-23 17:11:12 +0000
+
+
+Started GET "/assets/application-d5dd9df895e734baa4e6c45e5b5415a9.js?body=1" for ::1 at 2015-02-23 17:11:12 +0000
+
+
+Started GET "/" for ::1 at 2015-02-23 17:12:03 +0000
+Processing by ApplicationController#index as HTML
+  [1m[35mProfessional Load (0.4ms)[0m  SELECT "professionals".* FROM "professionals"
+  Rendered application/index.html.erb within layouts/application (11.2ms)
+  [1m[36mProfessional Load (0.5ms)[0m  [1mSELECT  "professionals".* FROM "professionals" WHERE "professionals"."id" = $1  ORDER BY "professionals"."id" ASC LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 81ms (Views: 70.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/professionals-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-23 17:12:03 +0000
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-23 17:12:03 +0000
+
+
+Started GET "/assets/professions-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-23 17:12:03 +0000
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-23 17:12:03 +0000
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-02-23 17:12:03 +0000
+
+
+Started GET "/assets/professionals-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-23 17:12:03 +0000
+
+
+Started GET "/assets/application-5266d2988799ecc8fe6e81eaab412e7d.css?body=1" for ::1 at 2015-02-23 17:12:03 +0000
+
+
+Started GET "/assets/professions-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-23 17:12:03 +0000
+
+
+Started GET "/assets/application-d5dd9df895e734baa4e6c45e5b5415a9.js?body=1" for ::1 at 2015-02-23 17:12:03 +0000
+
+
+Started DELETE "/professionals/sign_out" for ::1 at 2015-02-23 17:12:05 +0000
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"+K66/oeMNCODlgPFENpWgD2/4COeV2cxCXUvXvX9sI4SqoEIwZ3LrjyflYLvNYv1xGGNEklmfzHj8qO9/kG+rg=="}
+  [1m[35mProfessional Load (0.2ms)[0m  SELECT  "professionals".* FROM "professionals" WHERE "professionals"."id" = $1  ORDER BY "professionals"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 11ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2015-02-23 17:12:05 +0000
+Processing by ApplicationController#index as HTML
+  [1m[36mProfessional Load (0.3ms)[0m  [1mSELECT "professionals".* FROM "professionals"[0m
+  Rendered application/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 66ms (Views: 64.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/professionals-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-23 17:12:05 +0000
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-23 17:12:05 +0000
+
+
+Started GET "/assets/professions-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-23 17:12:05 +0000
+
+
+Started GET "/assets/application-5266d2988799ecc8fe6e81eaab412e7d.css?body=1" for ::1 at 2015-02-23 17:12:05 +0000
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-23 17:12:05 +0000
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-02-23 17:12:05 +0000
+
+
+Started GET "/assets/professionals-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-23 17:12:05 +0000
+
+
+Started GET "/assets/professions-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-23 17:12:05 +0000
+
+
+Started GET "/assets/application-d5dd9df895e734baa4e6c45e5b5415a9.js?body=1" for ::1 at 2015-02-23 17:12:05 +0000
+  [1m[36mProfession Load (0.5ms)[0m  [1mSELECT "professions".* FROM "professions"[0m
+  [1m[35mProfession Load (0.4ms)[0m  SELECT  "professions".* FROM "professions" WHERE "professions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mProfessional Load (0.3ms)[0m  [1mSELECT "professionals".* FROM "professionals" WHERE "professionals"."profession_id" = $1[0m  [["profession_id", 1]]
+
+
+Started GET "/" for ::1 at 2015-02-23 17:22:27 +0000
+Processing by ApplicationController#index as HTML
+  [1m[35mProfessional Load (0.4ms)[0m  SELECT "professionals".* FROM "professionals"
+  Rendered application/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 57ms (Views: 55.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/professionals-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-23 17:22:27 +0000
+
+
+Started GET "/assets/professions-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-23 17:22:27 +0000
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-02-23 17:22:27 +0000
+
+
+Started GET "/assets/application-5266d2988799ecc8fe6e81eaab412e7d.css?body=1" for ::1 at 2015-02-23 17:22:27 +0000
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-23 17:22:27 +0000
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-23 17:22:27 +0000
+
+
+Started GET "/assets/professionals-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-23 17:22:27 +0000
+
+
+Started GET "/assets/professions-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-23 17:22:27 +0000
+
+
+Started GET "/assets/application-d5dd9df895e734baa4e6c45e5b5415a9.js?body=1" for ::1 at 2015-02-23 17:22:27 +0000
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "professions" ("role", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["role", "Hairdresser"], ["created_at", "2015-02-23 17:23:40.989767"], ["updated_at", "2015-02-23 17:23:40.989767"]]
+  [1m[35m (6.1ms)[0m  COMMIT
+  [1m[36mProfession Load (0.4ms)[0m  [1mSELECT "professions".* FROM "professions"[0m
