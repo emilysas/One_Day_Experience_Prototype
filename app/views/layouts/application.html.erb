@@ -6,52 +6,58 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
+	
 <body>
 
-  <section class="login">
 
-  <!-- Sign in for professionals/buddies -->
-  <% if !student_signed_in? %>
-    <% if professional_signed_in? %>
-      <span><%= link_to "Sign out", destroy_professional_session_path, method: :delete %></span>
-    <% else %>
-        <ul class="prof_dropdown">
-          <li class="parent"><a href="#">Professionals</a></li>
-              <ul class="children">
-                 <li><%= link_to "Sign in", new_professional_session_path %></li>
-                 <li><%= link_to "Sign up", new_professional_registration_path %></li>
-              </ul>
-        </ul>
-    <% end %>
-  <% end %>
-  <br>
+	<nav id="sidebar">
+		<ul id="vertical_align">
 
-  <!-- Sign in for students -->
-<% if !professional_signed_in? %>
-    <% if student_signed_in? %>
-      <%= link_to "Student sign out", destroy_student_session_path, method: :delete %>
-    <% else %>
-      <ul class="stu_dropdown">
-        <li class="parent"><a href="#">Students</a></li>
-          <ul class="children">
-            <li><%= link_to "Student sign in", new_student_session_path %></li>
-            <li><%= link_to "Student sign up", new_student_registration_path %></li>
-            <li><%= link_to "Student sign in with Facebook", student_omniauth_authorize_path(:facebook) %></li>
-          </ul>
-      </ul>
-    <% end %>
-  <% end %>
-  <br>
+			<icon class="icons--signin" ><img class="icon" src="/images/icons/profile.svg"></icon>
+			<icon class="icons" ><img class="icon" src="/images/icons/profile.svg"></icon>
+			<icon class="icons" ><img class="icon" src="/images/icons/profile.svg"></icon>
+			<icon class="icons"><img class="icon" src="/images/icons/profile.svg"></icon>
+			
+		</ul>
+	
+	</nav>
 
-  
-
-</section>
-
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
 
   <!-- Main page content -->
-  <%= yield %>
+  <container id="bodyContainer">
+	  <p class="notice"><%= notice %></p>
+	  <p class="alert"><%= alert %></p>
+
+		
+	  <!-- Sign in for professionals/buddies -->
+	  <% if !student_signed_in? %>
+	    <% if professional_signed_in? %>
+	      <%= link_to "Sign out", destroy_professional_session_path, method: :delete %>
+	    <% else %>
+	      <%= link_to "Sign in", new_professional_session_path %>
+	      <%= link_to "Sign up", new_professional_registration_path %>
+	    <% end %>
+	  <% end %>
+	  <br>
+
+	  <!-- Sign in for students -->
+	  <% if !professional_signed_in? %>
+	    <% if student_signed_in? %>
+	      <%= link_to "Student sign out", destroy_student_session_path, method: :delete %>
+	    <% else %>
+	      <%= link_to "Student sign in", new_student_session_path %>
+	      <%= link_to "Student sign up", new_student_registration_path %>
+	    <% end %>
+	  <% end %>
+	  <br>
+
+	  <!-- Sign in for students with Facebook -->
+	  <%= link_to "Student sign in with Facebook", student_omniauth_authorize_path(:facebook) %>
+  	
+  	<%= yield %>
+	
+	</container>
 
 </body>
 </html>
