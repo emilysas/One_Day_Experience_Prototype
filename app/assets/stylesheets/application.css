@@ -63,6 +63,24 @@ h2 {
 	display: inline-block;
 }
 
+li {
+	list-style: none;
+}
+
+.prof_dropdown ul {
+    display: none;
+}
+.prof_dropdown:hover ul {
+    display: block;
+}
+
+.stu_dropdown ul {
+    display: none;
+}
+.stu_dropdown:hover ul {
+    display: block;
+}
+
 .col1 {
 	float:left;
 	width: 33%;

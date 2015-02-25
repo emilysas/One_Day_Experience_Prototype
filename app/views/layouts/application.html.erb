@@ -15,25 +15,35 @@
     <% if professional_signed_in? %>
       <span><%= link_to "Sign out", destroy_professional_session_path, method: :delete %></span>
     <% else %>
-      <span><%= link_to "Sign in", new_professional_session_path %></span>
-      <span><%= link_to "Sign up", new_professional_registration_path %></span>
+        <ul class="prof_dropdown">
+          <li class="parent"><a href="#">Professionals</a></li>
+              <ul class="children">
+                 <li><%= link_to "Sign in", new_professional_session_path %></li>
+                 <li><%= link_to "Sign up", new_professional_registration_path %></li>
+              </ul>
+        </ul>
     <% end %>
   <% end %>
   <br>
 
   <!-- Sign in for students -->
-  <% if !professional_signed_in? %>
+<% if !professional_signed_in? %>
     <% if student_signed_in? %>
       <%= link_to "Student sign out", destroy_student_session_path, method: :delete %>
     <% else %>
-      <span><%= link_to "Student sign in", new_student_session_path %></span>
-      <span><%= link_to "Student sign up", new_student_registration_path %></span>
+      <ul class="stu_dropdown">
+        <li class="parent"><a href="#">Students</a></li>
+          <ul class="children">
+            <li><%= link_to "Student sign in", new_student_session_path %></li>
+            <li><%= link_to "Student sign up", new_student_registration_path %></li>
+            <li><%= link_to "Student sign in with Facebook", student_omniauth_authorize_path(:facebook) %></li>
+          </ul>
+      </ul>
     <% end %>
   <% end %>
   <br>
 
-  <!-- Sign in for students with Facebook -->
-  <span><%= link_to "Student sign in with Facebook", student_omniauth_authorize_path(:facebook) %></span>
+  
 
 </section>
 
