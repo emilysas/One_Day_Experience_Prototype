@@ -2,26 +2,26 @@
   <%= f.label :name %>
   <%= f.text_field :name %>
   <%= f.label :profession_id %>
-  <%= f.collection_select(:profession_id, Profession.all, :id, :role, :include_blank => true) %>
+  <%= f.collection_select(:profession_id, Profession.all, :id, :role, :include_blank => true) %><br></br>
   <%= f.label :company %>
   <%= f.text_field :company %>
   <%= f.label :work_address %>
-  <%= f.text_field :work_address %>
-  <%= f.label "Please provide details of your Academic Background" %>
-  <%= f.text_field :academic_back %>
-  <%= f.label "Are there any required qualifications for your role?" %>
-  <%= f.text_field :req_quals %>
-  <%= f.label "What skills are required in this role?" %>
-  <%= f.text_field :req_skills %>
-  <%= f.label "What motivates you to offer a one day experience?" %>
-  <%= f.text_field :motivation %>
-  <%= f.label "What do you think makes you suitable as a mentor for young people looking for a one day experience?" %>
-  <%= f.text_field :suitability %>
-  <%= f.label "What can a young person expect from one day in your role" %>
-  <%= f.text_field :expectations %>
-  <%= f.label :info %>
-  <%= f.text_field :info %>
-  <%= f.label :full_description %>
-  <%= f.text_field :full_description %>
+  <%= f.text_field :work_address %><br></br>
+  <%= f.label "Please provide details of your Academic Background" %><br></br>
+  <%= f.text_field :academic_back %><br></br>
+  <%= f.label "Are there any required qualifications for your role?" %><br></br>
+  <%= f.text_field :req_quals %><br></br>
+  <%= f.label "What skills are required in this role?" %><br></br>
+  <%= f.text_field :req_skills %><br></br>
+  <%= f.label "What motivates you to offer a one day experience?" %><br></br>
+  <%= f.text_field :motivation %><br></br>
+  <%= f.label "What do you think makes you suitable as a mentor for young people looking for a one day experience?" %><br></br>
+  <%= f.text_field :suitability %><br></br>
+  <%= f.label "What can a young person expect from one day in your role" %><br></br>
+  <%= f.text_field :expectations %><br></br>
+  <%= f.label "Please offer a summary of the one day experience on offer" %><br></br>
+  <%= f.text_field :info %><br></br>
+  <%= f.label "Please provide a paragraph or two describing, more fully, the one day experience on offer" %><br></br>
+  <%= f.text_field :full_description %><br></br>
   <%= f.submit %>
 <% end %>
