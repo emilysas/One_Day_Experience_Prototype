@@ -32,5 +32,30 @@
 
 <section class="col3">
 
+<% if !student_signed_in? %>
+	    <% if professional_signed_in? %>
+	      <%= link_to "Sign out", destroy_professional_session_path, method: :delete %>
+	    <% else %>
+	      <%= link_to "Sign in", new_professional_session_path %>
+	      <%= link_to "Sign up", new_professional_registration_path %>
+	    <% end %>
+	  <% end %>
+	  <br>
+
+	  <!-- Sign in for students -->
+	  <% if !professional_signed_in? %>
+	    <% if student_signed_in? %>
+	      <%= link_to "Student sign out", destroy_student_session_path, method: :delete %>
+	    <% else %>
+	      <%= link_to "Student sign in", new_student_session_path %>
+	      <%= link_to "Student sign up", new_student_registration_path %>
+	    <% end %>
+	  <% end %>
+	  <br>
+
+	  <!-- Sign in for students with Facebook -->
+	  <%= link_to "Student sign in with Facebook", student_omniauth_authorize_path(:facebook) %>
+  	
+
 </section>
 
