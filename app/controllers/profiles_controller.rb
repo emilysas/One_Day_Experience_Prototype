@@ -9,6 +9,10 @@ class ProfilesController < ApplicationController
     redirect_to '/'
   end
 
+  def show
+    @profile = Profile.find(params[:id])
+  end
+
   def profile_params
     params.require(:profile).permit(:name, :info, :company, :full_description, :work_address, :profession_id)
   end
