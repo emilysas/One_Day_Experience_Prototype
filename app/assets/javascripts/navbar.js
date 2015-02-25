@@ -1,7 +1,7 @@
 
 
 $(document).ready(function() {
-	$("#test").on("mouseover", function() {
-		$(this).css("color", "black");
+	$('#sidebar').on("mouseover", function() {
+		$('.menu-pop').css('visibility', 'visible');
 	});
 });
