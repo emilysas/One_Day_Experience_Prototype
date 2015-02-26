@@ -17,9 +17,19 @@
 .professional_info {
 	display: block;
 	width: 100%;
-	text-align: center;
+	text-align: left;
 	vertical-align: middle;
-	position: absolute;
+	position: relative;
+	border-radius: 100%;
+
+}
+
+.profile--full-info {
+	display: block;
+	width: 100%;
+	text-align: left;
+	vertical-align: middle;
+	
 	top: 50%;
 	transform: translateY(-50%);
 	border-radius: 100%;

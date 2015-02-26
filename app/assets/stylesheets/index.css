@@ -1,10 +1,13 @@
-.photo_field {
-	display: block;
+.vertical_align {
 	position: relative;
 	top:50%;
 	-webkit-transform: translateY(-50%);
-  	-ms-transform: translateY(-50%);
-  	transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+.photo_field {
+	display: block;
   /*background-color: white;*/
 }
 
@@ -33,6 +36,10 @@ img#tokyo {
 	padding-bottom: 10%;
 	z-index: -1;
 
+}
+
+section.fixed-height {
+	height:60vh;
 }
 
 .feature-description {
