@@ -1,17 +1,15 @@
 class API::ProfilesController < ApplicationController
   # love me tender!
-  # http://localhost:3000//api/profiles.json
+  # served at http://localhost:3000//api/profiles.json?page=1,2,3,etc..
   def index
-    
-    @result = Profile.all.select([:name, :id, :image_file_name])
-    # @profiles = Profile.all
+    # paginating 3 profiles per page; 
+    @result = Profile.paginate(:page => params[:page], :per_page => 3).select([:id, :name, :company, :info, :image_file_name])
 
     respond_to do |format|
-      format.json { render :json => @result }
-      # format.json { render :json => { 
-        # :profile => @profiles.as_json(:only => [:name], :methods => [:image_url]) } 
-      # }
+      format.json { render :json => @result.as_json( :methods => [:image_url])  }
     end
   end
 end
-# use profiles all for getting the image_url - I think only local value
+# URI.join(request.url, @model.attachment_name.url)
+# or
+# URI(request.url) + @model.attachment_name.url
