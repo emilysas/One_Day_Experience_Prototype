@@ -1,3 +1,10 @@
+.container1 {
+	position: relative;
+	top:50%;
+	transform: translateY(-50%);
+	padding-left: 0px;
+	margin: auto;
+}
 /*  SECTIONS  */
 .section {
 	clear: both;
@@ -11,7 +18,7 @@
 	float:left;
 	margin: 1% 0 1% 1.6%;
 	height: 100vh;
-	background-color: blue;
+/*	background-color: white;*/
 }
 .col:first-child { margin-left: 0; }
 
@@ -20,6 +27,26 @@
 .group:after { content:""; display:table; }
 .group:after { clear:both;}
 .group { zoom:1; /* For IE 6/7 */ }
+
+[class*='col'] {
+	display: block;
+	float:left;
+	margin: 0% 0 0% 0.25%;
+	height: 100vh;
+/*	background-color: white;*/
+}
+
+/*  GRID OF SIXTEEN  */
+
+
+.span_1_of_16 {
+	width: 6%;
+}
+
+.span_4_of_16 {
+	width: 24.75%;
+}
+
 /*  GRID OF TWELVE  */
 .span_12_of_12 {
 	width: 100%;

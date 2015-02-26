@@ -6,6 +6,7 @@ $(document).ready(function(){
   // yes is the id of the right circle
   // TODO: change all id's to match purpose
   $("#yes").on('click', function(){
+  	// $(this).css('border-top-width', 1);
     
     // get to next elem, or first elem on next page
     objectNumber++;

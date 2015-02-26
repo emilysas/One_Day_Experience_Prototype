@@ -1,0 +1,57 @@
+.photo_field {
+	display: block;
+	position: relative;
+	top:50%;
+	-webkit-transform: translateY(-50%);
+  	-ms-transform: translateY(-50%);
+  	transform: translateY(-50%);
+  /*background-color: white;*/
+}
+
+circle.navigation-circle {
+	width: 5vw;
+	height: 5vw;
+	border: 1px solid white;
+	margin-left: auto;
+	position: relative;
+	top:50%;
+	-webkit-transform: translateY(-50%);
+  	-ms-transform: translateY(-50%);
+  	transform: translateY(-50%);
+}
+
+
+.profile-img{
+	width: 22%;
+}
+
+img#tokyo {
+	display: block;
+	width:80%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 10%;
+}
+
+.feature-description {
+
+	display: block;
+	position: relative;
+	width:100%;
+	
+	overflow: auto;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 8%;
+	background-color: rgba(255,255,255, 0.4);
+}
+
+.text-summary {
+	margin-left: 10px;
+	width: 68%;
+	display: inline-block;
+	-webkit-transform: translateY(-50%);
+  	-ms-transform: translateY(-50%);
+  	transform: translateY(-50%);
+	
+}
