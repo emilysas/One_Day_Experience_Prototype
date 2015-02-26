@@ -40,7 +40,10 @@ var getProfileInfo = function (pageNumber, objectNumber) {
     // console.log("Page = " + pageNumber + " Object = " + objectNumber);
 
     // display image
+    $('#profile-pic').attr("src", data[objectNumber].image_url);
+
     $("#tokyo").attr("src", data[objectNumber].image_url);
+
     $("#photo-field-link").attr("href","/profiles/"+data[objectNumber].id);
     
   }, "json");
