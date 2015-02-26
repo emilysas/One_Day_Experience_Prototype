@@ -11,7 +11,8 @@ html {
 }
 
 body {
-	background-color: #E3E1D4;
+	background-color: #EAEAEA;
+	/*background-color: #E3E1D4;*/
 }
 
 *, *:before, *:after {
@@ -52,8 +53,12 @@ h5 {
 	font-size: 13px;
 }
 
-p {
+em, p {
 	font-size: 10px ;	
+}
+
+.sub {
+	font-weight: 300;
 }
 
 

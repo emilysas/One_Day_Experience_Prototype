@@ -1,35 +1,47 @@
-<tag id="darkPage">asd<tag>
+<tag id="darkPage"><tag>
 
 <column class="col-sacrificial span_1_of_16 dark">
 </column>
 
 <column class="col--profile-image span_5_of_16 dark">
-	<feature class="photo_field">
+	<feature class="photo_field vertical_align">
 		<a href="#" id="photo-field-link">
 		<img align="middle" src="/images/Fields/architecture-05.png" id="tokyo" alt="Image not found" onError="this.src='/images/medium/missing.png';" />
 		</a>
 	</feature>
 </column>
 
-
+<column class="col-sacrificial span_10_of_16 ">
+	<section class="feature-description vertical_align fixed-height">
+	  <summaryHead class="professional_info">
+	    <h4><%= @profile.name %>
+	    	<span class="sub">
+		    	<%= @profile.profession.role %>
+		    </span>
+	    </h4>
+	    
+	    <h5>
+	    	<%= @profile.company %>
+	    	<span class="sub">
+	    		Located at: <%= @profile.work_address %>
+	    	</span>
+	    </h5>
+	  </summaryHead>
+	  <content class="profile-full_info">
+	    <em>Summary: </em>
+	    <p><%= @profile.info %></p>
+	    <em>More about the day: </em></br>
+	    <p><%= @profile.full_description %></p>
+	    <em>What you can expect on your day with us: </em></br>
+	    <p><%= @profile.expectations %></p>
+	    <em>People in my profession require the following qualifications (not necessary for your one day experience): </em><br>
+	    <p><%= @profile.req_quals %></p>
+	    <em>People in my profession, often have the following skills: </em></br>
+	    <p><%= @profile.req_skills %></p>
+	    
+	  </content>
+	</section>
+</column>
 
 <section class="profile_container">
-  <section class="ProfileImg"><%= image_tag @profile.image.url(:thumb) %></section>
-  <section class="professional_info">
-    <%= @profile.name %><br></br>
-    <%= @profile.profession.role %><br></br>
-    <%= @profile.company %><br></br>
-    Located at: <%= @profile.work_address %><br></br>
-  </section>
-  <section class="ode_info">
-    <em>Summary: </em><br></br>
-    <%= @profile.info %><br></br>
-    <em>More about the day: </em><br></br>
-    <%= @profile.full_description %><br></br>
-    <em>What you can expect on your day with us: </em><br></br>
-    <%= @profile.expectations %><br></br>
-    <em>People in my profession require the following qualifications (not necessary for your one day experience): </em><br></br>
-    <%= @profile.req_quals %><br></br>
-    <em>People in my profession, often have the following skills: </em><br></br>
-    <%= @profile.req_skills %><br></br>
-  </section>
+  
