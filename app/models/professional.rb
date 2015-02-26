@@ -5,4 +5,10 @@ class Professional < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :profile
+
+  ROLES = %i[user admin]
+
+  def admin?
+    self.role == "Admin"
+  end
 end
