@@ -3,20 +3,30 @@ $(document).ready(function(){
   var pageNumber = 1;
   var objectNumber = 0;
   getProfileInfo(pageNumber, objectNumber);
-  // yes is the id of the right circle
-  // TODO: change all id's to match purpose
-  $("#yes").on('click', function(){
+  
+  $("#right-circle").on('click', function(){
   	// $(this).css('border-top-width', 1);
     
     // get to next elem, or first elem on next page
+    // TODO: DRY increment decrement functions
     objectNumber++;
     if (objectNumber>=3) {
-      objectNumber=1;
+      objectNumber=0;
       pageNumber++;
     }
     getProfileInfo(pageNumber, objectNumber);
   });
 
+  $("#left-circle").on('click', function(){
+    
+    objectNumber--;
+    if (objectNumber<0) {
+      objectNumber=2;
+      pageNumber--;
+    }
+
+    getProfileInfo(pageNumber, objectNumber);
+  });
 })
 
 var getProfileInfo = function (pageNumber, objectNumber) {
@@ -27,10 +37,11 @@ var getProfileInfo = function (pageNumber, objectNumber) {
     $('#buddy-name').html(data[objectNumber].name);
     $('#buddy-company').html(data[objectNumber].company);
     $('#buddy-info').html(data[objectNumber].info);
-    console.log("Page = " + pageNumber + " Object = " + objectNumber);
+    // console.log("Page = " + pageNumber + " Object = " + objectNumber);
 
     // display image
     $("#tokyo").attr("src", data[objectNumber].image_url);
+    $("#photo-field-link").attr("href","/profiles/"+data[objectNumber].id);
     
   }, "json");
   

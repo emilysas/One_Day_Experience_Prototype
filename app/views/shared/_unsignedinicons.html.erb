@@ -1,3 +1,9 @@
+<icon class="icons jsicons" >
+	<img class="icon" src="/images/icons/profile.svg">
+	<p class="links">Home</p>
+</icon>
+
+
 <%= link_to new_professional_session_path do%>
 	<icon id="how-wide" class="icons--signin jsicons" >
 		<img class="icon" src="/images/icons/profile.svg"/>
@@ -5,15 +11,16 @@
 	</icon>
 <% end %>
 
-<icon class="icons jsicons" >
-	<img class="icon" src="/images/icons/profile.svg">
-	<p class="links">Sign in</p>
-</icon>
-<icon class="icons jsicons" >
-	<img class="icon" src="/images/icons/profile.svg">
-	<p class="links">Sign in</p>
-</icon>
-<icon id='last-child' class="icons--last jsicons" >
-	<img class="icon" src="/images/icons/profile.svg">
-	<p class="links">Sign in</p>
-</icon>
+<%= link_to destroy_professional_session_path, method: :delete do%>
+	<icon id="professional_sign_out" class="icons jsicons" >
+		<img class="icon" src="/images/icons/profile.svg">
+		<p class="links">Sign out</p>
+	</icon>
+<% end %>
+
+<%= link_to new_professional_registration_path do%>
+	<icon id='last-child' class="icons--last jsicons" >
+		<img class="icon" src="/images/icons/profile.svg">
+		<p class="links">Sign up</p>
+	</icon>
+<% end %>
