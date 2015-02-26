@@ -18,10 +18,6 @@ class ProfessionalsController < Devise::RegistrationsController
     end
   end  
 
-  def edit
-
-  end
-
   private
 
   def registration_params
