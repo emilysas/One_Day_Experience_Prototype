@@ -1,19 +1,63 @@
 
-img#tokyo {
-	width:100%;
-}
+
+
 
 body {
 	margin-top:0px;
 	padding-top: 0px
 }
 
-#bodyContainer {	
+/* font styles */
+
+h1, h2, h3, h4, h5, p {
+	font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3 {
+	margin-top: 4px;
+	margin-bottom: 4px
+}
+
+h4, h5, p {
+	margin-top: 4px;
+	margin-bottom: 4px
+}
+
+h4 {
+	font-size: 16px;
+}
+
+h5 {
+	font-size: 13px;
+}
+
+p {
+	font-size: 10px ;	
+}
+
+
+a:link {
+    text-decoration: none;
+}
+
+container {
+	
+	min-height: 100vh;
 	width: 100%;
   padding-left:6%;
   display:inline-block;
   
 }
+
+/*custom html tags*/
+
+circle {
+	border-radius: 50%;
+	display: block
+}
+
+
+
 @media only screen and (min-width: 1260px) {
 	#test {
 		color: red;
