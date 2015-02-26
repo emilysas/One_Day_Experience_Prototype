@@ -1,5 +1,5 @@
 <section class="profile_container">
-  <section class="ProfileImg">Profile Picture</section>
+  <section class="ProfileImg"><%= image_tag @profile.image.url(:thumb) %></section>
   <section class="professional_info">
     <%= @profile.name %><br></br>
     <%= @profile.profession.role %><br></br>
