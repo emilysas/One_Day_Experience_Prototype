@@ -8,14 +8,17 @@
 <section class="col2">
 
 	<box id="pro-img">
-    <img id="tokyo" src="/images/tokyo-city.jpg" id="tokyo"/>
-    <profileInfo class="result"></profileInfo>
+    <img id="tokyo" src="/images/tokyo-city.jpg" id="tokyo" alt="Image not found" onError="this.src='/images/medium/missing.png';"/>
+     <!-- TODO: display the get info properly -->
+    <p>Name: <profileInfo id="buddy-name"></profileInfo></p>
+    <p>Info: <profileInfo id="buddy-info"></profileInfo></p>
+    Company: <profileInfo id="buddy-company"></profileInfo>
   </box>
 
 </section>
 
 <section class="col3">
-
+  <!-- I am using yes as next button atm -->
 	<circle id="yes"></circle>
 	<diamond class="diamond" id="forward"></diamond>
 
