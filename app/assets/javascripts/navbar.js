@@ -27,27 +27,28 @@ $(document).ready(function() {
 			    width: viewHeight,
 			    }).animate({
 			      width: 200
+			    }, function (){
+						$('.links').css({
+			        display: 'inline-block',
+			        opacity:0
+			      }).animate({
+			        opacity: 1
+			      }, 200, function (){
+							menuState = 'visible';
+			      });
 			    }); 
 			  };
-
-		    $('.links').css({
-	        display: 'inline-block',
-	        opacity:0
-	      }).animate({
-	        opacity: 1
-	      }, 300);
-
-	    console.log(menuState)
-	    menuState = 'visible';
+    
+	    
 		});
 	
 
 	
 		$('#sidebar').on("mouseleave", function() {
 			if(menuState === 'visible'){
-				$('.links').fadeOut();
+				$('.links').fadeOut('fast');
 				var startWidth = document.getElementById('sidebar').offsetWidth;
-				console.log(startWidth);
+				
 				$(this).css({
 		      width: startWidth,
 		    }).animate({
@@ -55,7 +56,7 @@ $(document).ready(function() {
 		    }); 
 		    
 		    menuState = 'hidden';
-		    console.log(menuState)
+		    
 		  };
 		});
 
