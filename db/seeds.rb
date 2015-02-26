@@ -7,3 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 professions = Profession.create([{role: 'Doctor'}, {role: 'Hairdresser'}, {role: 'Software Engineer'}, {role: 'Designer'}, {role: 'Beautician'}, {role: 'Potter'}])
+# super_user = Professional.create({email: admin@test.com, password: "secure1234", password_confirmation: "secure1234", role.name: admin})
