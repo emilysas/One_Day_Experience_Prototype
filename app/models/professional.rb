@@ -6,7 +6,7 @@ class Professional < ActiveRecord::Base
 
   has_one :profile
 
-  ROLES = %i[user admin]
+  ROLES = ["User", "Admin"]
 
   def admin?
     self.role == "Admin"

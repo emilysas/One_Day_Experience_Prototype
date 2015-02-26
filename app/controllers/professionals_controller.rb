@@ -18,10 +18,14 @@ class ProfessionalsController < Devise::RegistrationsController
     end
   end  
 
+  def edit
+
+  end
+
   private
 
   def registration_params
-    params.require(:user).permit(:email, :name, :password, :password_confirmation)
+    params.require(:professional).permit(:email, :password, :password_confirmation, :role)
   end
 
 end

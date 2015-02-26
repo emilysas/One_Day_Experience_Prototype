@@ -22,8 +22,8 @@
   </div>
 
   <div class="field">
-    <%= f.label "Admin?" %>
-    <%= f.collection_select :role, Professional::ROLES, :to_s, :humanize %>
+    <%= f.label :role %>
+    <%= f.collection_select :role, Professional::ROLES, :to_s, :capitalize, :include_blank => true%>
   </div>
 
   <div class="actions">
