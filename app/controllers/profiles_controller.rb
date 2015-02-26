@@ -17,4 +17,9 @@ class ProfilesController < ApplicationController
     params.require(:profile).permit(:name, :image, :info, :company, :full_description, :work_address, 
       :profession_id, :motivation, :suitability, :academic_back, :req_quals, :req_skills, :expectations)
   end
+
+  def index
+    @profiles = Profile.all
+  end
+
 end
