@@ -5,6 +5,8 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:700,300,600,400' rel='stylesheet' type='text/css'>
+
 </head>
 
 	
@@ -22,7 +24,7 @@
 	</nav>
 	<pop class="menu-pop">
 		<ul class="vertical_align">
-
+			<div class="spacer"></div>
 			<%= render 'shared/unsigned_in_menu' %>
 
 		</ul>
@@ -31,13 +33,12 @@
 
   <!-- Main page content -->
 
-  <container id="bodyContainer">
-
-		<p class="notice"><%= notice %></p>
-		<p class="alert"><%= alert %></p>
+  <container id="bodyContainer">		
 
   	<%= yield %>
-	
+		<p class="notice"><%= notice %></p>
+		<p class="alert"><%= alert %></p>
+		
 	</container>
 
 </body>
