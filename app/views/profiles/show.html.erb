@@ -38,10 +38,9 @@
 	    <p><%= @profile.req_quals %></p>
 	    <em>People in my profession, often have the following skills: </em></br>
 	    <p><%= @profile.req_skills %></p>
-	    <a href="#">Email <%= @profile.name %></a>
+	    <%= link_to "Register Interest", :controller => "profiles", :action => "send_email", :id=>@profile.id %>
 	  </content>
 	  <section class="Email">
-	    <%= render 'student_mailer/intro_email' %>
 	  </section>
 	</section>
 </column>

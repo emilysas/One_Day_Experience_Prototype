@@ -11,6 +11,8 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = Profile.find(params[:id])
+    @professional = Professional.where(:id=>@profile.professional_id)
+    @student = current_student
   end
 
   def profile_params
@@ -20,6 +22,16 @@ class ProfilesController < ApplicationController
 
   def index
     @profiles = Profile.all
+  end
+
+  def send_email
+    @profile = Profile.find(params[:id])
+    @professional = Professional.find(@profile.professional_id)
+    @student = current_student
+
+    StudentMailer.intro_email(@professional, @student).deliver
+    flash[:notice] = "Your email has been sent."
+    redirect_to profile_path(@profile.id)
   end
 
 end

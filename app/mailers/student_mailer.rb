@@ -1,10 +1,11 @@
 class StudentMailer < ApplicationMailer
-  default from: 'student@example.com'
+
+  default from: 'onedayexperience1@gmail.com'
  
   def intro_email(professional, student)
     @professional = professional
     @student = student
     @url  = 'http://example.com/login'
-    mail(to: @profesional.email, subject: 'One Day Experience')
+    mail(to: @professional.email, subject: 'One Day Experience')
   end
 end

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :profiles
   end
 
+  get :send_email, to: 'profiles#send_email', as: :send_email
+
   # devise_scope :student do
     # get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_student_session
   # end
