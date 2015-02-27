@@ -2,18 +2,43 @@ form {
 	text-align: center;
 }
 
-.actions {
-	text-align: center;
-}
-
 #login {
 	text-align: center;
+	padding: 1em;
 }
  signin {
+ 	padding: 1em;
  	position: absolute;
  	left: 45%;
  }
 
+ signup {
+ 	padding: 1em;
+ 	position: absolute;
+ 	left: 45%;
+ }
+
+ .formlabels {
+ 	padding-bottom: .5em; 
+ }
+
+ .devisesharedlinks {
+ 	display: block;
+ 	text-align: center;
+ }
+
+ .actions {
+ 	padding-bottom: 1em;
+ }
+
+ .field {
+ 	padding: .3em;
+ }
+
  #loginlinks {
+ 	text-align: center;
+ }
+
+ #register {
  	text-align: center;
  }
