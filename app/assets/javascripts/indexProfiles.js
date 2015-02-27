@@ -32,7 +32,7 @@ $(document).ready(function(){
 
 var getProfileInfo = function (pageNumber, objectNumber) {
 
-  $.get( "http://localhost:3000//api/profiles.json?page="+pageNumber, function( data ) {
+  $.get( "/profiles.json?page="+pageNumber, function( data ) {
     
     // display basic info
     $('#buddy-name').html(data[objectNumber].name);

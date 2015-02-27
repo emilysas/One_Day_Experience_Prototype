@@ -29,6 +29,8 @@ end
 group :test do
   gem 'rspec-rails'
   gem 'cucumber-rails', require: false
+  gem 'poltergeist'
+  gem 'factory_girl_rails'
 end
 
 
