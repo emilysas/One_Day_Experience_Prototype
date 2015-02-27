@@ -11596,6 +11596,7 @@ return jQuery;
 }).call(this);
 // This document is for the loading of profile info on the index page
 $(document).ready(function(){
+  var siteUrl = $(location).attr('href');
   // TODO: refactor this like crazy loco - mainly not doing a get for every single obj
   var pageNumber = 1;
   var objectNumber = 0;
@@ -11627,8 +11628,8 @@ $(document).ready(function(){
 })
 
 var getProfileInfo = function (pageNumber, objectNumber) {
-
-  $.get( "http://localhost:3000//api/profiles.json?page="+pageNumber, function( data ) {
+  console.log("******************************************"+siteUrl+"******************************************");
+  $.get( "https://one-day-xp.herokuapp.com/api/profiles.json?page="+pageNumber, function( data ) {
     
     // display basic info
     $('#buddy-name').html(data[objectNumber].name);
