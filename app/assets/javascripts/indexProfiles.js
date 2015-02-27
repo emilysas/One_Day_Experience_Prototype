@@ -32,6 +32,7 @@ $(document).ready(function(){
 })
 
 var getProfileInfo = function (pageNumber, objectNumber) {
+  console.log(siteUrl);
   $.get( siteUrl+"/api/profiles.json?page="+pageNumber, function( data ) {
     
     // display basic info
