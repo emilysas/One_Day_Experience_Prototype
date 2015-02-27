@@ -1,0 +1,20 @@
+#col1 {
+	position: absolute;
+	float:left;
+	height: 100%;
+	width: 33%;
+}
+
+#col2 {
+	float:left;
+	width: 33%;
+		float:left;
+	height: 100%;
+}
+
+#col3 {
+	float:left;
+	width: 33%;
+		float:left;
+	height: 100%;
+}
