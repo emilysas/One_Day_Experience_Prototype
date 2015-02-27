@@ -17,6 +17,8 @@ gem 'omniauth-facebook'
 gem 'paperclip', '~> 4.2'
 gem 'will_paginate', '~> 3.0.6'
 gem 'cancancan', '~> 1.10'
+# AWS for photos
+gem 'aws-sdk'
 
 group :development, :test do
   gem 'byebug'
@@ -30,5 +32,3 @@ group :test do
   gem 'rspec-rails'
   gem 'cucumber-rails', require: false
 end
-
-
