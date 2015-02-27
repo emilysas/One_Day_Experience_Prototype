@@ -5,9 +5,9 @@
 
 <column class="col--profile-image span_5_of_16 dark">
 	<feature class="photo_field vertical_align">
-		<a href="#" id="photo-field-link">
-		<img align="middle" src="/images/Fields/architecture-05.png" id="tokyo" alt="Image not found" onError="this.src='/images/medium/missing.png';" />
-		</a>
+		<div align="middle" id="photo-field-link">
+			<%= image_tag @profile.image.url(:medium) %>
+		</div>
 	</feature>
 </column>
 
