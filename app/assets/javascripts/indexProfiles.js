@@ -30,13 +30,10 @@ $(document).ready(function(){
   });
 })
 
-console.log("************************BEFORE getProfileInfo");
 var getProfileInfo = function (pageNumber, objectNumber) {
-  console.log("************************INSIDE getProfileInfo - before get - one");
   var siteUrl = $(location).attr('href');
   console.log("******************************************"+siteUrl+"******************************************");
-  console.log("************************INSIDE getProfileInfo - before get - two");
-  $.get( "https://one-day-xp.herokuapp.com/api/profiles.json?page="+pageNumber, function( data ) {
+  $.get( siteUrl+"/api/profiles.json?page="+pageNumber, function( data ) {
     
     // display basic info
     $('#buddy-name').html(data[objectNumber].name);

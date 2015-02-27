@@ -22,3 +22,10 @@ to get some extra data we've included a seed file, use like:
 `rake db:seed`
 
 To use the facebook login we have some env vars that are local, you can use yours if you want to run this, the vars are: `FACEBOOK_APP_ID` and  `FACEBOOK_APP_SECRET` .
+
+*Please make sure to delete these files before proceeding*
+ `rm public/assets/application-*`
+ 
+*You will need to recompile them if deploying to heroku*
+`rake assets:precompile`
+Note: this is a quick fix and will be changed asap
