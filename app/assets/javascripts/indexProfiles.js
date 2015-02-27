@@ -31,10 +31,9 @@ $(document).ready(function(){
 })
 
 var getProfileInfo = function (pageNumber, objectNumber) {
+
   var siteUrl = $(location).attr('href');
-  console.log("******************************************"+siteUrl+"******************************************");
-  $.get( siteUrl+"/api/profiles.json?page="+pageNumber, function( data ) {
-    
+  $.get("/profiles.json?page="+pageNumber, function( data ) {    
     // display basic info
     $('#buddy-name').html(data[objectNumber].name);
     $('#buddy-company').html(data[objectNumber].company);

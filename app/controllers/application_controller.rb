@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   def index
   	@professionals = Professional.all
   	@professional = @professionals.sample
+    @profile = Profile.first
   end
 
  protected

@@ -1,4 +1,18 @@
 class ProfilesController < ApplicationController
+ 
+  def index
+    @profiles = Profile.all
+    @result = Profile.paginate(:page => params[:page], :per_page => 3).select([:id, :name, :company, :info, :profession_id, :image_file_name])
+    respond_to do |format|
+      format.html { 
+        
+       }
+       format.json {
+         render :json => @result.as_json( :methods => [:image_url])  
+       }
+    end
+  end
+
   def new
     @profile = Profile.new
   end
@@ -11,6 +25,8 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = Profile.find(params[:id])
+    @professional = Professional.where(:id=>@profile.professional_id)
+    @student = current_student
   end
 
   def profile_params
@@ -18,8 +34,14 @@ class ProfilesController < ApplicationController
       :profession_id, :motivation, :suitability, :academic_back, :req_quals, :req_skills, :expectations)
   end
 
-  def index
-    @profiles = Profile.all
+  def send_email
+    @profile = Profile.find(params[:id])
+    @professional = Professional.find(@profile.professional_id)
+    @student = current_student
+
+    StudentMailer.intro_email(@professional, @student).deliver
+    flash[:notice] = "Your email has been sent."
+    redirect_to profile_path(@profile.id)
   end
 
 end
