@@ -1,18 +1,9 @@
-/*
-
-fonts
-
-
-*/
-
-
 html {
 	box-sizing: border-box;
 }
 
 body {
 	background-color: #EAEAEA;
-	/*background-color: #E3E1D4;*/
 }
 
 *, *:before, *:after {
@@ -30,7 +21,6 @@ body {
 }
 
 /* font styles */
-
 h1, h2, h3, h4, h5, p {
 	font-family: 'Open Sans', sans-serif;
 }
@@ -61,38 +51,28 @@ em, p {
 	font-weight: 300;
 }
 
-
 a:link {
     text-decoration: none;
 }
 
 container {
-	
 	min-height: 100vh;
 	width: 100%;
-  
   display:inline-block;
-  
 }
 
 /*custom html tags*/
-
 circle {
 	border-radius: 50%;
 	display: block
 }
 
-
-
 @media only screen and (min-width: 1260px) {
 	#test {
 		color: red;
 	}
-
-	#bodyContainer {
-		
+	#bodyContainer {		
 		margin-left:auto;
   	margin-right:auto;
 	}
-
 }
