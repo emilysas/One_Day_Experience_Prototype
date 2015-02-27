@@ -1,5 +1,5 @@
 // This document is for the loading of profile info on the index page
-$(document).ready(function(){
+$(document).ready(function(){  
   // TODO: refactor this like crazy loco - mainly not doing a get for every single obj
   var pageNumber = 1;
   var objectNumber = 0;
@@ -32,8 +32,8 @@ $(document).ready(function(){
 
 var getProfileInfo = function (pageNumber, objectNumber) {
 
-  $.get( "/profiles.json?page="+pageNumber, function( data ) {
-    
+  var siteUrl = $(location).attr('href');
+  $.get("/profiles.json?page="+pageNumber, function( data ) {    
     // display basic info
     $('#buddy-name').html(data[objectNumber].name);
     $('#buddy-company').html(data[objectNumber].company);
