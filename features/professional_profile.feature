@@ -15,7 +15,7 @@ Feature: Creating a Professional Profile
     And I fill in "Have you had any similar experiences to One Day?" with "some text"
     And I fill in "What is your motivation to become a mentor?" with "some text"
     When I click on "Create your profile"
-    Then page should have notice "Thanks! You are now part of our passionated network, check your Bio here!".
+    Then page should have notice "Thanks! You are now part of our passionate network, check your Bio here!".
 
   Scenario: Editing my profile
     Given I have created my Profile
