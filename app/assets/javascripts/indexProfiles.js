@@ -6,7 +6,7 @@ $(document).ready(function(){
   getProfileInfo(pageNumber, objectNumber);
   
   $("#right-circle").on('click', function(){
-  	// $(this).css('border-top-width', 1);
+    // $(this).css('border-top-width', 1);
     
     // get to next elem, or first elem on next page
     // TODO: DRY increment decrement functions
@@ -26,7 +26,6 @@ $(document).ready(function(){
       pageNumber--;
     }
 
-
     getProfileInfo(pageNumber, objectNumber);
   });
 })
@@ -43,8 +42,7 @@ var getProfileInfo = function (pageNumber, objectNumber) {
 
     // display image
     $('#profile-pic').attr("src", data[objectNumber].image_url);
-    // $("#tokyo").attr("src", data[objectNumber].image_url);
-    $("#tokyo").attr("src", "/images/fields/"+data[objectNumber].profession_name+".jpg");
+    $("#field-img").attr("src", "/images/fields/"+data[objectNumber].profession_name+".jpg");
     $("#photo-field-link").attr("href","/profiles/"+data[objectNumber].id);
     
   }, "json");
