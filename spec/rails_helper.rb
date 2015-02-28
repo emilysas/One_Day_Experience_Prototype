@@ -7,12 +7,7 @@ require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/poltergeist'
 
-Capybara.javascript_driver = :poltergeist
 
-options = {:js_errors => false}
-Capybara.register_driver :poltergeist do |app|
-    Capybara::Poltergeist::Driver.new(app, options)
-end
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -55,4 +50,11 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+
+  Capybara.javascript_driver = :poltergeist
+
+options = {:js_errors => false}
+Capybara.register_driver :poltergeist do |app|
+    Capybara::Poltergeist::Driver.new(app, options)
+end
 end
