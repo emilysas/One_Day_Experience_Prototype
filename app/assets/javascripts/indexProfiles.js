@@ -26,6 +26,7 @@ $(document).ready(function(){
       pageNumber--;
     }
 
+
     getProfileInfo(pageNumber, objectNumber);
   });
 })
