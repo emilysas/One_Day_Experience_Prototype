@@ -6,7 +6,7 @@ $(document).ready(function(){
   getProfileInfo(pageNumber, objectNumber);
   
   $("#right-circle").on('click', function(){
-  	// $(this).css('border-top-width', 1);
+    // $(this).css('border-top-width', 1);
     
     // get to next elem, or first elem on next page
     // TODO: DRY increment decrement functions
