@@ -9,5 +9,24 @@ dark
 
 .dark {
 	background-color: #303030;
+	color:white;
+}
 
+.full-width {
+	display: block;
+	width:100%;
+}
+
+.no_padding:empty {
+	visibility: hidden;
+	padding: 0px;
+	margin: 0px;
+}
+
+#alert_bar {
+	padding:0px;
+	clear: both;
+	position: relative;
+	z-index: 1;
+	text-align: center;
 }
