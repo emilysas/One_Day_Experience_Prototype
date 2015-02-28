@@ -2,9 +2,6 @@
 
 require ::File.expand_path('../config/environment', __FILE__)
 
-use Rack::Static,
-    :urls => ["/images", "/js", "/css"],
-    :root => "public"
-run Rack::Directory.new("public")
-    
+use Rack::Static, :urls => ["/public/images/fields"]
+
 run Rails.application
