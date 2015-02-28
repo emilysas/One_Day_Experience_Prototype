@@ -38,7 +38,6 @@ var getProfileInfo = function (pageNumber, objectNumber) {
     $('#buddy-name').html(data[objectNumber].name);
     $('#buddy-company').html(data[objectNumber].company);
     $('#buddy-info').html(data[objectNumber].info);
-    // console.log(data[objectNumber].profession_id);
 
     // display image
     $('#profile-pic').attr("src", data[objectNumber].image_url);
