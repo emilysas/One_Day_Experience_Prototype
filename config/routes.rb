@@ -6,9 +6,8 @@ Rails.application.routes.draw do
   root to: 'application#index'
   
   # api for serving index profile infos
-  namespace :api do
-    resources :profiles
-  end
+  resources :profiles
+  
 
   get :send_email, to: 'profiles#send_email', as: :send_email
   get :sign_up_gate, to: 'application#sign_up_gate', as: :sign_up_gate

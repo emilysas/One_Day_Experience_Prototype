@@ -5,24 +5,22 @@
 </icon>
 </a>
 
+<% if !professional_signed_in? && !student_signed_in? %>
 
-<%= link_to sign_in_gate_path do%>
-	<icon id="how-wide" class="icons--signin jsicons" >
-		<img class="icon" src="/images/icons/profile.svg"/>
-		<p class="links">Sign in</p>
-	</icon>
+	<%= link_to sign_in_gate_path do%>
+		<icon id="how-wide" class="icons--signin jsicons" >
+			<img class="icon" src="/images/icons/profile.svg"/>
+			<p class="links">Sign in</p>
+		</icon>
+	<% end %>
+	
 <% end %>
 
-<%= link_to destroy_professional_session_path, method: :delete do%>
-	<icon id="professional_sign_out" class="icons jsicons" >
-		<img class="icon" src="/images/icons/profile.svg">
-		<p class="links">Sign out</p>
-	</icon>
-<% end %>
-
-<%= link_to sign_up_gate_path do%>
-	<icon id='last-child' class="icons--last jsicons" >
-		<img class="icon" src="/images/icons/profile.svg">
-		<p class="links">Sign up</p>
-	</icon>
+<% if professional_signed_in? || student_signed_in? %>
+	<%= link_to destroy_professional_session_path, method: :delete do%>
+		<icon id="professional_sign_out" class="icons jsicons" >
+			<img class="icon" src="/images/icons/profile.svg">
+			<p class="links">Sign out</p>
+		</icon>
+	<% end %>
 <% end %>
