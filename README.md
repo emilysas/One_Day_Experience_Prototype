@@ -5,7 +5,7 @@ This is a project for [One Day from openIDEO](https://openideo.com/challenge/you
 It connects young people searching for a job inspiration with professionals that are ready to share their passion for a one-day in-work experience
 
 ##Live Version
-[hosted on heroku](https://one-day-project.herokuapp.com/)*
+[hosted on heroku](https://one-day-xp.herokuapp.com/)*
 *will be updated soon
 
 ##Get it up and running
@@ -21,11 +21,23 @@ Optional:
 to get some extra data we've included a seed file, use like:
 `rake db:seed`
 
-To use the facebook login we have some env vars that are local, you can use yours if you want to run this, the vars are: `FACEBOOK_APP_ID` and  `FACEBOOK_APP_SECRET` .
-
+##For app owners
 *Please make sure to delete these files before proceeding*
  `rm public/assets/application-*`
  
 *You will need to recompile them if deploying to heroku*
 `rake assets:precompile`
 Note: this is a quick fix and will be changed asap
+
+###In order to run this application, there are a set of environment variables that need to be set:
+
+* For your AWS bucket/photo storage the following must be completed with your own data:
+`export AWS_ACCESS_KEY_ID=""`  
+`export AWS_SECRET_ACCESS_KEY=""`  
+`export S3_BUCKET_NAME=""`  
+You will have to make an AWS account and bucket.
+Failure to do so will result in you not being able to store any photo.
+
+* To use the facebook login (you can use yours if you want to run this): 
+`FACEBOOK_APP_ID`  
+`FACEBOOK_APP_SECRET`
