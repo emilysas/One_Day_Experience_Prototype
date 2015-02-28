@@ -25,14 +25,17 @@
 
 
   <!-- Main page content -->
-
+	<section class="dark full-width no_padding" id='alert_bar'>
+		<p class="notice no_padding"><%= notice %></p>
+		<p class="alert no_padding"><%= alert %></p>
+	</section>
   <container id="bodyContainer">		
 
   	<%= yield %>
-		<p class="notice"><%= notice %></p>
-		<p class="alert"><%= alert %></p>
+
 		
 	</container>
+	
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>
