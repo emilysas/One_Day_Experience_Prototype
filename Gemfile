@@ -18,7 +18,7 @@ gem 'paperclip', '~> 4.2'
 gem 'will_paginate', '~> 3.0.6'
 gem 'cancancan', '~> 1.10'
 # AWS for photos
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 
 group :development, :test do
   gem 'byebug'
