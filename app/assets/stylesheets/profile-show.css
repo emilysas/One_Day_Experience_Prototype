@@ -35,3 +35,20 @@
 	border-radius: 100%;
 	z-index: 1;
 }
+
+.container {
+  height:100%;
+  margin: auto;
+}
+
+.new-card-form {
+  position: relative;
+  display: inline-block;
+  float: left;
+  margin: 1%;
+  /*background-color: #60728a;*/
+  /*width: 30%;*/
+  padding-bottom: 3%; 
+  border-radius: 5%;
+  min-width: 100px;
+}
