@@ -18,9 +18,13 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = Profile.create(profile_params)
-    @profile.update(professional_id: current_professional.id)
-    redirect_to '/'
+    @profile = Profile.new(profile_params)
+    if @profile.save 
+      @profile.update(professional_id: current_professional.id)
+      redirect_to '/'
+    else
+      render :action=>'new'
+    end
   end
 
   def show
