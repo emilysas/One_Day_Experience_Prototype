@@ -40,11 +40,17 @@
 	    <p><%= @profile.req_skills %></p>
 	    
 	  </content>
-	  <section class="Email">
+	  <section class="email">
 	    <% if current_student %>
 	      <%= link_to "Register Interest", :controller => "profiles", :action => "send_email", :id=>@profile.id %>
 	    <% else %>
 	      <h5>Please <%= link_to "sign in", new_student_session_path %> to contact <%= @profile.name %></h5>
+	    <% end %>
+	  </section>
+	  <section class="edit">
+	    <% if current_professional == @profile.professional %>
+	      <%= link_to "Edit Profile", edit_profile_path(@profile) %>
+	      <%= link_to "Delete Profile", profile_path(@profile), method: :delete %>
 	    <% end %>
 	  </section>
 	</section>

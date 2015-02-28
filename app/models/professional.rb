@@ -11,4 +11,5 @@ class Professional < ActiveRecord::Base
   def admin?
     self.role == "Admin"
   end
+  
 end

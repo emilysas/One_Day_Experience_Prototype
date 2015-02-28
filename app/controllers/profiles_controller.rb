@@ -8,7 +8,7 @@ class ProfilesController < ApplicationController
         
        }
        format.json {
-         render :json => @result.as_json( :methods => [:image_url])  
+         render :json => @result.as_json( :methods => [:image_url, :profession_name])  
        }
     end
   end
@@ -27,6 +27,21 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
     @professional = Professional.where(:id=>@profile.professional_id)
     @student = current_student
+  end
+
+  def edit
+    @profile = Profile.find(params[:id])
+  end
+
+  def update
+    @profile = Profile.find(params[:id])
+    @profile.update(profile_params)
+    redirect_to profile_path(@profile)
+  end
+
+  def destroy
+    @profile = Profile.find(params[:id])
+    @profile.destroy
   end
 
   def profile_params
