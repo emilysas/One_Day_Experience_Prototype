@@ -42,8 +42,7 @@ var getProfileInfo = function (pageNumber, objectNumber) {
 
     // display image
     $('#profile-pic').attr("src", data[objectNumber].image_url);
-    // $("#tokyo").attr("src", data[objectNumber].image_url);
-    $("#tokyo").attr("src", "/images/fields/"+data[objectNumber].profession_name+".jpg");
+    $("#field-img").attr("src", "/images/fields/"+data[objectNumber].profession_name+".jpg");
     $("#photo-field-link").attr("href","/profiles/"+data[objectNumber].id);
     
   }, "json");
