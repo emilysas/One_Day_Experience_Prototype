@@ -8,7 +8,7 @@ class ProfilesController < ApplicationController
         
        }
        format.json {
-         render :json => @result.as_json( :methods => [:image_url])  
+         render :json => @result.as_json( :methods => [:image_url, :profession_name])  
        }
     end
   end

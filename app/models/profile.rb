@@ -10,4 +10,8 @@ class Profile < ActiveRecord::Base
       image.url(:medium)
   end
 
+  def profession_name
+    profession.role.downcase.delete(" ")
+  end
+
 end
