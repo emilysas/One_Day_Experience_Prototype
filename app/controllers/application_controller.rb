@@ -11,6 +11,14 @@ class ApplicationController < ActionController::Base
     @profile = Profile.first
   end
 
+  def sign_up_gate
+
+  end
+
+  def sign_in_gate
+
+  end
+
  protected
 
  def configure_permitted_parameters
