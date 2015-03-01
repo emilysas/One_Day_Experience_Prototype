@@ -132,7 +132,26 @@ dark
 
 .dark {
 	background-color: #303030;
+	color:white;
+}
 
+.full-width {
+	display: block;
+	width:100%;
+}
+
+.no_padding:empty {
+	visibility: hidden;
+	padding: 0px;
+	margin: 0px;
+}
+
+#alert_bar {
+	padding:0px;
+	clear: both;
+	position: relative;
+	z-index: 1;
+	text-align: center;
 }
 .container1 {
 	position: relative;
@@ -177,6 +196,10 @@ dark
 
 .span_1_of_16 {
 	width: 6%;
+}
+
+.span_2_of_16 {
+	width: 12.25%;
 }
 
 .span_4_of_16 {

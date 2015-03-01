@@ -6,14 +6,12 @@
 </a>
 
 <% if !professional_signed_in? && !student_signed_in? %>
-
 	<%= link_to sign_in_gate_path do%>
 		<icon id="how-wide" class="icons--signin jsicons" >
 			<img class="icon" src="/images/icons/profile.svg"/>
 			<p class="links">Sign in</p>
 		</icon>
 	<% end %>
-	
 <% end %>
 
 <% if professional_signed_in? || student_signed_in? %>
@@ -23,4 +21,11 @@
 			<p class="links">Sign out</p>
 		</icon>
 	<% end %>
+<% end %>
+
+<%= link_to search_path do%>
+	<icon id="search-icon" class="icons jsicons" >
+		<img class="icon" src="/images/icons/profile.svg"/>
+		<p class="links">Search</p>
+	</icon>
 <% end %>
