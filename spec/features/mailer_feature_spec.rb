@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'StudentMailer' do 
+feature 'StudentMailer' do 
   
   context "a student can send an email to a professional" do
 
