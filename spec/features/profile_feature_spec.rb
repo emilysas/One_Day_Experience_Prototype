@@ -17,7 +17,6 @@ feature 'Profiles' do
     end
 
     it "should allow a professional to create a profile" do
-      # profession = create(:profession, role: "Software Engineer")
       professional = create(:professional)
       login_as(professional, :scope => :professional)     
       visit new_profile_path
@@ -56,11 +55,45 @@ feature 'Profiles' do
     end
 
     context "a profile is half complete" do
+      xit "should not be visible to students until complete" do
+      end
 
+      xit "a professional should be receive a message notifying them that their profile needs completing" do
+      end
     end
 
     context "a professional wishes to edit or delete their profile" do
 
+      before do
+        profile = create(:profile)
+        another_professional = create(:professional, id: 2, email: 'another@example.com')
+        another_profile = create(:profile, id: 2, professional: another_professional)
+        login_as(profile.professional, :scope => :professional)     
+      end
+
+      xit "upon logging in, a professional will be redirected to their profile" do
+      end
+
+      xit "when logged in, a professional will have a link to their profile in the navbar" do
+      end
+
+      it "a professional can edit their profile" do
+        visit 'profiles/1'
+        expect(page).to have_content "Edit Profile"
+        logout(:professional)
+      end
+
+      it "a professional cannot edit another professional's profile" do
+        visit 'profiles/2'
+        expect(page).not_to have_content "Edit Profile"
+        logout(:professional)
+      end
+
+      xit "a professional can delete their profile" do
+      end
+
+      xit "a professional cannot delete another professional's profile" do
+      end
     end
 
   end
