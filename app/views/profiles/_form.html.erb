@@ -1,4 +1,5 @@
 <%= form_for @profile, html: {multipart: true} do |f| %>
+  <%= @profile.errors.messages.each {|message| message} %>
   <%= f.file_field :image %>
   <%= f.label :name %>
   <%= f.text_field :name %>

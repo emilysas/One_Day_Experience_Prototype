@@ -38,22 +38,20 @@ feature 'Profiles' do
         visit new_profile_path
       end
 
-      xit "should not allow a professional to create a profile unless the 'name' field is filled in" do
+      it "should not allow a professional to create a profile unless the 'name' field is filled in" do
         select "Software Engineer", from: "Profession"
         fill_in "Company", with: "Makers Academy"
         fill_in "Work address", with: "Commercial Street, London"
         click_button 'Create Profile'
-        expect(page).to have_content('error')
-        expect(Profile.last.profession).not_to eq "Makers Academy"
+        expect(page).to have_content('Please provide your name')
       end
 
-      xit "should not allow a professional to create a profile unless the 'profession' field is filled in" do    
+      it "should not allow a professional to create a profile unless the 'profession' field is filled in" do    
         fill_in "Name", with: "Emily"
         fill_in "Company", with: "Makers Academy"
         fill_in "Work address", with: "Commercial Street, London"
         click_button 'Create Profile'
-        expect(page).to have_content('error')
-        expect(Profile.last.profession).not_to eq "Makers Academy"
+        expect(page).to have_content("Please select your profession")
       end
     end
 
