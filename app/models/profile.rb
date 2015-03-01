@@ -1,4 +1,9 @@
+require 'elasticsearch/model'
+
 class Profile < ActiveRecord::Base
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
   belongs_to :professional
   belongs_to :profession
 
@@ -19,3 +24,6 @@ class Profile < ActiveRecord::Base
   end
 
 end
+
+# for auto-sync model with elastic search
+Profile.import

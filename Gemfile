@@ -32,3 +32,8 @@ group :development, :test do
   gem 'poltergeist'
   gem 'warden', '~> 1.2.3'
 end
+
+# For search feature:
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+gem 'bonsai-elasticsearch-rails'
