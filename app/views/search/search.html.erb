@@ -9,13 +9,20 @@
   <% end %>
 
 <grid>
+  <% if @query != nil %>
   <div class="container">
-    <% @profiles.each do |profile| %>
-      <section class="new-card-form span_4_of_16">
-        <h5> <%= profile.name %> </h5>
-        <h5> <%= profile.company %> </h5>
-        <h5> <%= profile.info %> </h5>
-      </section>
+    <% if @profiles != nil && @profiles.size <= 0 %>
+      <p>There are no profiles that match your search.</p>
+    <% else %>
+      <% @profiles.each do |profile| %>
+        <section class="new-card-form span_4_of_16">
+          <h5> <a href="/profiles/<%= profile.id %>"><%= profile.name %> </a></h5>
+          <strong>Info:</strong> <%= profile.info %> <br/>
+          <strong>Company:</strong> <%= profile.company %> <br/>
+          <strong>Location:</strong> <%= profile.work_address %> <br/>
+        </section>
+      <% end %>
     <% end %>
   </div>
+  <% end %>
 </grid>

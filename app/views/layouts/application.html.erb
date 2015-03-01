@@ -12,30 +12,20 @@
 <body>
 
 	<!-- Nav bar -->
-
 	<nav id="sidebar" >
 		<ul id="icons" class="vertical_align">
-
 			<%= render 'shared/unsignedinicons' %>
 		</ul>
-
-	
 	</nav>
 	
-
-
   <!-- Main page content -->
 	<section class="dark full-width no_padding" id='alert_bar'>
 		<p class="notice no_padding"><%= notice %></p>
 		<p class="alert no_padding"><%= alert %></p>
 	</section>
   <container id="bodyContainer">		
-
   	<%= yield %>
-
-		
 	</container>
-	
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>
