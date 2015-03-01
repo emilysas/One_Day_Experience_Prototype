@@ -71,12 +71,6 @@ feature 'Profiles' do
         login_as(profile.professional, :scope => :professional)     
       end
 
-      xit "upon logging in, a professional will be redirected to their profile" do
-      end
-
-      xit "when logged in, a professional will have a link to their profile in the navbar" do
-      end
-
       it "a professional can see a link to edit their profile" do
         visit 'profiles/1'
         expect(page).to have_content "Edit Profile"
@@ -115,6 +109,20 @@ feature 'Profiles' do
       it "a professional cannot delete another professional's profile" do
         visit 'profiles/2'
         expect(page).not_to have_content "Delete Profile"
+        logout(:professional)
+      end
+    end
+
+    context 'a professional has a link to their profile' do
+
+      it "upon logging in, a professional will be redirected to their profile" do
+        profile = create(:profile)
+        login_as(profile.professional, :scope => :professional) 
+        expect(current_path).to eq('/profiles/1')
+        logout(:professional)
+      end
+
+      xit "when logged in, a professional will have a link to their profile in the navbar" do
         logout(:professional)
       end
     end

@@ -15,6 +15,7 @@ feature 'StudentMailer' do
       click_link 'Register Interest'
       expect(page).to have_content('Your email has been sent')
       expect(current_path).to eq('/profiles/1')
+      logout(:student)
     end
   end
 
@@ -41,10 +42,11 @@ feature 'StudentMailer' do
       login_as(professional, :scope => :professional)
     end
 
-    it "should not be able to send an email if not logged in" do
-      visit('/profiles/1')
+    it "should not be able to send an email" do
+      visit '/profiles/1'
       expect(page).not_to have_content('Register Interest')
       expect(page).to have_content('Please sign in to contact Emily')
+      logout(:professional)
     end
 
   end

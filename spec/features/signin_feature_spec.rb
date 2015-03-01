@@ -5,7 +5,7 @@ feature 'Sign in' do
   context "a user not signed in and on the homepage" do
 
     it "should see a 'Sign in' link" do
-      visit('/')
+      visit '/'
       expect(page).to have_link('Sign in')
     end
 

@@ -28,9 +28,14 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = Profile.find(params[:id])
-    @professional = Professional.where(:id=>@profile.professional_id)
-    @student = current_student
+    if current_professional && current_professional.profile.id == params[:id]
+      @professional = current_professional
+      @profile = Profile.find(params[:id])
+    else
+      @profile = Profile.find(params[:id])
+      @professional = Professional.where(:id=>@profile.professional_id)
+      @student = current_student
+    end
   end
 
   def edit
