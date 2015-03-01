@@ -1,20 +1,15 @@
 <column class="col-sacrificial1 span_1_of_16"></column>
-<% @profiles.each do |profile| %>
-	<column class="col-sacrificial1 span_2_of_16">
-	  <h5> <%= image_tag profile.image.url(:thumb) %> </h5>
-	  <h5> <%= profile.name %> </h5>
-	  <h5> <%= profile.profession.role %> </h5>
-	  <h5> <%= profile.company %> </h5>
-	  <h5> <%= profile.info %> </h5>
-	</column>
-<% end %>
 
-<% @profiles.each do |profile| %>
-	<column class="col-sacrificial1 span_2_of_16">
-	  <h5> <%= image_tag profile.image.url(:thumb) %> </h5>
-	  <h5> <%= profile.name %> </h5>
-	  <h5> <%= profile.profession.role %> </h5>
-	  <h5> <%= profile.company %> </h5>
-	  <h5> <%= profile.info %> </h5>
-	</column>
-	<% end %>
+<grid>
+  <div class="container">
+	  <% @profiles.each do |profile| %>
+	    <section class="new-card-form span_4_of_16">
+		    <h5> <%= image_tag profile.image.url(:thumb) %> </h5>
+		    <h5> <%= profile.name %> </h5>
+		    <h5> <%= profile.profession.role %> </h5>
+		    <h5> <%= profile.company %> </h5>
+		    <h5> <%= profile.info %> </h5>
+	    </section>
+	  <% end %>
+  </div>
+</grid>
