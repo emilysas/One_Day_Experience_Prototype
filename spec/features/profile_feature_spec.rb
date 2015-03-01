@@ -17,6 +17,7 @@ feature 'Profiles' do
     end
 
     it "should allow a professional to create a profile" do
+      # profession = create(:profession, role: "Software Engineer")
       professional = create(:professional)
       login_as(professional, :scope => :professional)     
       visit new_profile_path
@@ -24,16 +25,8 @@ feature 'Profiles' do
       select("Software Engineer",  from: "profile_profession_id")
       fill_in "Company", with: "Makers Academy"
       fill_in "Work address", with: "Commercial Street, London"
-      fill_in "Please provide details of your academic background", with: 'BA Philosophy'
-      fill_in "Are there any required qualifications for your role?", with: 'No'
-      fill_in "What skills are required in this role?", with: 'Problem solving ability'
-      fill_in "What motivates you to offer a one day experience?", with: 'To share my love of my work'
-      fill_in "What do you think makes you suitable as a mentor for young people looking for a one day experience?", with: 'Good at explaining things clearly'
-      fill_in "What can a young person expect from one day in your role", with: 'To have a go at coding something'
-      fill_in "Please offer a summary of the one day experience on offer", with: "You'll have a go at pair programming, and if possible attend a client meeting"
-      fill_in "Please provide a paragraph or two describing, more fully, the one day experience on offer", with: "You'll learn all about how to approach learning programming languages, test driven development, and the agile approach"
       click_button 'Create Profile'
-      expect(Profile.last.profession).to eq "Makers Academy"
+      expect(Profile.last.company).to eq "Makers Academy"
       logout(:professional)
     end
 
@@ -49,16 +42,8 @@ feature 'Profiles' do
         select "Software Engineer", from: "Profession"
         fill_in "Company", with: "Makers Academy"
         fill_in "Work address", with: "Commercial Street, London"
-        fill_in "Please provide details of your academic background", with: 'BA Philosophy'
-        fill_in "Are there any required qualifications for your role?", with: 'No'
-        fill_in "What skills are required in this role?", with: 'Problem solving ability'
-        fill_in "What motivates you to offer a one day experience?", with: 'To share my love of my work'
-        fill_in "What do you think makes you suitable as a mentor for young people looking for a one day experience?", with: 'Good at explaining things clearly'
-        fill_in "What can a young person expect from one day in your role", with: 'To have a go at coding something'
-        fill_in "Please offer a summary of the one day experience on offer", with: "You'll have a go at pair programming, and if possible attend a client meeting"
-        fill_in "Please provide a paragraph or two describing, more fully, the one day experience on offer", with: "You'll learn all about how to approach learning programming languages, test driven development, and the agile approach"
         click_button 'Create Profile'
-        expect(page).to have_content(error)
+        expect(page).to have_content('error')
         expect(Profile.last.profession).not_to eq "Makers Academy"
       end
 
@@ -66,19 +51,20 @@ feature 'Profiles' do
         fill_in "Name", with: "Emily"
         fill_in "Company", with: "Makers Academy"
         fill_in "Work address", with: "Commercial Street, London"
-        fill_in "Please provide details of your academic background", with: 'BA Philosophy'
-        fill_in "Are there any required qualifications for your role?", with: 'No'
-        fill_in "What skills are required in this role?", with: 'Problem solving ability'
-        fill_in "What motivates you to offer a one day experience?", with: 'To share my love of my work'
-        fill_in "What do you think makes you suitable as a mentor for young people looking for a one day experience?", with: 'Good at explaining things clearly'
-        fill_in "What can a young person expect from one day in your role", with: 'To have a go at coding something'
-        fill_in "Please offer a summary of the one day experience on offer", with: "You'll have a go at pair programming, and if possible attend a client meeting"
-        fill_in "Please provide a paragraph or two describing, more fully, the one day experience on offer", with: "You'll learn all about how to approach learning programming languages, test driven development, and the agile approach"
         click_button 'Create Profile'
-        expect(page).to have_content(error)
+        expect(page).to have_content('error')
         expect(Profile.last.profession).not_to eq "Makers Academy"
       end
     end
+
+    context "a profile is half complete" do
+
+    end
+
+    context "a professional wishes to edit or delete their profile" do
+
+    end
+
   end
 
 end
