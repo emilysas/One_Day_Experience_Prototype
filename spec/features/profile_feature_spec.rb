@@ -77,9 +77,18 @@ feature 'Profiles' do
       xit "when logged in, a professional will have a link to their profile in the navbar" do
       end
 
-      it "a professional can edit their profile" do
+      it "a professional can see a link to edit their profile" do
         visit 'profiles/1'
         expect(page).to have_content "Edit Profile"
+        logout(:professional)
+      end
+
+      it "a professional can edit their profile" do
+        visit 'profiles/1'
+        click_link "Edit Profile"
+        fill_in "Company", with: "My Company"
+        click_button 'Update Profile'
+        expect(page).to have_content("My Company")
         logout(:professional)
       end
 
@@ -89,9 +98,17 @@ feature 'Profiles' do
         logout(:professional)
       end
 
-      it "a professional can delete their profile" do
+      it "a professional can see a link to delete their profile" do
         visit 'profiles/1'
         expect(page).to have_content "Delete Profile"
+        logout(:professional)
+      end
+
+      it "a professional can delete their profile" do
+        visit 'profiles/1'
+        click_link "Delete Profile"
+        expect(current_path).to eq('/')
+        expect(page).to have_content("Your profile has been deleted successfully")
         logout(:professional)
       end
 

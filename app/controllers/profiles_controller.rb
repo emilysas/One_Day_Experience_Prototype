@@ -46,6 +46,8 @@ class ProfilesController < ApplicationController
   def destroy
     @profile = Profile.find(params[:id])
     @profile.destroy
+    redirect_to '/'
+    flash[:notice] = "Your profile has been deleted successfully"
   end
 
   def profile_params
