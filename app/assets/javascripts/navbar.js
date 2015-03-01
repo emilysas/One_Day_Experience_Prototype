@@ -6,19 +6,19 @@ $(document).ready(function() {
 	$('.links').hide();
 
 	var viewHeight = document.getElementById('sidebar').offsetWidth;
-	var iconHeight = viewHeight * 0.6
+	// var iconHeight = viewHeight * 0.6;
 	
 
 	// $('.link-height').css('height', iconHeight)
 	// $('.jsicons').css('height', iconHeight)
 	
 	
-	var previousWidth
+	var previousWidth;
 
 	
 		$('#sidebar').on("mouseenter", function() {
 			
-			previousWidth = viewHeight
+			previousWidth = viewHeight;
 			if(menuState === 'hidden'){
 
 				previousWidth = viewHeight;
@@ -37,7 +37,7 @@ $(document).ready(function() {
 							menuState = 'visible';
 			      });
 			    }); 
-			  };
+			  }
     
 	    
 		});
@@ -57,7 +57,7 @@ $(document).ready(function() {
 		    
 		    menuState = 'hidden';
 		    
-		  };
+		  }
 		});
 
 

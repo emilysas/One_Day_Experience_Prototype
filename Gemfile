@@ -31,6 +31,8 @@ group :development, :test do
   gem 'cucumber-rails', require: false
   gem 'poltergeist'
   gem 'warden', '~> 1.2.3'
+  gem 'reek'
+  gem "codeclimate-test-reporter", require: nil
 end
 
 # For search feature:
