@@ -34,3 +34,8 @@ group :test do
   gem 'poltergeist'
   gem 'factory_girl_rails'
 end
+
+# For search feature:
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+gem 'bonsai-elasticsearch-rails'
