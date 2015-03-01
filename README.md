@@ -1,4 +1,8 @@
 # One_Day_Experience_Prototype
+
+[![Code Climate](https://codeclimate.com/github/emilysas/One_Day_Experience_Prototype/badges/gpa.svg)](https://codeclimate.com/github/emilysas/One_Day_Experience_Prototype) [![Test Coverage](https://codeclimate.com/github/emilysas/One_Day_Experience_Prototype/badges/coverage.svg)](https://codeclimate.com/github/emilysas/One_Day_Experience_Prototype)
+
+
 This is a project for [One Day from openIDEO](https://openideo.com/challenge/youth-employment-pathways/ideas/one-day).
 
 ##What does it do?
