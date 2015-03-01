@@ -25,12 +25,10 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'capybara'
-  gem 'database_cleaner'
-end
-
-group :test do
+  gem 'database_cleaner' 
+  gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'cucumber-rails', require: false
   gem 'poltergeist'
-  gem 'factory_girl_rails'
+  gem 'warden', '~> 1.2.3'
 end
