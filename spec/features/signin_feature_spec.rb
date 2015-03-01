@@ -23,6 +23,20 @@ feature 'Sign in' do
       expect(page).to have_content('Sign Up As A Student')
     end
 
+    it "should allow a user to sign up as a student" do
+      visit '/'
+      click_link 'Sign in'
+      click_link 'Sign Up As A Student'
+      fill_in "Name", with: "Luke"
+      fill_in "Email", with: "student_test@example.com"
+      fill_in "Password", with: "12341234"
+      fill_in "Password confirmation", with: "12341234"
+      click_button 'Sign up'
+      expect(Student.last.name).to eq "Luke"
+      expect(current_path).to eq('/')
+
+    end
+
   end
 
   context "a user signed in and on the homepage" do
