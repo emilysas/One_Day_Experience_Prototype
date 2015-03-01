@@ -89,10 +89,16 @@ feature 'Profiles' do
         logout(:professional)
       end
 
-      xit "a professional can delete their profile" do
+      it "a professional can delete their profile" do
+        visit 'profiles/1'
+        expect(page).to have_content "Delete Profile"
+        logout(:professional)
       end
 
-      xit "a professional cannot delete another professional's profile" do
+      it "a professional cannot delete another professional's profile" do
+        visit 'profiles/2'
+        expect(page).not_to have_content "Delete Profile"
+        logout(:professional)
       end
     end
 
