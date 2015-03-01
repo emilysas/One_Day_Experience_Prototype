@@ -1,14 +1,12 @@
 <column class="col-sacrificial1 span_1_of_16"></column>
 <h1>Profiles search</h1>
-<p>
   <%= form_for search_path, method: :get do |f| %>
   <p>
-  <% f.label "search_for"%>
-  <% text_field_tag :q, params[:q] %>
-  <% submit_tag "Go", name: nil %>
+  <%= f.label "search_for"%>
+  <%= text_field_tag :q, params[:q] %>
+  <%= submit_tag "Go", name: nil %>
   </p>
   <% end %>
-</p>
 
 <grid>
   <div class="container">
