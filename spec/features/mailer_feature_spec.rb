@@ -1,6 +1,4 @@
 require 'rails_helper'
-require './app/models/professional.rb'
-require './app/models/profile.rb'
 
 describe 'StudentMailer' do 
   
