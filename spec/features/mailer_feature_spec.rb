@@ -27,7 +27,23 @@ describe 'StudentMailer' do
       student = create(:student)
     end
 
-    it "should not be able to send an email if not logged in as a student" do
+    it "should not be able to send an email if not logged in" do
+      visit('/profiles/1')
+      expect(page).not_to have_content('Register Interest')
+      expect(page).to have_content('Please sign in to contact Emily')
+    end
+
+  end
+
+    context "a professional has logged in" do
+
+    before do
+      profile = create(:profile)
+      professional = create(:professional, email: "prof@example.com")
+      login_as(professional, :scope => :professional)
+    end
+
+    it "should not be able to send an email if not logged in" do
       visit('/profiles/1')
       expect(page).not_to have_content('Register Interest')
       expect(page).to have_content('Please sign in to contact Emily')
