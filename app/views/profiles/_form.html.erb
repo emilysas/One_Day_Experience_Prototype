@@ -1,5 +1,17 @@
+<section class="col-sacrificial span_1_of_16"></section>
+<section class="col-sacrificial span_1_of_16"></section>
+<% if @profile.errors.any? %>
+  <div class="" id="error_explanation">
+    <h4><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h4>
+ 
+    <ul>
+    <% @profile.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 <%= form_for @profile, html: {multipart: true} do |f| %>
-  <%= @profile.errors.messages.each {|message| message} %>
   <%= f.file_field :image %>
   <%= f.label :name %>
   <%= f.text_field :name %>
