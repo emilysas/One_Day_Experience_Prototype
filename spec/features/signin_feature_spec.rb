@@ -34,7 +34,14 @@ feature 'Sign in' do
       click_button 'Sign up'
       expect(Student.last.name).to eq "Luke"
       expect(current_path).to eq('/')
+    end
 
+    it "should allow a user to sign in as a student" do
+      visit '/'
+      student = create(:student)
+      login_as(student, :scope => :student)     
+      expect(Student.last.name).to eq "Jonny"
+      expect(current_path).to eq('/')
     end
 
   end
