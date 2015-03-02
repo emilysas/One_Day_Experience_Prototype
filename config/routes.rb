@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   # api for serving index profile infos
   resources :profiles
   
+  # Student can add favorite profiles feature
+  resources :favorite_profiles, only: [:create, :destroy]
 
   get :send_email, to: 'profiles#send_email', as: :send_email
   get :sign_up_gate, to: 'application#sign_up_gate', as: :sign_up_gate
