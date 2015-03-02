@@ -23,6 +23,16 @@
 	<% end %>
 <% end %>
 
+<% if student_signed_in? %>
+	<%= link_to favorites_path do%>
+		<icon id="favorites-icon" class="icons jsicons" >
+			<img class="icon" src="/images/icons/profile.svg"/>
+			<p class="links">Favorites</p>
+		</icon>
+	<% end %>
+<% end %>
+
+
 <%= link_to search_path do%>
 	<icon id="search-icon" class="icons jsicons" >
 		<img class="icon" src="/images/icons/profile.svg"/>
