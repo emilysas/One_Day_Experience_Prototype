@@ -1,4 +1,8 @@
-FactoryGirl.define do
+FactoryGirl.define do  factory :favorite do
+    student nil
+favorited nil
+  end
+
   
   factory :student do
     name "Jonny"
