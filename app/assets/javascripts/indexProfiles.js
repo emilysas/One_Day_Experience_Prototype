@@ -9,7 +9,7 @@ var getProfileInfo = function (pageNumber, objectNumber) {
 
     // display image
     $('#profile-pic').attr("src", data[objectNumber].image_url);
-    $("#field-img").attr("src", "/images/medium/"+data[objectNumber].profession_name+".jpg");
+    $("#field-img").attr("src", data[objectNumber].image_url);
     $("#photo-field-link").attr("href","/profiles/"+data[objectNumber].id);
     
   }, "json");
