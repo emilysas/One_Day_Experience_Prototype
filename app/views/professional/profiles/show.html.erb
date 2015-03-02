@@ -1,0 +1,66 @@
+<tag id="darkPage"><tag>
+
+<column class="col-sacrificial span_1_of_16 dark">
+</column>
+
+<column class="col--profile-image span_5_of_16 dark">
+	<feature class="photo_field vertical_align">
+		<div align="middle" id="photo-field-link">
+			<%= image_tag @profile.image.url(:medium) %>
+		</div>
+	</feature>
+</column>
+
+<column class="col-sacrificial span_10_of_16 ">
+	<section class="feature-description vertical_align fixed-height">
+	  <summaryHead class="professional_info">
+	    <h4><%= @profile.name %>
+	    	<span class="sub">
+		    	<%= @profile.profession.role %>
+		    </span>
+	    </h4>
+	    
+	    <h5>
+	    	<%= @profile.company %>
+	    	<span class="sub">
+	    		Located at: <%= @profile.work_address %>
+	    	</span>
+	    </h5>
+	  </summaryHead>
+	  <content class="profile-full_info">
+	    <em>Summary: </em>
+	    <p><%= @profile.info %></p>
+	    <em>More about the day: </em></br>
+	    <p><%= @profile.full_description %></p>
+	    <em>What you can expect on your day with us: </em></br>
+	    <p><%= @profile.expectations %></p>
+	    <em>People in my profession require the following qualifications (not necessary for your one day experience): </em><br>
+	    <p><%= @profile.req_quals %></p>
+	    <em>People in my profession, often have the following skills: </em></br>
+	    <p><%= @profile.req_skills %></p>
+	    
+	  </content>
+	  <section class="email">
+	    <% if current_student %>
+	      <%= link_to "Register Interest", :controller => "profiles", :action => "send_email", :id=>@profile.id %>
+	      <!-- Adding this profile to favorites -->
+	      <%- unless current_student.favorite_profiles.exists?(id: @profile.id) -%>
+					<%= link_to 'Add to favorites', favorite_profiles_path(profile_id: @profile), method: :post %>
+				<%- else -%>
+					<%= link_to 'Remove from favorites', favorite_profile_path(@profile), method: :delete %>
+				<%- end -%>
+	    <% else %>
+	      <h5>Please <%= link_to "sign in", new_student_session_path %> to contact <%= @profile.name %></h5>
+	    <% end %>
+	  </section>
+	  <section class="edit">
+	    <% if current_professional == @profile.professional %>
+	      <%= link_to "Edit Profile", edit_profile_path(@profile) %>
+	      <%= link_to "Delete Profile", profile_path(@profile), method: :delete %>
+	    <% end %>
+	  </section>
+	</section>
+</column>
+
+<section class="profile_container">
+  
