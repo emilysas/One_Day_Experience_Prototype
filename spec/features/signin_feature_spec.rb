@@ -14,7 +14,7 @@ feature 'Sign in' do
       expect(page).not_to have_link('Sign out')
     end
 
-    it "should see links to sign in or up as a professional or a student" do
+    it "can choose to sign up as a professional or a student" do
       visit('/')
       click_link 'Sign in'
       expect(page).to have_content('Professional Sign in')
@@ -23,7 +23,7 @@ feature 'Sign in' do
       expect(page).to have_content('Sign Up As A Student')
     end
 
-    it "should allow a user to sign up as a student" do
+    it "can sign up as a new student" do
       visit '/'
       click_link 'Sign in'
       click_link 'Sign Up As A Student'
@@ -35,47 +35,8 @@ feature 'Sign in' do
       expect(Student.last.name).to eq "Luke"
       expect(current_path).to eq('/')
     end
-  end
-  context 'upon signing in' do
-    let(:student){create :student}
 
-    before do
-      login_as(student, :scope => :student)     
-    end
-
-    after do
-      logout(:student)
-    end
-    
-    it "should allow a user to sign in as a student" do
-      visit '/'
-      expect(Student.last.name).to eq "Jonny"
-      expect(current_path).to eq('/')
-    end
-  end
-
-  context 'a professional signs in' do
-
-    let(:professional){create :professional}
-
-    before do
-      login_as(professional, :scope => :professional)     
-    end
-
-    after do
-      logout(:professional)
-    end
-
-    it "should allow a user to sign in as a professional" do
-      visit '/'
-      expect(Professional.last.email).to eq "professional@example.com"
-      expect(current_path).to eq('/')
-    end
-
-  end
-
-  context 'a professional signs up' do
-    it "should allow a user to sign up as a professional" do
+    it "can sign up as a new professional" do
       visit '/'
       click_link 'Sign in'
       click_link 'Sign Up As A Professional'
@@ -84,13 +45,13 @@ feature 'Sign in' do
       fill_in "Password confirmation", with: "12341234"
       click_button 'Sign up'
       expect(Professional.last.email).to eq "professional_test@example.com"
-      expect(current_path).to eq new_profile_path
+      expect(current_path).to eq new_my_profile_path
     end
 
   end
 
   context "a user signed in and on the homepage" do
-    
+      
     before do
       student = create(:student)
       login_as(student, :scope => :student)
@@ -107,6 +68,50 @@ feature 'Sign in' do
     end
 
   end
+
+  context 'without being a signed in' do
+    
+    it "cannot create a profile" do
+      expect{visit new_my_profile_path}.to raise_error( ActionController::RoutingError)
+    end
+
+    it "cannot edit or delete a profile" do
+      expect{visit my_profile_path}.to raise_error( ActionController::RoutingError)
+    end
+  end
+
+  context 'upon signing in as a student' do
+    let(:student){create :student}
+
+    before do
+      login_as(student, :scope => :student)     
+    end
+
+    after do
+      logout(:student)
+    end
+    
+    
+  end
+
+  context 'upon signing in as a professional' do
+
+    let(:professional){create :professional}
+
+    before do
+      login_as(professional, :scope => :professional)     
+    end
+
+    after do
+      logout(:professional)
+    end
+
+    
+
+  end
+
+
+  
 
 
 end

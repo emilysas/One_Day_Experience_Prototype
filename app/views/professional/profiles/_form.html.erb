@@ -1,0 +1,42 @@
+<section class="col-sacrificial span_1_of_16"></section>
+<section class="col-sacrificial span_1_of_16"></section>
+<% if @profile.errors.any? %>
+  <div class="" id="error_explanation">
+    <h4><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h4>
+ 
+    <ul>
+    <% @profile.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @profile, url: '/profile', html: {multipart: true} do |f| %>
+  <%= f.file_field :image %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :job %>
+  <%= f.text_field :job %>
+  <%= f.label :company %>
+  <%= f.text_field :company %>
+  <%= f.label :work_address %>
+  <%= f.text_field :work_address %><br></br>
+  <%= f.label "Please provide details of your Academic Background" %><br></br>
+  <%= f.text_field :academic_back %><br></br>
+  <%= f.label "Are there any required qualifications for your role?" %><br></br>
+  <%= f.text_field :req_quals %><br></br>
+  <%= f.label "What skills are required in this role?" %><br></br>
+  <%= f.text_field :req_skills %><br></br>
+  <%= f.label "What motivates you to offer a one day experience?" %><br></br>
+  <%= f.text_field :motivation %><br></br>
+  <%= f.label "What do you think makes you suitable as a mentor for young people looking for a one day experience?" %><br></br>
+  <%= f.text_field :suitability %><br></br>
+  <%= f.label "What can a young person expect from one day in your role" %><br></br>
+  <%= f.text_field :expectations %><br></br>
+  <%= f.label "Please offer a summary of the one day experience on offer" %><br></br>
+  <%= f.text_field :info %><br></br>
+  <%= f.label "Please provide a paragraph or two describing, more fully, the one day experience on offer" %><br></br>
+  <%= f.text_field :full_description %><br></br>
+  <%= f.submit %>
+<% end %>

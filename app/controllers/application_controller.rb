@@ -6,26 +6,14 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def index
-  	# @professionals = Professional.all
-  	# @professional = @professionals.sample
     @profile = Profile.first
-  end
-
-  def sign_up_gate
-
-  end
-
-  def sign_in_gate
-  
   end
 
   def after_sign_in_path_for(resource)
     if current_professional
-      @professional = current_professional
-      @profile = Profile.where(id: @professional.id)
-      "/profiles/#{@professional.id}"
+      my_profile_path
     else
-      '/'
+      root_path
     end
   end
 
