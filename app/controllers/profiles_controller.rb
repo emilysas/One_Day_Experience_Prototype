@@ -19,6 +19,7 @@ class ProfilesController < ApplicationController
 
   def create
     @profile = Profile.new(profile_params)
+    @profile.verified = false if @profile.verified.nil?
     if @profile.save 
       @profile.update(professional_id: current_professional.id)
       redirect_to '/'
@@ -55,11 +56,18 @@ class ProfilesController < ApplicationController
     flash[:notice] = "Your profile has been deleted successfully"
   end
 
-  def profile_params
-    params.require(:profile).permit(:name, :image, :info, :company, :full_description, :work_address, 
-      :job, :motivation, :suitability, :academic_back, :req_quals, :req_skills, :expectations)
+  # For profiles that need verification
+  def verification
+    @profiles = Profile.where(:verified=>false)
   end
 
+  def verify
+    @profile = Profile.find(params[:id])
+    @profile.verified = true
+    @profile.save
+    redirect_to :back
+  end
+  
   def send_email
     @profile = Profile.find(params[:id])
     @professional = Professional.find(@profile.professional_id)
@@ -68,6 +76,13 @@ class ProfilesController < ApplicationController
     StudentMailer.intro_email(@professional, @student).deliver
     flash[:notice] = "Your email has been sent."
     redirect_to profile_path(@profile.id)
+  end
+
+  private
+
+  def profile_params
+    params.require(:profile).permit(:name, :image, :info, :company, :full_description, :work_address, :verified,
+      :job, :motivation, :suitability, :academic_back, :req_quals, :req_skills, :expectations)
   end
 
 end
