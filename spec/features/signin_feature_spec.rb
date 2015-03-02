@@ -84,7 +84,7 @@ feature 'Sign in' do
       fill_in "Password confirmation", with: "12341234"
       click_button 'Sign up'
       expect(Professional.last.email).to eq "professional_test@example.com"
-      expect(current_path).to eq new_profile_path
+      expect(current_path).to eq new_my_profile_path
     end
 
   end

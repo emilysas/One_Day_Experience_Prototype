@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   
   authenticated :professional do
     scope module: :professional do
-      resource :profile, except: :index
+      resource :profile, except: :index, as: 'my_profile'
     end
   end
 

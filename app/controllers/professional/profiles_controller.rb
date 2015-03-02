@@ -38,6 +38,6 @@ class Professional::ProfilesController < ApplicationController
 
   def profile_params
     params.require(:profile).permit(:name, :image, :info, :company, :full_description, :work_address, 
-      :profession_id, :motivation, :suitability, :academic_back, :req_quals, :req_skills, :expectations)
+      :job, :motivation, :suitability, :academic_back, :req_quals, :req_skills, :expectations)
   end
 end

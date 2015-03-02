@@ -13,7 +13,7 @@ feature 'Profiles' do
       click_button 'Sign up'
       expect(page).to have_content("What do you think makes you suitable as a mentor for young people looking for a one day experience?
 ")
-      expect(current_path).to eq new_profile_path
+      expect(current_path).to eq new_my_profile_path
     end
   end
 
@@ -30,9 +30,9 @@ feature 'Profiles' do
     end
 
     it "should allow a professional to create a profile" do
-      visit new_profile_path
+      visit new_my_profile_path
       fill_in "Name", with: "Emily"
-      select "Software Engineer",  from: "Profession"
+      fill_in "Job", with: "Software Engineer"
       fill_in "Company", with: "Makers Academy"
       fill_in "Work address", with: "Commercial Street, London"
       click_button 'Create Profile'
@@ -47,7 +47,7 @@ feature 'Profiles' do
 
     before do
       login_as(professional, :scope => :professional)     
-      visit new_profile_path
+      visit new_my_profile_path
     end
 
     after do
@@ -55,7 +55,7 @@ feature 'Profiles' do
     end
 
     it "should not allow a professional to create a profile unless the 'name' field is filled in" do
-      select "Software Engineer", from: "Profession"
+      fill_in "Job", with: "Software Engineer"
       fill_in "Company", with: "Makers Academy"
       fill_in "Work address", with: "Commercial Street, London"
       click_button 'Create Profile'
@@ -93,12 +93,12 @@ feature 'Profiles' do
     end
 
     it "a professional can see a link to edit their profile" do
-      visit profile_path(profile)
+      visit my_profile_path
       expect(page).to have_content "Edit Profile" 
     end
 
     it "a professional can edit their profile" do
-      visit profile_path(profile)
+      visit my_profile_path
       click_link "Edit Profile"
       fill_in "Company", with: "My Company"
       click_button 'Update Profile'
@@ -111,12 +111,12 @@ feature 'Profiles' do
     end
 
     it "a professional can see a link to delete their profile" do
-      visit profile_path(profile)
+      visit my_profile_path(profile)
       expect(page).to have_content "Delete Profile"
     end
 
     it "a professional can delete their profile" do
-      visit profile_path(profile)
+      visit my_profile_path
       click_link "Delete Profile"
       expect(current_path).to eq('/')
       expect(page).to have_content("Your profile has been deleted successfully")
@@ -139,7 +139,7 @@ feature 'Profiles' do
       fill_in "Email", with: profile.professional.email
       fill_in "Password", with: profile.professional.password
       click_button 'Log in'
-      expect(current_path).to eq profile_path(profile)
+      expect(current_path).to eq my_profile_path
     end
 
     xit "when logged in, a professional will have a link to their profile in the navbar" do

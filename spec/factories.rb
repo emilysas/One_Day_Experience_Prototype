@@ -19,14 +19,10 @@ FactoryGirl.define do
     password_confirmation "password"
   end
 
-  factory :profession do
-    role "Doctor"
-  end
-
   factory :profile do
     name "Emily"
     professional
-    profession
+    job "Software Engineer"
   end
 
 end
