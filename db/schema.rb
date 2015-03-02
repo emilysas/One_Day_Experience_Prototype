@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150301234414) do
+ActiveRecord::Schema.define(version: 20150302153616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 20150301234414) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "role"
   end
 
   add_index "professionals", ["email"], name: "index_professionals_on_email", unique: true, using: :btree
@@ -63,7 +62,6 @@ ActiveRecord::Schema.define(version: 20150301234414) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "professional_id"
-    t.integer  "profession_id"
     t.text     "academic_back"
     t.text     "req_quals"
     t.text     "req_skills"
@@ -74,9 +72,9 @@ ActiveRecord::Schema.define(version: 20150301234414) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "job"
   end
 
-  add_index "profiles", ["profession_id"], name: "index_profiles_on_profession_id", using: :btree
   add_index "profiles", ["professional_id"], name: "index_profiles_on_professional_id", using: :btree
 
   create_table "students", force: :cascade do |t|
@@ -102,5 +100,4 @@ ActiveRecord::Schema.define(version: 20150301234414) do
 
   add_foreign_key "favorites", "students"
   add_foreign_key "profiles", "professionals"
-  add_foreign_key "profiles", "professions"
 end
