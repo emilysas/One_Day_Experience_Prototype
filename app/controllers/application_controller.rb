@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def index
-  	@professionals = Professional.all
-  	@professional = @professionals.sample
+  	# @professionals = Professional.all
+  	# @professional = @professionals.sample
     @profile = Profile.first
   end
 
@@ -19,15 +19,15 @@ class ApplicationController < ActionController::Base
   
   end
 
-  # def after_sign_in_path_for(resource)
-  #   if current_professional
-  #     @professional = current_professional
-  #     @profile = Profile.where(id: @professional.id)
-  #     "/profiles/#{@professional.id}"
-  #   else
-  #     '/'
-  #   end
-  # end
+  def after_sign_in_path_for(resource)
+    if current_professional
+      @professional = current_professional
+      @profile = Profile.where(id: @professional.id)
+      "/profiles/#{@professional.id}"
+    else
+      '/'
+    end
+  end
 
  protected
 

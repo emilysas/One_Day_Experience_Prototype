@@ -35,16 +35,46 @@ feature 'Sign in' do
       expect(Student.last.name).to eq "Luke"
       expect(current_path).to eq('/')
     end
+  end
+  context 'upon signing in' do
+    let(:student){create :student}
 
-    it "should allow a user to sign in as a student" do
-      visit '/'
-      student = create(:student)
+    before do
       login_as(student, :scope => :student)     
-      expect(Student.last.name).to eq "Jonny"
-      expect(current_path).to eq('/')
-      logout(:student)
     end
 
+    after do
+      logout(:student)
+    end
+    
+    it "should allow a user to sign in as a student" do
+      visit '/'
+      expect(Student.last.name).to eq "Jonny"
+      expect(current_path).to eq('/')
+    end
+  end
+
+  context 'a professional signs in' do
+
+    let(:professional){create :professional}
+
+    before do
+      login_as(professional, :scope => :professional)     
+    end
+
+    after do
+      logout(:professional)
+    end
+
+    it "should allow a user to sign in as a professional" do
+      visit '/'
+      expect(Professional.last.email).to eq "professional@example.com"
+      expect(current_path).to eq('/')
+    end
+
+  end
+
+  context 'a professional signs up' do
     it "should allow a user to sign up as a professional" do
       visit '/'
       click_link 'Sign in'
@@ -55,15 +85,6 @@ feature 'Sign in' do
       click_button 'Sign up'
       expect(Professional.last.email).to eq "professional_test@example.com"
       expect(current_path).to eq new_profile_path
-    end
-
-    it "should allow a user to sign in as a student" do
-      visit '/'
-      professional = create(:professional)
-      login_as(professional, :scope => :professional)     
-      expect(Professional.last.email).to eq "professional@example.com"
-      expect(current_path).to eq('/')
-      logout(:professional)
     end
 
   end

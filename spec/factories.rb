@@ -1,6 +1,8 @@
-FactoryGirl.define do  factory :favorite do
+FactoryGirl.define do
+
+  factory :favorite do
     student nil
-favorited nil
+    favorited nil
   end
 
   
@@ -22,7 +24,6 @@ favorited nil
   end
 
   factory :profile do
-    id 1
     name "Emily"
     professional
     profession
