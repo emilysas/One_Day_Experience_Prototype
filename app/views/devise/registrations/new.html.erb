@@ -27,11 +27,6 @@
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
 
-    <div class="field">
-      <%= f.label "Admin?" %>
-      <%= f.collection_select :role, Professional::ROLES, :to_s, :capitalize %>
-    </div>
-
     <div class="actions">
       <%= f.submit "Sign up" %>
     </div>

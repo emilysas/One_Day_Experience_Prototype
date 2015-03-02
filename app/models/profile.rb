@@ -5,14 +5,14 @@ class Profile < ActiveRecord::Base
   include Elasticsearch::Model::Callbacks
 
   belongs_to :professional
-  belongs_to :profession
 
   validates_presence_of :name, message: "- Please provide your name"
-  validates_presence_of :profession_id, message: "- Please select your profession"
+  validates_presence_of :job, message: "- Please select your profession"
 
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
+  # Fields for the search
   settings index: { number_of_shards: 1 } do
     mappings dynamic: 'false' do
       indexes :name, analyzer: 'english'
@@ -22,6 +22,7 @@ class Profile < ActiveRecord::Base
       indexes :req_quals, analyzer: 'english'
       indexes :req_skills, analyzer: 'english'
       indexes :work_address, analyzer: 'english'
+      indexes :job, analyzer: 'english'
     end
   end
 
@@ -30,18 +31,14 @@ class Profile < ActiveRecord::Base
       image.url(:medium)
   end
 
-  # for getting job name
-  def profession_name
-    profession.role.downcase.delete(" ")
-  end
-
+  # Actual search method -  using fields above
   def self.search(query)
     __elasticsearch__.search(
       {
         query: {
           multi_match: {
             query: query,
-            fields: ['name', 'full_description', 'info', 'company', 'req_quals', 'req_skills', 'work_address']
+            fields: ['name', 'full_description', 'info', 'company', 'req_quals', 'req_skills', 'work_address', 'job']
           }
         }
       }
