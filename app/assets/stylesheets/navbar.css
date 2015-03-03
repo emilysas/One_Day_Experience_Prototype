@@ -9,7 +9,7 @@ nav#sidebar {
 	position:fixed;
 	border-right:1px solid white;
 	display: inline-block;
-	background-color: rgba(255,255,255, 0.2);
+	/*background-color: rgba(255,255,255, 0.2);*/
 
 }
 
@@ -29,8 +29,12 @@ ul.vertical_align {
 }
 
 .icon {
+	position:relative;
 	float: left;
 	width:30px;
+	z-index: 3;
+	clear: both;
+
 }
 
 #last-child{
@@ -84,6 +88,7 @@ p.links {
   float: left;
   margin-left: 20%;
   font-weight: 300;
+  color: white;
 }
 
 p.links:hover{

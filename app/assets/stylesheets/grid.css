@@ -47,6 +47,10 @@
 	width: 12.25%;
 }
 
+.span_3_of_16 {
+	width: 18.5%;
+}
+
 .span_4_of_16 {
 	width: 24.75%;
 }
@@ -55,9 +59,51 @@
 	width: 31%;
 }
 
-.span_10_of_16 {
-	width: 61.75%;
+.span_6_of_16 {
+	width: 37.25%;
 }
+
+.span_7_of_16 {
+	width: 43.5%
+}
+
+.span_8_of_16 {
+	width: 49.75%
+}
+
+.span_9_of_16 {
+	width: 56%
+}
+
+.span_10_of_16 {
+	width: 62.25%;
+}
+
+.span_11_of_16 {
+	width: 68.5%
+}
+
+.span_12_of_16 {
+	width: 74.75%
+}
+
+.span_13_of_16 {
+	width: 81%
+}
+
+.span_14_of_16 {
+	width: 87.25%
+}
+
+.span_15_of_16 {
+	width: 93.5%
+}
+
+.span_16_of_16 {
+	width: 99.75%
+}
+
+
 
 /*  GRID OF TWELVE  */
 .span_12_of_12 {
@@ -105,6 +151,158 @@
 
 .span_1_of_12 {
   	width: 6.866%;
+}
+
+/*  GO FULL WIDTH BELOW 480 PIXELS */
+
+
+/*  GRID OF SIXTEEN  */
+@media screen and (min-width: 755px) and (max-width: 1024px) {
+
+	.span_1_of_16 {
+		width: 8.08333%;
+	}
+
+	.span_2_of_16 {
+		width: 16.41666%;
+	}
+
+	.span_3_of_16 {
+		width: 24.74999%;
+	}
+
+	.span_4_of_16 {
+		width: 33.08332%;
+	}
+
+	.span_5_of_16 {
+		width: 41.41665%;
+	}
+
+	.span_6_of_16 {
+		width: 49.74998%;
+	}
+
+	.span_7_of_16 {
+		width: 58.08331%
+	}
+
+	.span_8_of_16 {
+		width: 66.41664%
+	}
+
+	.span_9_of_16 {
+		width: 74.74997%
+	}
+
+	.span_10_of_16 {
+		width: 83.0833%;
+	}
+
+	.span_11_of_16 {
+		width: 91.41663%
+	}
+
+	.span_12_of_16 {
+		width: 99.74996%
+	}
+
+	.span_13_of_16 {
+		width: 100%
+	}
+
+	.span_14_of_16 {
+		width: 100%
+	}
+
+	.span_15_of_16 {
+		width: 100%
+	}
+
+	.span_16_of_16 {
+		width: 100%
+	}
+
+	.col-sacrificial1 {
+		display: none;
+	}
+
+}
+
+@media screen and (min-width: 400px) and (max-width: 755px) {
+
+	.span_1_of_16 {
+		width: 12.4375%;
+	}
+
+	.span_2_of_16 {
+		width: 24.875%;
+	}
+
+	.span_3_of_16 {
+		width: 37.3125%;
+	}
+
+	.span_4_of_16 {
+		width: 49.75%;
+	}
+
+	.span_5_of_16 {
+		width: 62.1875%;
+	}
+
+	.span_6_of_16 {
+		width: 74.625%;
+	}
+
+	.span_7_of_16 {
+		width: 87.0625%
+	}
+
+	.span_8_of_16 {
+		width: 99.5%
+	}
+
+	.span_9_of_16 {
+		width: 99.5%
+	}
+
+	.span_10_of_16 {
+		width: 99.5%;
+	}
+
+	.span_11_of_16 {
+		width: 99.5%
+	}
+
+	.span_12_of_16 {
+		width: 99.5%
+	}
+
+	.span_13_of_16 {
+		width: 99.5%
+	}
+
+	.span_14_of_16 {
+		width: 99.5%
+	}
+
+	.span_15_of_16 {
+		width: 99.5%
+	}
+
+	.span_16_of_16 {
+		width: 99.5%
+	}
+
+	.col-sacrificial1 {
+		display: none;
+	}
+
+	.col-sacrificial2 {
+		display: none;
+	}
+
 }
 
 /*  GO FULL WIDTH BELOW 480 PIXELS */

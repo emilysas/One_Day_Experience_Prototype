@@ -50,7 +50,8 @@
 	  <section class="edit">
 	    <% if current_professional == @profile.professional %>
 	      <%= link_to "Edit Profile", edit_my_profile_path %>
-	      <%= link_to "Delete Profile", my_profile_path, method: :delete %>
+	      <a href='#' class="delete_profile_confirmation">Delete Profile</a>
+	      <%= link_to "Delete Profile", my_profile_path, method: :delete, :class=>"delete_profile"  %>
 	    <% end %>
 	  </section>
 	</section>
