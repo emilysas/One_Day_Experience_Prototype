@@ -5,7 +5,7 @@
 </icon>
 </a>
 
-<% if !professional_signed_in? && !student_signed_in? %>
+<% if !professional_signed_in? && !student_signed_in? && !admin_signed_in? %>
 	<%= link_to sign_in_gate_path do%>
 		<icon id="how-wide" class="icons--signin jsicons" >
 			<img class="icon" src="/images/icons/profile.svg"/>
@@ -14,7 +14,7 @@
 	<% end %>
 <% end %>
 
-<% if professional_signed_in? || student_signed_in? %>
+<% if professional_signed_in? || student_signed_in? || admin_signed_in? %>
 	<%= link_to destroy_professional_session_path, method: :delete do%>
 		<icon id="professional_sign_out" class="icons jsicons" >
 			<img class="icon" src="/images/icons/profile.svg">

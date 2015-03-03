@@ -8,7 +8,7 @@
         <h5> <%= profile.name %> </h5>
         <h5> <%= profile.company %> </h5>
         <h5> <%= profile.info %> </h5>
-        <%= link_to 'Verify', verify_profile_path(id: profile.id), method: :post %>
+        <%= link_to 'Verify', verify_path(id: profile.id), method: :post %>
       </section>
     <% end %>
   </div>
