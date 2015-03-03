@@ -13,11 +13,4 @@ class Admin::ProfilesController < ApplicationController
     redirect_to :back
   end
 
-  private
-
-  def profile_params
-    params.require(:profile).permit(:name, :image, :info, :company, :full_description, :work_address, :verified,
-      :job, :motivation, :suitability, :academic_back, :req_quals, :req_skills, :expectations)
-  end
-
 end
