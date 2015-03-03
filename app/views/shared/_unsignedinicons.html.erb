@@ -1,6 +1,6 @@
 <a href='/' >
 <icon class="icons jsicons" >
-	<img class="icon" src="/images/icons/profile.svg">
+	<img class="icon" src="/images/icons/icons-01.svg">
 	<p class="links">Home</p>
 </icon>
 </a>
@@ -8,7 +8,7 @@
 <% if !professional_signed_in? && !student_signed_in? %>
 	<%= link_to sign_in_gate_path do%>
 		<icon id="how-wide" class="icons--signin jsicons" >
-			<img class="icon" src="/images/icons/profile.svg"/>
+			<img class="icon" src="/images/icons/icons-02.svg"/>
 			<p class="links">Sign in</p>
 		</icon>
 	<% end %>
@@ -17,7 +17,7 @@
 <% if professional_signed_in? || student_signed_in? %>
 	<%= link_to destroy_professional_session_path, method: :delete do%>
 		<icon id="professional_sign_out" class="icons jsicons" >
-			<img class="icon" src="/images/icons/profile.svg">
+			<img class="icon" src="/images/icons/icons-02.svg">
 			<p class="links">Sign out</p>
 		</icon>
 	<% end %>
@@ -26,7 +26,7 @@
 <% if student_signed_in? %>
 	<%= link_to favorites_path do%>
 		<icon id="favorites-icon" class="icons jsicons" >
-			<img class="icon" src="/images/icons/profile.svg"/>
+			<img class="icon" src="/images/icons/icons-01.svg"/>
 			<p class="links">Favorites</p>
 		</icon>
 	<% end %>
@@ -35,14 +35,14 @@
 
 <%= link_to search_path do%>
 	<icon id="search-icon" class="icons jsicons" >
-		<img class="icon" src="/images/icons/profile.svg"/>
+		<img class="icon" src="/images/icons/icons-03.svg"/>
 		<p class="links">Search</p>
 	</icon>
 <% end %>
 
 <%= link_to profiles_path do%>
 	<icon id="browse-profiles-icon" class="icons jsicons" >
-		<img class="icon" src="/images/icons/profile.svg"/>
+		<img class="icon" src="/images/icons/icons-04.svg"/>
 		<p class="links">Browse Profiles</p>
 	</icon>
 <% end %>

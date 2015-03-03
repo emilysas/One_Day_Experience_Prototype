@@ -1,17 +1,21 @@
 #profile-pic {
 	vertical-align: middle;
-	position: absolute;
-	top: 65%;
-	transform: translateY(-50%);
-	text-align: center;
-	right: 30%;
-	margin-right: -25%;
+	position: relative;
+	
+	
 }
 
 [id*='profile-'] {
 	margin: 0 auto;
-	border: solid black 1px;
-	text-align: center;
+	
+}
+
+.text-summary {
+	margin-left: 10px;
+	width: 68%;
+	display: inline-block;
+	vertical-align: middle;
+	color: white;
 }
 
 .professional_info {
