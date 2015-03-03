@@ -11,7 +11,7 @@ feature 'StudentMailer' do
       login_as(student, :scope => :student)
     end
 
-    xscenario "message is displayed to confirm email sent" do
+    scenario "message is displayed to confirm email sent" do
       visit profile_path(profile)
       click_link 'Register Interest'
       expect(page).to have_content('Your email has been sent')

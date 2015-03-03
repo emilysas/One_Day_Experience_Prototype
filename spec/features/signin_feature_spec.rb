@@ -23,7 +23,7 @@ feature 'Sign in' do
       expect(page).to have_content('Sign Up As A Student')
     end
 
-    xit "can sign up as a new student" do
+    it "can sign up as a new student" do
       visit '/'
       click_link 'Sign in'
       click_link 'Sign Up As A Student'
@@ -57,12 +57,12 @@ feature 'Sign in' do
       login_as(student, :scope => :student)
     end
 
-    xit "should see a 'Sign out' link" do
+    it "should see a 'Sign out' link" do
       visit('/')
       expect(page).to have_link('Sign out')
     end
 
-    xit "should not see 'Sign in' link" do
+    it "should not see 'Sign in' link" do
       visit('/')
       expect(page).not_to have_link('Sign in')
     end
