@@ -25,4 +25,10 @@ FactoryGirl.define do
     job "Software Engineer"
   end
 
+  factory :admin do
+    email "admin_test@example.com"
+    password "password"
+    password_confirmation "password"
+  end
+
 end
