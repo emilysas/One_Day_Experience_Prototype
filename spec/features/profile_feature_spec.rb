@@ -156,6 +156,15 @@ feature 'Profiles' do
       expect{visit my_profile_path}.to raise_error( ActionController::RoutingError)
     end
 
+    before do 
+      Profile.create(name: "Emily", verified: false, job: "Doctor")
+    end
+
+    it "cannot see unverified profiles" do
+      visit '/profiles'
+      expect(page).not_to have_content("Emily")
+    end
+
   end
 
 end
