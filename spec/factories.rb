@@ -1,7 +1,4 @@
-FactoryGirl.define do  factory :admin do
-    
-  end
-
+FactoryGirl.define do
 
   factory :favorite do
     student nil
@@ -26,6 +23,12 @@ FactoryGirl.define do  factory :admin do
     name "Emily"
     professional
     job "Software Engineer"
+  end
+
+  factory :admin do
+    email "admin_test@example.com"
+    password "password"
+    password_confirmation "password"
   end
 
 end
