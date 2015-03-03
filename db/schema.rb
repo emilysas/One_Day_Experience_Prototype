@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150303100448) do
+ActiveRecord::Schema.define(version: 20150303185909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,9 +84,21 @@ ActiveRecord::Schema.define(version: 20150303100448) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "job"
+    t.integer  "sector_id"
   end
 
   add_index "profiles", ["professional_id"], name: "index_profiles_on_professional_id", using: :btree
+  add_index "profiles", ["sector_id"], name: "index_profiles_on_sector_id", using: :btree
+
+  create_table "sectors", force: :cascade do |t|
+    t.text     "name"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
 
   create_table "students", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -111,4 +123,5 @@ ActiveRecord::Schema.define(version: 20150303100448) do
 
   add_foreign_key "favorites", "students"
   add_foreign_key "profiles", "professionals"
+  add_foreign_key "profiles", "sectors"
 end

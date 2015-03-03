@@ -1,3 +1,4 @@
+# The Search Controller is responsible for allowing users to search the site for profiles
 class SearchController < ApplicationController
   def search
     @query = params[:q]

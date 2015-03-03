@@ -1,3 +1,4 @@
+# The Admin Profiles Controller is responsible for allowing an admin user to verify profiles
 class Admin::ProfilesController < ApplicationController
 
   before_action :authenticate_admin!

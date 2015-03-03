@@ -1,3 +1,4 @@
+# The Profiles Controller is responsible for showing all of the professionals profiles to users who are not yet signed in
 class ProfilesController < ApplicationController
  
   def index
@@ -10,17 +11,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.find params[:id]
   end
 
-  # For profiles that need verification
-  def verification
-    @profiles = Profile.where(:verified=>false)
-  end
-
-  def verify
-    @profile = Profile.find(params[:id])
-    @profile.verified = true
-    @profile.save
-    redirect_to :back
-  end
+  private
 
   def respond
     respond_to do |format|

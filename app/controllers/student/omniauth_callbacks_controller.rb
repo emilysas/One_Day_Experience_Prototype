@@ -1,3 +1,4 @@
+# The Student OmniauthCallbacks Controller is responsible for signing students up via their Facebook account
 class Students::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     
   def facebook

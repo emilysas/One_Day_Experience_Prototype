@@ -1,4 +1,4 @@
- 
+# The Professionals Controller is responsible for creating new professional users
 class ProfessionalsController < Devise::RegistrationsController
 
   def create

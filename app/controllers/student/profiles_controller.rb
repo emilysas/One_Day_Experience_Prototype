@@ -1,3 +1,4 @@
+#The Student Profiles Controller is responsible for allowing students to send emails via the profile pages
 class Student::ProfilesController < ApplicationController
   before_action :authenticate_student!
   

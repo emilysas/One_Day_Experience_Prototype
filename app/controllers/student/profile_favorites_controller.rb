@@ -1,3 +1,4 @@
+# The Student FavoriteProfiles Controller is responsible for allowing the creation of a list of favorited profiles
 class Student::ProfileFavoritesController < ApplicationController
   before_action :set_profile
   before_action :authenticate_student!
