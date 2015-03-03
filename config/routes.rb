@@ -40,8 +40,6 @@ Rails.application.routes.draw do
     end
   end
 
-
-
   get :sign_up_gate, to: 'application#sign_up_gate', as: :sign_up_gate
   get :sign_in_gate, to: 'application#sign_in_gate', as: :sign_in_gate
 

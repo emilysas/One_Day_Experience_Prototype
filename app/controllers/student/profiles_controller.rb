@@ -1,4 +1,4 @@
-class ProfilesController < ApplicationController
+class Student::ProfilesController < ApplicationController
   before_action :authenticate_student!
   def send_email
     @profile = Profile.find(params[:id])
