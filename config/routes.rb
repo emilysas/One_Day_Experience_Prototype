@@ -44,9 +44,4 @@ Rails.application.routes.draw do
 
   get 'search', to: 'search#search'
 
-  # TODO: what is this for? still needed? 
-  # devise_scope :student do
-    # get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_student_session
-  # end
-
 end
