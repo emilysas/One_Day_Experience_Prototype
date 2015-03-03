@@ -23,6 +23,7 @@ FactoryGirl.define do
     name "Emily"
     professional
     job "Software Engineer"
+    verified "true"
   end
 
   factory :admin do

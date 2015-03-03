@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
  
   def index
-    @profiles = Profile.all
+    @profiles = Profile.where(:verified=>true)
     @result = Profile.paginate(:page => params[:page], :per_page => 3).select([:id, :name, :company, :info, :job, :image_file_name])
     respond_to do |format|
       format.html { 
@@ -15,7 +15,6 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = Profile.find params[:id]
-    @hi = 'Hi'
   end
 
   # For profiles that need verification
