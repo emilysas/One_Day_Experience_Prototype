@@ -39,7 +39,7 @@
 	    <% if current_student %>
 	      <%= link_to "Register Interest", send_email_profile_path(@profile) %>
 	      <!-- Adding this profile to favorites -->
-	      <%- unless current_student.favorite_profiles.exists?(@profile) -%>
+	      <%- unless current_student.favorite_profiles.exists?(@profile.id) -%>
 					<%= link_to 'Add to favorites', favorite_profile_path(@profile), method: :post %>
 				<%- else -%>
 					<%= link_to 'Remove from favorites', favorite_profile_path(@profile), method: :delete %>
