@@ -5,8 +5,6 @@ Rails.application.routes.draw do
 
   root to: 'application#index'
   
-  resources :profiles, only: [:index, :show]
-  
   authenticated :professional do
     scope module: :professional do
       resource :profile, except: :index, as: 'my_profile'
@@ -15,15 +13,14 @@ Rails.application.routes.draw do
 
   authenticated :student do
     scope module: :student do
-      resource :student, only: [] do
-        collection do
-          resources :favorite_profiles, only: [:create, :destroy]
-        end
+      resources :profile, only: [] do
         member do
-          get :favorites, to: 'favorites#show'
-          get :send_email, to: 'profiles#send_email', as: :send_email
+          get :send_email, to: 'profiles#send_email'
+          post :favorite, to: 'profile_favorites#create'
+          delete :favorite, to: 'profile_favorites#destroy'
         end
       end
+      get :favorites, to: 'favorites#index'
     end
   end
 
@@ -39,6 +36,8 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  resources :profiles, only: [:index, :show]
 
   get :sign_up_gate, to: 'application#sign_up_gate', as: :sign_up_gate
   get :sign_in_gate, to: 'application#sign_in_gate', as: :sign_in_gate
