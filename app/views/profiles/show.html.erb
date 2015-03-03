@@ -37,10 +37,10 @@
 	  </content>
 	  <section class="email">
 	    <% if current_student %>
-	      <%= link_to "Register Interest", send_email_student_path(id: @profile.id) %>
+	      <%= link_to "Register Interest", send_email_profile_path(@profile) %>
 	      <!-- Adding this profile to favorites -->
-	      <%- unless current_student.favorite_profiles.exists?(id: @profile.id) -%>
-					<%= link_to 'Add to favorites', favorite_profiles_path(profile_id: @profile), method: :post %>
+	      <%- unless current_student.favorite_profiles.exists?(@profile) -%>
+					<%= link_to 'Add to favorites', favorite_profile_path(@profile), method: :post %>
 				<%- else -%>
 					<%= link_to 'Remove from favorites', favorite_profile_path(@profile), method: :delete %>
 				<%- end -%>

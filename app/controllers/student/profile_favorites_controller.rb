@@ -1,4 +1,4 @@
-class FavoriteProfilesController < ApplicationController
+class Student::ProfileFavoritesController < ApplicationController
   before_action :set_profile
   before_action :authenticate_student!
   
@@ -18,6 +18,6 @@ class FavoriteProfilesController < ApplicationController
   private
   
   def set_profile
-    @profile = Profile.find(params[:profile_id] || params[:id])
+    @profile = Profile.find(params[:id])
   end
 end
