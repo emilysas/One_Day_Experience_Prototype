@@ -23,6 +23,13 @@ FactoryGirl.define do
     name "Emily"
     professional
     job "Software Engineer"
+    verified "true"
+  end
+
+  factory :admin do
+    email "admin_test@example.com"
+    password "password"
+    password_confirmation "password"
   end
 
 end

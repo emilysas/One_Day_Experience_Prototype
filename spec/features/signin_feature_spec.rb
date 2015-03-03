@@ -69,17 +69,6 @@ feature 'Sign in' do
 
   end
 
-  context 'without being a signed in' do
-    
-    it "cannot create a profile" do
-      expect{visit new_my_profile_path}.to raise_error( ActionController::RoutingError)
-    end
-
-    it "cannot edit or delete a profile" do
-      expect{visit my_profile_path}.to raise_error( ActionController::RoutingError)
-    end
-  end
-
   context 'upon signing in as a student' do
     let(:student){create :student}
 

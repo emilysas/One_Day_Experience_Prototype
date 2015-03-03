@@ -15,3 +15,6 @@
 .secret
 /tmp/*
 public/system/profiles/images/000
+profiles/images/*
+tmp/cache/assets/development/sprockets/*
+tmp/cache/assets/development/sass/*

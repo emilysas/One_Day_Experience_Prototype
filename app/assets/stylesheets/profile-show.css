@@ -56,3 +56,7 @@
   border-radius: 5%;
   min-width: 100px;
 }
+
+.delete_profile {
+	visibility: hidden;
+}
