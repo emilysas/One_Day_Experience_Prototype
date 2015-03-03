@@ -1,5 +1,6 @@
 class FavoriteProfilesController < ApplicationController
   before_action :set_profile
+  before_action :authenticate_student!
   
   def create
     if Favorite.create(favorited: @profile, student: current_student)

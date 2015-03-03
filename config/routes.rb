@@ -14,7 +14,17 @@ Rails.application.routes.draw do
   end
 
   authenticated :student do
-    get :send_email, to: 'profiles#send_email', as: :send_email
+    scope module: :student do
+      resource :student, only: [] do
+        collection do
+          resources :favorite_profiles, only: [:create, :destroy]
+        end
+        member do
+          get :favorites, to: 'favorites#show'
+          get :send_email, to: 'profiles#send_email', as: :send_email
+        end
+      end
+    end
   end
 
   authenticated :admin do
@@ -31,8 +41,6 @@ Rails.application.routes.draw do
   end
 
 
-  resources :favorite_profiles, only: [:create, :destroy]
-  get :favorites, to: 'favorites#show'
 
   get :sign_up_gate, to: 'application#sign_up_gate', as: :sign_up_gate
   get :sign_in_gate, to: 'application#sign_in_gate', as: :sign_in_gate

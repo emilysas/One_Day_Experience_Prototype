@@ -1,16 +1,13 @@
 class ProfilesController < ApplicationController
-
-  before_action :authenticate_admin!
-
-  def unverified
-    @profiles = Profile.where(:verified=>false)
-  end
-
-  def verify
+  before_action :authenticate_student!
+  def send_email
     @profile = Profile.find(params[:id])
-    @profile.verified = true
-    @profile.save
-    redirect_to :back
+    @professional = Professional.find(@profile.professional_id)
+    @student = current_student
+
+    StudentMailer.intro_email(@professional, @student).deliver
+    flash[:notice] = "Your email has been sent."
+    redirect_to profile_path(@profile.id)
   end
 
   private
