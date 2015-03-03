@@ -1,4 +1,4 @@
-class ProfilesController < ApplicationController
+class Admin::ProfilesController < ApplicationController
 
   before_action :authenticate_admin!
 

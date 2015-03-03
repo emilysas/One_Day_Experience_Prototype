@@ -5,8 +5,6 @@ Rails.application.routes.draw do
 
   root to: 'application#index'
   
-  resources :profiles, only: [:index, :show]
-  
   authenticated :professional do
     scope module: :professional do
       resource :profile, except: :index, as: 'my_profile'
@@ -40,6 +38,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :profiles, only: [:index, :show], constraints: { id: /\d+/ }
 
 
   get :sign_up_gate, to: 'application#sign_up_gate', as: :sign_up_gate
