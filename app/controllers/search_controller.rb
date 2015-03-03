@@ -1,11 +1,6 @@
 class SearchController < ApplicationController
   def search
     @query = params[:q]
-    if params[:q].nil? 
-      @profiles = []
-    else
-      @profiles = Profile.search(params[:q])
-    end
-
+    params[:q] ? @profiles = Profile.search(params[:q]) : @profiles = []
   end
 end

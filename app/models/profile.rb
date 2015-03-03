@@ -1,5 +1,5 @@
 require 'elasticsearch/model'
-
+# The Profile class is responsible for creating professional profiles that detail the information of each professional
 class Profile < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks

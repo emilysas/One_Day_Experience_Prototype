@@ -7,7 +7,7 @@ class Professional::ProfilesController < ApplicationController
 
   def create
     @profile = Profile.new(profile_params)
-    @profile.verified = false if @profile.verified.nil?
+    @profile.verified = false
     @profile.professional = current_professional
     if @profile.save 
       redirect_to root_path
