@@ -32,6 +32,7 @@ Rails.application.routes.draw do
         end
         member do
           post :verify, to: 'profiles#verify'
+          post :unverify, to: 'profiles#unverify'
         end
       end
     end

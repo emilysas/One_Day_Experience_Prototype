@@ -45,9 +45,11 @@
     <section class="edit">
       <% if @profile.verified == false %>
         <ul><%= link_to 'Verify', verify_profile_path(id: @profile.id), method: :post %></ul>
+      <% else %>
+        <ul><%= link_to "Unverify", unverify_profile_path(id: @profile.id), method: :post%></ul>
       <% end %>
         <ul><%= link_to "Edit", edit_profile_path %></ul>
-        <ul><%= link_to "Delete", my_profile_path, method: :delete%></ul>
+        
     </section>
   </section>
 </column>

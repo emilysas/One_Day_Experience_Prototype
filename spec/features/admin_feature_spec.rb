@@ -35,16 +35,22 @@ feature 'An Administrator' do
       expect(page).not_to have_content('Emily')
     end
 
-    xit 'can edit a profile' do
-    end
-
-    xit 'can delete a profile' do
-    end
-
     it 'can sign out' do
       sign_in
       click_link 'Sign out'
       expect(page).to have_content('Signed out successfully')
+    end
+
+    it 'can unverify a profile' do
+      sign_in
+      click_link 'profile_link'
+      click_link 'Verify'
+      visit profiles_path
+      click_link 'profile_link'
+      click_link 'Unverify'
+      visit unverified_profiles_path
+      save_and_open_page
+      expect(page).to have_content('Emily')
     end
 
   end
