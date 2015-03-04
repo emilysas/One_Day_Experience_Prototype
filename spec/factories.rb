@@ -1,15 +1,15 @@
-FactoryGirl.define do  factory :sector do
-    name "MyText"
-image ""
-  end
+FactoryGirl.define do  
 
+  factory :sector do
+    name "MyText"
+    image ""
+  end
 
   factory :favorite do
     student nil
     favorited nil
   end
 
-  
   factory :student do
     name "Jonny"
     email "student@example.com"
@@ -28,6 +28,7 @@ image ""
     professional
     job "Software Engineer"
     verified "true"
+    address "50-52 Commercial Street, London E1"
   end
 
   factory :admin do
