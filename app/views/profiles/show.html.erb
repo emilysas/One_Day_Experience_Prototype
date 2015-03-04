@@ -38,8 +38,16 @@
 	    <em>People in my profession, often have the following skills: </em></br>
 	    <p><%= @profile.req_skills %></p>
 	  </content>
+	  <script>
+		  function buildMap() {
+		    handler = Gmaps.build('Google');
+		    handler.buildMap({ internal: {id: 'map'}}, function(){
+			    markers = handler.addMarkers(<%= raw @hash.to_json %>);
+		  });
+	  };
+    </script>
 	  <div style='width: 800px;'>
-        <div id="one_marker" style='width: 800px; height: 400px;'></div>
+        <div id="map" style='width: 800px; height: 400px;'></div>
     </div>
 	  <section class="email">
 	    <% if current_student %>

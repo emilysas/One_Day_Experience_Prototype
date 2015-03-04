@@ -16,6 +16,12 @@ class ProfilesController < ApplicationController
 
   def show
     profile_verified
+    @profiles = Profile.all
+    @hash = Gmaps4rails.build_markers(@profiles) do |profile, marker|
+      marker.lat profile.latitude
+      marker.lng profile.longitude
+      marker.title profile.name
+    end
   end
 
   # For profiles that need verification
