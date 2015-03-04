@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
   authenticated :admin do
     scope module: :admin do
-      resources :profiles, only: [] do
+      resources :profiles, only: [:show, :edit, :update] do
         collection do
           get :unverified, to: 'profiles#unverified'
         end
