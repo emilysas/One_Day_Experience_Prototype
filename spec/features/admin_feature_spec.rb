@@ -13,11 +13,11 @@ feature 'An Administrator' do
     click_button 'Log in'
   end
 
+  before do 
+    @profile = Profile.create(name: "Emily", verified: false, job: "Doctor", motivation: "Cure people")
+  end
+
   context 'when signed in' do
-    
-    before do 
-      Profile.create(name: "Emily", verified: false, job: "Doctor")
-    end
 
     it 'cannot see a sign in button when already signed in' do
       sign_in
@@ -61,5 +61,36 @@ feature 'An Administrator' do
     end
 
   end
+
+  context 'when viewing unverified Professional profiles' do
+
+    it 'an administrator can select an unverified Professional profile, and view the full profile' do
+      sign_in
+      click_link 'profile_link'
+      expect(page).to have_content('Motivations: Cure people')
+    end
+
+    it 'an administrator can verify a Professional profile' do
+      sign_in
+      click_link 'profile_link'
+      click_link 'Verify'
+      expect(page).not_to have_content('Emily')
+    end
+
+    it 'an administrator can edit a Professional profile' do
+      sign_in
+      click_link 'profile_link'
+      click_link 'Edit'
+      fill_in "Name", with: "Bob"
+      click_button 'Update Profile'
+      expect(page).to have_content('Bob') 
+    end
+
+  end
   
 end
+
+
+
+
+

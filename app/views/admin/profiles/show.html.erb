@@ -1,0 +1,56 @@
+<tag id="darkPage"><tag>
+
+<column class="col-sacrificial span_1_of_16 dark">
+</column>
+
+<column class="col--profile-image span_5_of_16 dark">
+  <feature class="photo_field vertical_align">
+    <div align="middle" id="photo-field-link">
+      <%= image_tag @profile.image.url(:medium) %>
+    </div>
+  </feature>
+</column>
+
+<column class="col-sacrificial span_10_of_16 ">
+  <section class="feature-description vertical_align fixed-height">
+    <summaryHead class="professional_info">
+      <h4><%= @profile.name %></h4>
+      <h5>
+        <%= @profile.company %>
+        <span class="sub">
+          Located at: <%= @profile.work_address %>
+        </span>
+      </h5>
+    </summaryHead>
+    <content class="profile-full_info">
+      <em>Summary: </em>
+      <p><%= @profile.info %></p>
+      <em>More about the day: </em></br>
+      <p><%= @profile.full_description %></p>
+      <em>What you can expect on your day with us: </em></br>
+      <p><%= @profile.expectations %></p>
+      <em>Required qualifications: </em><br>
+      <p><%= @profile.req_quals %></p>
+      <em>Required skills: </em></br>
+      <p><%= @profile.req_skills %></p>
+      <em>Academic background: </em></br>
+      <p><%= @profile.academic_back %></p>
+      <em>Motivations: </em></br>
+      <p><%= @profile.motivation %></p>
+      <em>Suitability: </em></br>
+      <p><%= @profile.suitability %></p>
+      
+    </content>
+ 
+    <section class="edit">
+      <% if @profile.verified == false %>
+        <ul><%= link_to 'Verify', verify_profile_path(id: @profile.id), method: :post %></ul>
+      <% end %>
+        <ul><%= link_to "Edit", edit_profile_path %></ul>
+        <ul><%= link_to "Delete", my_profile_path, method: :delete%></ul>
+    </section>
+  </section>
+</column>
+
+<section class="profile_container">
+  
