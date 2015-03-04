@@ -6,6 +6,7 @@ class Student::ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
     @professional = Professional.find(@profile.professional_id)
     @student = current_student
+    @visit = Visit.new
     post_email(@professional, @student)
     redirect_to profile_path(@profile.id)
   end
