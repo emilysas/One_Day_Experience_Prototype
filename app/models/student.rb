@@ -4,6 +4,7 @@ class Student < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :favorites
   has_many :favorite_profiles, through: :favorites, source: :favorited, source_type: 'Profile'
+  has_many :visits, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
