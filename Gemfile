@@ -17,6 +17,8 @@ gem 'omniauth-facebook'
 gem 'paperclip', '~> 4.2'
 gem 'will_paginate', '~> 3.0.6'
 gem 'aws-sdk', '< 2.0'
+gem 'gmaps4rails'
+gem 'underscore-rails'
 
 group :development, :test do
   gem 'byebug'
