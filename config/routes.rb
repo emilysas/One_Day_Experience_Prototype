@@ -44,4 +44,10 @@ Rails.application.routes.draw do
 
   get 'search', to: 'search#search'
 
-end
+  Gmaps::Application.routes.draw do
+    resources :profiles
+    root 'application#index'
+  end
+end  
+
+

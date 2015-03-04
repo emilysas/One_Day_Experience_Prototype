@@ -19,6 +19,7 @@ gem 'will_paginate', '~> 3.0.6'
 gem 'aws-sdk', '< 2.0'
 gem 'gmaps4rails'
 gem 'underscore-rails'
+gem 'geocoder'
 
 group :development, :test do
   gem 'byebug'
