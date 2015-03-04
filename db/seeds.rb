@@ -19,3 +19,17 @@ profiles = Profile.create([
   {name: "Huy Le", image: File.open(Rails.root+'public/images/huyle.jpg'),info: "Baking the best bread in town", full_description: "I'm an award-winning baker, making sourdough bread, pizzas, and bagels. I combine modern techniques with those passed down from previous generations, to achieve the perfect loaf", work_address: "Bagel End, Ciabattaton", company: "The Loaf" , professional_id: 4 , job: "Baker", req_quals: "None", req_skills: "Good attention to detail, a love of food" , expectations: "Come and see what it's like to be a star baker, by the end of the day you'll be able to make your own delicious bread, pizza or bagels" }, 
   {name: "Jonny Lakin", image: File.open(Rails.root+'public/images/jonny.jpg'), info: "Knows everything there is to know about bikes" , full_description: "I've long had a passion for bikes, and spend my time repairing broken bicyles as well as making custom-built bikes for discerning customers", work_address: "Spoke St, Wheelieville" , company: "Steer Me Right", professional_id: 5, job: "Mechanic", req_quals: "None", req_skills: "Good with hands, good customer service, an interest in understanding how things work", expectations: "You'll learn the basics of how to make and repair bicycles, experience first class customer service, and maybe help design a new bicycle" }
   ])
+sectors = Sector.create([
+  {name: "Business", image: File.open(Rails.root+'')},
+  {name: "Charity", image: File.open(Rails.root+'')},
+  {name: "Creative", image: File.open(Rails.root+'')},
+  {name: "Government", image: File.open(Rails.root+'')},
+  {name: "Legal", image: File.open(Rails.root+'')},
+  {name: "Leisure", image: File.open(Rails.root+'')},
+  {name: "Media", image: File.open(Rails.root+'')},
+  {name: "Medicine", image: File.open(Rails.root+'')},
+  {name: "Sport", image: File.open(Rails.root+'')},
+  {name: "Technology", image: File.open(Rails.root+'')},
+  {name: "Trade", image: File.open(Rails.root+'')},
+  {name: "Other", image: File.open(Rails.root+'')}
+  ])

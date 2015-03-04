@@ -1,3 +1,4 @@
+# The Student class is responsible for creating users who will be the consumers of the site
 class Student < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -12,8 +13,7 @@ class Student < ActiveRecord::Base
     where(provider: auth.provider, uid: auth.uid).first_or_create do |student|
       student.email = auth.info.email
       student.password = Devise.friendly_token[0,20]
-      # student.name = auth.info.name   # assuming the user model has a name
-      # student.image = auth.info.image # assuming the user model has an image
+      # student.name = auth.info.name
     end
   end
 

@@ -1,3 +1,4 @@
+# The Profiles Controller is responsible for showing all of the professionals profiles to users who are not yet signed in
 class ProfilesController < ApplicationController
  
   def index

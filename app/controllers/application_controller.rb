@@ -1,3 +1,4 @@
+# The Application Controller is responsible for determining the route taken after sign in
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.

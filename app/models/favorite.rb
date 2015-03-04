@@ -1,3 +1,4 @@
+# The Favorite class is responsible for allowing students to 'favorite' profiles
 class Favorite < ActiveRecord::Base
   belongs_to :student
   belongs_to :favorited, polymorphic: true

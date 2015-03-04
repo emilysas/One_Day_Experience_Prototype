@@ -1,4 +1,8 @@
-FactoryGirl.define do
+FactoryGirl.define do  factory :sector do
+    name "MyText"
+image ""
+  end
+
 
   factory :favorite do
     student nil

@@ -1,3 +1,4 @@
+# The Registrations Controller is responsible for redirecting professionls to their profile pages after sign up
 class RegistrationsController < Devise::RegistrationsController
   protected
 

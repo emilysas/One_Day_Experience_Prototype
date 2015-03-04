@@ -1,10 +1,11 @@
 require 'elasticsearch/model'
-
+# The Profile class is responsible for creating professional profiles that detail the information of each professional
 class Profile < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
   belongs_to :professional
+  belongs_to :sector
 
   validates_presence_of :name, message: "- Please provide your name"
   validates_presence_of :job, message: "- Please select your profession"
