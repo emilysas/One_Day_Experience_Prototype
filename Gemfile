@@ -31,6 +31,7 @@ group :development, :test do
   gem 'warden', '~> 1.2.3'
   gem 'reek'
   gem "codeclimate-test-reporter", require: nil
+  gem 'launchy'
 end
 
 # For search feature:

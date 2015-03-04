@@ -5,6 +5,11 @@
 
 This is a project for [One Day from openIDEO](https://openideo.com/challenge/youth-employment-pathways/ideas/one-day).
 
+###Index Of Contents
+- <a href="#team-members">Team Members</a>
+- <a href="#technologies">Technologies</a>
+
+
 ##What does it do?
 It connects young people searching for a job inspiration with professionals that are ready to share their passion for a one-day in-work experience
 
@@ -45,3 +50,21 @@ Failure to do so will result in you not being able to store any photo.
 * To use the facebook login (you can use yours if you want to run this): 
 `FACEBOOK_APP_ID`  
 `FACEBOOK_APP_SECRET`
+
+### Technologies
+- Rails, Ruby, Rspec/Capybara
+- Devise
+- Javascript, JQuery
+- HTML, CSS
+- Google Maps API & Gmaps.js
+
+[](#team)<a name="team"></a>
+### Team Members
+- [Emily Sas](https://github.com/emilysas)
+- [Sanda Golcea](https://github.com/sandagolcea)
+- [Luke Clelow](https://github.com/lukeclewlow)
+- [Johnathan Lakin](https://github.com/jjlakin)
+- [Huy Le](https://github.com/tekhuy)
+
+### Still to do:
+- 

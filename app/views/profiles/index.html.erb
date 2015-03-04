@@ -4,11 +4,10 @@
   <div class="container">
 	  <% @profiles.each do |profile| %>
 	    <section class="new-card-form span_4_of_16">
-		    <a href="/profiles/<%= profile.id %>"><h5> <%= image_tag profile.image.url(:thumb) %> </h5></a>
+		    <a href="/profiles/<%= profile.id %>" id="profile_link"><h5> <%= image_tag profile.image.url(:thumb) %> </h5></a>
 		    <h5> <%= profile.name %> </h5>
 		    <h5> <%= profile.company %> </h5>
 		    <h5> <%= profile.info %> </h5>
-		    <h5> <%= profile.verified %> </h5>
 	    </section>
 	  <% end %>
   </div>
