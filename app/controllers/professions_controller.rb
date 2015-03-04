@@ -1,6 +1,6 @@
 class ProfessionsController < ApplicationController
   def index
-    @professions = Profession.all
+    @profiles = Profile.where(:verified=>false)
   end
 
   def show

@@ -14,7 +14,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = Profile.find params[:id]
+    profile_verified
   end
 
   # For profiles that need verification
@@ -27,6 +27,18 @@ class ProfilesController < ApplicationController
     @profile.verified = true
     @profile.save
     redirect_to :back
+  end
+
+private
+
+  def profile_verified
+    possible_profile = Profile.find(params[:id])
+    if possible_profile.verified
+      @profile = possible_profile
+    else
+      redirect_to '/'
+      flash[:notice] = "This profile has not yet been verified"
+    end
   end
 
 end
