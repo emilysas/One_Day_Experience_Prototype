@@ -1,9 +1,0 @@
-<h5><%= @profession.role %>s: </h5>
-<% buddies = Profile.where(:profession_id => @profession.id) %>
-<% if (buddies.length == 0) %>
-  <p>We have found no person with this profession.</p>
-<%end%>
-<% buddies.each do |buddy| %>
-  <%= image_tag buddy.image.url(:thumb) %>
-  <p><%= buddy.name %></p>
-<% end %>
