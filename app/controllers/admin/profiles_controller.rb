@@ -14,6 +14,13 @@ class Admin::ProfilesController < ApplicationController
     redirect_to unverified_profiles_path
   end
 
+  def unverify
+    @profile = Profile.find(params[:id])
+    @profile.verified = false
+    @profile.save
+    redirect_to :back
+  end
+
   def show
     @profile = Profile.find(params[:id])
   end
