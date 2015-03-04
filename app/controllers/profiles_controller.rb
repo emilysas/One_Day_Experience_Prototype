@@ -20,9 +20,21 @@ class ProfilesController < ApplicationController
   end
 
   def map
-    find_all_marker
+    find_all_markers
   end
-  
+
+private
+
+  def profile_verified
+    possible_profile = Profile.find(params[:id])
+    if possible_profile.verified
+      @profile = possible_profile
+    else
+      redirect_to '/'
+      flash[:notice] = "This profile has not yet been verified"
+    end
+  end
+
   def find_marker(profile)
     @hash = Gmaps4rails.build_markers(profile) do |profile, marker|
       marker.lat profile.latitude
@@ -39,28 +51,4 @@ class ProfilesController < ApplicationController
       marker.title profile.name
     end
   end
-  # For profiles that need verification
-  def verification
-    @profiles = Profile.where(:verified=>false)
-  end
-
-  def verify
-    @profile = Profile.find(params[:id])
-    @profile.verified = true
-    @profile.save
-    redirect_to :back
-  end
-
-private
-
-  def profile_verified
-    possible_profile = Profile.find(params[:id])
-    if possible_profile.verified
-      @profile = possible_profile
-    else
-      redirect_to '/'
-      flash[:notice] = "This profile has not yet been verified"
-    end
-  end
-
 end

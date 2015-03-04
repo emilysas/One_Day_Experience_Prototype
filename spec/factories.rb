@@ -28,6 +28,7 @@ image ""
     professional
     job "Software Engineer"
     verified "true"
+    address "50-52 Commercial Street, London E1"
   end
 
   factory :admin do

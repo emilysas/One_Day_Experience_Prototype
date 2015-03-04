@@ -34,7 +34,7 @@ feature 'Profiles' do
       fill_in "Name", with: "Emily"
       fill_in "Job", with: "Software Engineer"
       fill_in "Company", with: "Makers Academy"
-      fill_in "Work address", with: "Commercial Street, London"
+      fill_in "Address", with: "Commercial Street, London"
       click_button 'Create Profile'
       expect(Profile.last.company).to eq "Makers Academy"
     end
@@ -57,7 +57,7 @@ feature 'Profiles' do
     it "should not allow a professional to create a profile unless the 'name' field is filled in" do
       fill_in "Job", with: "Software Engineer"
       fill_in "Company", with: "Makers Academy"
-      fill_in "Work address", with: "Commercial Street, London"
+      fill_in "Address", with: "Commercial Street, London"
       click_button 'Create Profile'
       expect(page).to have_content('Please provide your name')
     end
@@ -65,7 +65,7 @@ feature 'Profiles' do
     it "should not allow a professional to create a profile unless the 'profession' field is filled in" do    
       fill_in "Name", with: "Emily"
       fill_in "Company", with: "Makers Academy"
-      fill_in "Work address", with: "Commercial Street, London"
+      fill_in "Address", with: "Commercial Street, London"
       click_button 'Create Profile'
       expect(page).to have_content("Please select your profession")
     end
@@ -147,6 +147,8 @@ feature 'Profiles' do
   end
 
   context 'without being a signed in' do
+
+    let(:profile) {create :profile, verified: false}
     
     it "cannot create a profile" do
       expect{visit new_my_profile_path}.to raise_error( ActionController::RoutingError)
@@ -156,18 +158,13 @@ feature 'Profiles' do
       expect{visit my_profile_path}.to raise_error( ActionController::RoutingError)
     end
 
-    before do 
-      Profile.create(name: "Emily", verified: false, job: "Doctor")
-    end
-
     it "cannot see unverified profiles on the profile index page" do
-      visit '/profiles'
+      visit profiles_path
       expect(page).not_to have_content("Emily")
     end
 
     it 'cannot go directly to a route for an unverified profile' do
-      @profile = Profile.last
-      visit "/profiles/" + "#{@profile.id}"
+      visit profile_path(profile)
       expect(page).to have_content('This profile has not yet been verified')
       expect(current_path).to eq('/')
     end
