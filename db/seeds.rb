@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+admin = Admin.create({email: 'admin@admin.com', password: 'password', password_confirmation: 'password'})
+
 professionals = Professional.create([{email: 'test1@test.com', password: 'test1234', password_confirmation: 'test1234'}, 
   {email: 'test2@test.com', password: 'test1234', password_confirmation: 'test1234'}, 
   {email: 'test3@test.com', password: 'test1234', password_confirmation: 'test1234'}, 
@@ -20,16 +22,16 @@ profiles = Profile.create([
   {name: "Jonny Lakin", image: File.open(Rails.root+'public/images/jonny.jpg'), info: "Knows everything there is to know about bikes" , full_description: "I've long had a passion for bikes, and spend my time repairing broken bicyles as well as making custom-built bikes for discerning customers", work_address: "Spoke St, Wheelieville" , company: "Steer Me Right", professional_id: 5, job: "Mechanic", req_quals: "None", req_skills: "Good with hands, good customer service, an interest in understanding how things work", expectations: "You'll learn the basics of how to make and repair bicycles, experience first class customer service, and maybe help design a new bicycle" }
   ])
 sectors = Sector.create([
-  {name: "Business", image: File.open(Rails.root+'')},
-  {name: "Charity", image: File.open(Rails.root+'')},
-  {name: "Creative", image: File.open(Rails.root+'')},
-  {name: "Government", image: File.open(Rails.root+'')},
-  {name: "Legal", image: File.open(Rails.root+'')},
-  {name: "Leisure", image: File.open(Rails.root+'')},
-  {name: "Media", image: File.open(Rails.root+'')},
-  {name: "Medicine", image: File.open(Rails.root+'')},
-  {name: "Sport", image: File.open(Rails.root+'')},
-  {name: "Technology", image: File.open(Rails.root+'')},
-  {name: "Trade", image: File.open(Rails.root+'')},
-  {name: "Other", image: File.open(Rails.root+'')}
+  {name: "Business", image: File.open(Rails.root+'public/images/sectors/business.jpg')},
+  {name: "Charity", image: File.open(Rails.root+'public/images/sectors/charity.jpg')},
+  {name: "Creative", image: File.open(Rails.root+'public/images/sectors/creative.jpg')},
+  {name: "Government", image: File.open(Rails.root+'public/images/sectors/government.jpg')},
+  {name: "Legal", image: File.open(Rails.root+'public/images/sectors/legal.jpg')},
+  {name: "Leisure", image: File.open(Rails.root+'public/images/sectors/leisure.jpg')},
+  {name: "Media", image: File.open(Rails.root+'public/images/sectors/media.jpg')},
+  {name: "Medicine", image: File.open(Rails.root+'public/images/sectors/medicine.jpg')},
+  {name: "Sport", image: File.open(Rails.root+'public/images/sectors/sport.jpg')},
+  {name: "Technology", image: File.open(Rails.root+'public/images/sectors/technology.jpg')},
+  {name: "Trade", image: File.open(Rails.root+'public/images/sectors/plane.jpg')},
+  {name: "Other", image: File.open(Rails.root+'public/images/sectors/other.jpg')}
   ])
