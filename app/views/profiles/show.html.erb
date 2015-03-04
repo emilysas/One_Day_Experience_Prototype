@@ -1,5 +1,10 @@
 <% content_for :script do %>
-	<script>$(document).ready(buildMap);</script>
+	<script>
+    var hash = <%= raw @hash.to_json %>;
+	  $(document).ready(function(){
+	  	buildMap(hash);
+	  });
+	</script>
 <% end %>
 
 <tag id="darkPage"><tag>
@@ -38,14 +43,6 @@
 	    <em>People in my profession, often have the following skills: </em></br>
 	    <p><%= @profile.req_skills %></p>
 	  </content>
-	  <script>
-		  function buildMap() {
-		    handler = Gmaps.build('Google');
-		    handler.buildMap({ internal: {id: 'map'}}, function(){
-			    markers = handler.addMarkers(<%= raw @hash.to_json %>);
-		  });
-	  };
-    </script>
 	  <div style='width: 800px;'>
         <div id="map" style='width: 800px; height: 400px;'></div>
     </div>

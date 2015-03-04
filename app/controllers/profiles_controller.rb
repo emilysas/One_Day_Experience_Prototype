@@ -16,6 +16,10 @@ class ProfilesController < ApplicationController
 
   def show
     profile_verified
+    geocode
+  end
+  
+  def geocode
     @profiles = Profile.all
     @hash = Gmaps4rails.build_markers(@profiles) do |profile, marker|
       marker.lat profile.latitude
@@ -23,7 +27,6 @@ class ProfilesController < ApplicationController
       marker.title profile.name
     end
   end
-
   # For profiles that need verification
   def verification
     @profiles = Profile.where(:verified=>false)
