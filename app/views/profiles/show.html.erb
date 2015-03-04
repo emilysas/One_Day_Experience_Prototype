@@ -38,9 +38,9 @@
 	    <em>People in my profession, often have the following skills: </em></br>
 	    <p><%= @profile.req_skills %></p>
 	  </content>
-	  <div style='width: 800px;'>
-        <div id="map" style='width: 800px; height: 400px;'></div>
-    </div>
+		  <div style='width: 800px;'>
+		    <div id="map" style='width: 800px; height: 400px;'></div>
+		  </div>
 	  <section class="email">
 	    <% if current_student %>
 	      <%= link_to "Register Interest", send_email_profile_path(@profile) %>
