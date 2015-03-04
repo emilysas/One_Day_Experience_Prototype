@@ -160,9 +160,16 @@ feature 'Profiles' do
       Profile.create(name: "Emily", verified: false, job: "Doctor")
     end
 
-    it "cannot see unverified profiles" do
+    it "cannot see unverified profiles on the profile index page" do
       visit '/profiles'
       expect(page).not_to have_content("Emily")
+    end
+
+    it 'cannot go directly to a route for an unverified profile' do
+      @profile = Profile.last
+      visit "/profiles/" + "#{@profile.id}"
+      expect(page).to have_content('This profile has not yet been verified')
+      expect(current_path).to eq('/')
     end
 
   end
