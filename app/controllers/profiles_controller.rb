@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
  
   def index
     @profiles = Profile.where(:verified=>true)
-    @result = @profiles.paginate(:page => params[:page], :per_page => 3).select([:id, :name, :company, :info, :job, :image_file_name])
+    @result = @profiles.paginate(:page => params[:page], :per_page => 3).select([:id, :name, :company, :info, :job, :image_file_name, :sector_id])
     respond_to do |format|
       format.html { 
         
