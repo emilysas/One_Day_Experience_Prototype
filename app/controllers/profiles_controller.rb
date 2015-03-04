@@ -15,9 +15,30 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    profile_verified
+    profile = profile_verified
+    find_marker(profile)
   end
 
+  def map
+    find_all_marker
+  end
+  
+  def find_marker(profile)
+    @hash = Gmaps4rails.build_markers(profile) do |profile, marker|
+      marker.lat profile.latitude
+      marker.lng profile.longitude
+      marker.title profile.name
+    end
+  end
+
+  def find_all_markers
+    @profiles = Profile.all
+    @hash = Gmaps4rails.build_markers(@profiles) do |profile, marker|
+      marker.lat profile.latitude
+      marker.lng profile.longitude
+      marker.title profile.name
+    end
+  end
   # For profiles that need verification
   def verification
     @profiles = Profile.where(:verified=>false)
