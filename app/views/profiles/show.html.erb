@@ -1,3 +1,7 @@
+<% content_for :script do %>
+	<script>$(document).ready(buildMap);</script>
+<% end %>
+
 <tag id="darkPage"><tag>
 
 <column class="col-sacrificial span_1_of_16 dark">
@@ -18,7 +22,7 @@
 	    <h5>
 	    	<%= @profile.company %>
 	    	<span class="sub">
-	    		Located at: <%= @profile.work_address %>
+	    		Located at: <%= @profile.address %>
 	    	</span>
 	    </h5>
 	  </summaryHead>
@@ -33,8 +37,10 @@
 	    <p><%= @profile.req_quals %></p>
 	    <em>People in my profession, often have the following skills: </em></br>
 	    <p><%= @profile.req_skills %></p>
-	    
 	  </content>
+		  <div style='width: 800px;'>
+		    <div id="map" style='width: 800px; height: 400px;'></div>
+		  </div>
 	  <section class="email">
 	    <% if current_student %>
 	      <%= link_to "Register Interest", send_email_profile_path(@profile) %>
@@ -58,4 +64,16 @@
 </column>
 
 <section class="profile_container">
+
+<script>
+function buildMap() {
+  var handler = Gmaps.build('Google');
+  handler.buildMap({ internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(<%= raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+};
+</script>
+
   
