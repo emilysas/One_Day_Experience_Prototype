@@ -1,4 +1,4 @@
-$(document).ready(function(){
+function buildMap() {
 	handler = Gmaps.build('Google');
 	handler.buildMap({ internal: {id: 'one_marker'}}, function(){
 	  markers = handler.addMarkers([
@@ -14,4 +14,4 @@ $(document).ready(function(){
 	    }
 	  ]);
 	});
-});
+};
