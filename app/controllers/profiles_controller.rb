@@ -15,6 +15,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    @visit = Visit.new
     profile_verified
   end
 
