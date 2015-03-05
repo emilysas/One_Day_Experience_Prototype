@@ -1,4 +1,10 @@
-FactoryGirl.define do  factory :sector do
+FactoryGirl.define do  factory :visit do
+    student nil
+profile nil
+date "2015-03-03"
+status "MyString"
+  end
+  factory :sector do
     name "MyText"
 image ""
   end
