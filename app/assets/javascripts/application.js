@@ -15,3 +15,5 @@
 //= require jquery-ui/datepicker
 //= require turbolinks
 //= require_tree .
+//= require underscore
+//= require gmaps/google

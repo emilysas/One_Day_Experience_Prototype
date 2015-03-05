@@ -1,14 +1,39 @@
+<% content_for :script do %>
+	<script>$(document).ready(buildMap);</script>
+<% end %>
 <column class="col-sacrificial1 span_1_of_16"></column>
+
+<column class="col short span_14_of_16">
+
+<div style='width: 100%;'>
+    <div id="map" class="profiles_map" ></div>
+</div>
 
 <grid>
   <div class="container">
 	  <% @profiles.each do |profile| %>
-	    <section class="new-card-form span_4_of_16">
+	    <section class="new-card-form">
 		    <a href="/profiles/<%= profile.id %>" id="profile_link"><h5> <%= image_tag profile.image.url(:thumb) %> </h5></a>
-		    <h5> <%= profile.name %> </h5>
-		    <h5> <%= profile.company %> </h5>
-		    <h5> <%= profile.info %> </h5>
+		    <h5> <%= profile.name %>, <span class="sub"><%= profile.company %> </span></h5>
+		   
+		    <p> <%= profile.info %> </p>
 	    </section>
 	  <% end %>
   </div>
 </grid>
+
+</column>
+
+<column class="col-sacrificial1 span_1_of_16"></column>
+<script>
+	function buildMap() {
+	  var handler = Gmaps.build('Google');
+	  handler.buildMap({ internal: {id: 'map'}}, function(){
+	    markers = handler.addMarkers(<%= raw @hash.to_json %>);
+	    handler.bounds.extendWith(markers);
+	    handler.getMap().setZoom(15); 
+	    handler.fitMapToBounds();
+	  });
+	};
+</script>
+

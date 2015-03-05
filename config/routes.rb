@@ -43,8 +43,11 @@ Rails.application.routes.draw do
 
   get :sign_up_gate, to: 'application#sign_up_gate', as: :sign_up_gate
   get :sign_in_gate, to: 'application#sign_in_gate', as: :sign_in_gate
+  get :map, to: 'profiles#map'
+  get :search, to: 'search#search'
+  get :visits, to: 'visits#index'
 
-  get 'search', to: 'search#search'
-  get 'visits', to: 'visits#index'
+end  
 
-end
+
+
