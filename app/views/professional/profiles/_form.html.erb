@@ -21,6 +21,8 @@
   <section class="col span_7_of_16">
       <h5><%= f.label :name%></h5>
       <%= f.text_field :name, id:'text_box_sm', cols:10, rows: 2   %><br>
+      <h5><%= f.label :sector%></h5>
+      <%= f.collection_select :sector_id, Sector.order(:name),:id,:name, include_blank: true %>
       <h5><%= f.label :job %></h5>
       <%= f.text_field :job, id:'text_box_sm', cols:10, rows: 2 %><br>
       <h5><%= f.label :company %></h5>
