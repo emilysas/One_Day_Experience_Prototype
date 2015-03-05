@@ -11,18 +11,18 @@ professionals = Professional.create([{email: 'test1@test.com', password: 'test12
   ])
 
 sectors = Sector.create([
-  {name: "Business", image: File.open(Rails.root+'public/images/sectors/business.jpg')},
-  {name: "Charity", image: File.open(Rails.root+'public/images/sectors/charity.jpg')},
-  {name: "Creative", image: File.open(Rails.root+'public/images/sectors/creative.jpg')},
-  {name: "Government", image: File.open(Rails.root+'public/images/sectors/government.jpg')},
-  {name: "Legal", image: File.open(Rails.root+'public/images/sectors/legal.jpg')},
-  {name: "Leisure", image: File.open(Rails.root+'public/images/sectors/leisure.jpg')},
-  {name: "Media", image: File.open(Rails.root+'public/images/sectors/media.jpg')},
-  {name: "Medicine", image: File.open(Rails.root+'public/images/sectors/medicine.jpg')},
-  {name: "Sport", image: File.open(Rails.root+'public/images/sectors/sport.jpg')},
-  {name: "Technology", image: File.open(Rails.root+'public/images/sectors/technology.jpg')},
-  {name: "Trade", image: File.open(Rails.root+'public/images/sectors/plane.jpg')},
-  {name: "Other", image: File.open(Rails.root+'public/images/sectors/other.jpg')}
+  {name: "Business", image: File.open(Rails.root+'public/images/1.jpg')},
+  {name: "Charity", image: File.open(Rails.root+'public/images/2.jpg')},
+  {name: "Creative", image: File.open(Rails.root+'public/images/3.jpg')},
+  {name: "Government", image: File.open(Rails.root+'public/images/4.jpg')},
+  {name: "Legal", image: File.open(Rails.root+'public/images/5.jpg')},
+  {name: "Leisure", image: File.open(Rails.root+'public/images/6.jpg')},
+  {name: "Media", image: File.open(Rails.root+'public/images/7.jpg')},
+  {name: "Medicine", image: File.open(Rails.root+'public/images/8.jpg')},
+  {name: "Sport", image: File.open(Rails.root+'public/images/9.jpg')},
+  {name: "Technology", image: File.open(Rails.root+'public/images/10.jpg')},
+  {name: "Trade", image: File.open(Rails.root+'public/images/11.jpg')},
+  {name: "Other", image: File.open(Rails.root+'public/images/12.jpg')}
   ])
 
 profiles = Profile.create([
