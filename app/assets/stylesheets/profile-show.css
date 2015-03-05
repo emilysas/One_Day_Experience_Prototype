@@ -3,6 +3,10 @@
 	position: relative;
 }
 
+#profile-pic:hover {
+	opacity: 0.9;
+}
+
 [id*='profile-'] {
 	margin: 0 auto;
 	

@@ -54,7 +54,12 @@ img#field-img {
 	margin-right: auto;
 	/*padding-bottom: 10%;*/
 	z-index: -1;
+	opacity: 1;
+	transition: opacity 0.5s ease;
+}
 
+img#field-img:hover {
+	opacity: 0.7;
 }
 
 section.fixed-height {
@@ -75,7 +80,6 @@ section.fixed-height {
 }
 
 #index-feature-description {
-
 	display: block;
 	position: absolute;
 	width:100%;
@@ -85,6 +89,11 @@ section.fixed-height {
 	margin-left: auto;
 	margin-right: auto;
 	padding: 8%;
-	background-color: #1C1E1D;
+	background-color: rgba(28, 30, 29, 0.9);
+	transition: background-color 0.5s ease;
+}
+
+#index-feature-description:hover {
+	background-color: rgba(28, 30, 29, 0.6);
 }
 
