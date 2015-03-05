@@ -36,6 +36,8 @@ FactoryGirl.define do
     job "Software Engineer"
     verified "true"
     address "50-52 Commercial Street, London E1"
+    latitude 51.5173816
+    longitude -0.0735848
   end
 
   factory :admin do
