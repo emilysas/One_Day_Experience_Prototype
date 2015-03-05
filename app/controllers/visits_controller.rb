@@ -1,3 +1,4 @@
+# The Visits Controller is responsible for arranging a time that a student can visit a professional
 class VisitsController < ApplicationController
   def index
     @visits = Visit.all
@@ -10,9 +11,10 @@ class VisitsController < ApplicationController
   end
 
   def create
-    @v = params[:visit];
-    @visit = Visit.create(student_id: @v[:student_id], profile_id: @v[:profile_id], date: @v[:date], status: @v[:status]);
-    redirect_to "/profiles/#{@v[:profile_id]}"
+    @temp = params[:visit];
+    @id = @temp[:profile_id]
+    @visit = Visit.create(student_id: @temp[:student_id], profile_id: @id, date: @temp[:date], status: @temp[:status]);
+    redirect_to "/profiles/#{@id}"
   end
 
   def show

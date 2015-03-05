@@ -1,0 +1,85 @@
+<% if @query == nil %>
+
+  <column class="col-sacrificial1 span_1_of_16">
+  </column>
+  <column class="col-sacrificial1 span_3_of_16">
+  </column>
+  <column class="col-sacrificial1 span_1_of_16">
+
+  </column>
+
+  <column class="col-sacrificial span_6_of_16" >
+    
+    <searchcontainer id="searchcontainer"> 
+      <img id='search-examples' src="/images/searchWords.png" />
+
+      <profile id="search-box-area" class="vertical_align dark">
+        <%= form_for search_path, method: :get do |f| %>
+          <p id="search_box">
+          <%= f.label "search_for", :id=>"search_for"%>
+          <%= text_field_tag :q, params[:q], :class=>"search_text", :placeholder => "Mechanic..." %>
+          <%= submit_tag "Go", name: nil, id: "submit_search" %>
+        </p>
+        <% end %>
+      </profile>
+    </searchcontainer>
+  </column>
+
+  <column class="col-sacrificial span_5_of_16 ">
+
+<% end %>
+
+<% if @query != nil %>  
+
+  <% if @profiles != nil && @profiles.size <= 0 %>
+
+    <column class="col-sacrificial1 span_1_of_16">
+    </column>
+    <column class="col-sacrificial1 span_3_of_16">
+    </column>
+    <column class="col-sacrificial1 span_1_of_16">
+    </column>
+
+    <column class="col-sacrificial span_6_of_16 ">
+
+      <profile id="search-box-area" class="vertical_align dark">
+        <%= form_for search_path, method: :get do |f| %>
+          <p id="search_box">
+          <%= f.label "search_for", :id=>"search_for"%>
+          <%= text_field_tag :q, params[:q], :class=>"search_text", :placeholder => "Mechanic..." %>
+          <%= submit_tag "Go", name: nil, id: "submit_search" %>
+        </p>
+        <% end %>
+        <p id="failed_search">There are no profiles that match your search.</p>
+      </profile>
+
+    </column>
+
+    <column class="col-sacrificial span_5_of_16 ">
+      
+   
+
+  <% else %>
+      
+    <column class="col-sacrificial1 span_1_of_16"></column>
+
+    <column class="col short span_14_of_16">
+
+    <div style='width: 100%;'>
+        <div id="map" class="profiles_map" ></div>
+    </div>
+
+    <grid>
+      <div class="container">
+        <% @profiles.each do |profile| %>
+          
+            <a href="/profiles/<%= profile.id %>" id="profile_link"><section class="new-card-form" id="search-results-box"><h5><%= profile.name %></h5>
+            <h5><span class="sub"><%= profile.company %> </span></h5>
+            <p> <%= profile.info %> </p>
+          </section></a>
+        <% end %>
+      </div>
+    </grid>
+<% end %>
+<% end %>
+

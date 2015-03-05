@@ -1,4 +1,4 @@
-	
+
 
 $(document).ready(function(){
 
@@ -18,11 +18,13 @@ $(document).ready(function(){
     
 	}	
 
+
 	var startMargin = $('.jsHandle').css('margin-top');
 	$('#jsLocationButton').hover(function(){				
 		$('.jsHandle').css({marginTop:startMargin}).animate({marginTop: 0},1000)
 	}, function() {	
 		$('.jsHandle').css({marginTop: 0}).animate({marginTop: startMargin},1000)
+
 	});
 
 });

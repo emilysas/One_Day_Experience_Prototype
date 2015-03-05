@@ -1,6 +1,8 @@
+require 'profile_helper'
 # The Admin Profiles Controller is responsible for allowing an admin user to verify profiles
 class Admin::ProfilesController < ApplicationController
-
+  
+  include ProfileHelper
   before_action :authenticate_admin!
 
   def unverified
@@ -35,9 +37,5 @@ class Admin::ProfilesController < ApplicationController
     redirect_to profile_path(@profile)
   end
 
-  def profile_params
-    params.require(:profile).permit(:name, :image, :info, :company, :full_description, :work_address, 
-      :job, :motivation, :suitability, :academic_back, :req_quals, :req_skills, :expectations)
-  end
 
 end

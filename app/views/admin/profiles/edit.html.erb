@@ -1,5 +1,7 @@
 <section class="col-sacrificial span_1_of_16"></section>
 <section class="col-sacrificial span_1_of_16"></section>
+
+<section class="col span_13_of_16">
 <% if @profile.errors.any? %>
   <div class="" id="error_explanation">
     <h4><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h4>
@@ -11,31 +13,50 @@
     </ul>
   </div>
 <% end %>
-<%= form_for @profile, html: {multipart: true} do |f| %>
-  <%= f.file_field :image %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :job %>
-  <%= f.text_field :job %>
-  <%= f.label :company %>
-  <%= f.text_field :company %>
-  <%= f.label :address %>
-  <%= f.text_field :address %><br></br>
-  <%= f.label "Please provide details of your Academic Background" %><br></br>
-  <%= f.text_field :academic_back %><br></br>
-  <%= f.label "Are there any required qualifications for your role?" %><br></br>
-  <%= f.text_field :req_quals %><br></br>
-  <%= f.label "What skills are required in this role?" %><br></br>
-  <%= f.text_field :req_skills %><br></br>
-  <%= f.label "What motivates you to offer a one day experience?" %><br></br>
-  <%= f.text_field :motivation %><br></br>
-  <%= f.label "What do you think makes you suitable as a mentor for young people looking for a one day experience?" %><br></br>
-  <%= f.text_field :suitability %><br></br>
-  <%= f.label "What can a young person expect from one day in your role" %><br></br>
-  <%= f.text_field :expectations %><br></br>
-  <%= f.label "Please offer a summary of the one day experience on offer" %><br></br>
-  <%= f.text_field :info %><br></br>
-  <%= f.label "Please provide a paragraph or two describing, more fully, the one day experience on offer" %><br></br>
-  <%= f.text_field :full_description %><br></br>
-  <%= f.submit "Update Profile" %>
-<% end %>
+<section class="profile_form">
+  
+  <%= form_for @profile, url: '/profile', html: {multipart: true} do |f| %>
+        <br>
+  <%= f.file_field :image %><br><br>
+  <section class="col span_7_of_16">
+      <h5><%= f.label :name%></h5>
+      <%= f.text_field :name, id:'text_box_sm', cols:10, rows: 2   %><br>
+      <h5><%= f.label :sector%></h5>
+      <%= f.collection_select :sector_id, Sector.order(:name),:id,:name, include_blank: true %>
+      <h5><%= f.label :job %></h5>
+      <%= f.text_field :job, id:'text_box_sm', cols:10, rows: 2 %><br>
+      <h5><%= f.label :company %></h5>
+      <%= f.text_field :company, id:'text_box_sm', cols: 10, rows: 10 %><br><br>
+      <h5><%= f.label :address %></h5>
+      <%= f.text_area :address, id:'text_box_sm', cols: 10, rows: 10 %><br><br>
+      <br>
+      <br>
+      <br>
+      <h5><%= f.label "Please provide details of your Academic Background" %></h5>
+      <%= f.text_area :academic_back, id:'text_box_md', cols: 10, rows: 10 %><br><br>
+      <h5><%= f.label "Are there any required qualifications for your role?" %></h5>
+      <%= f.text_area :req_quals, id:'text_box_md', cols: 10, rows: 10 %><br><br>
+      <h5><%= f.label "What skills are required in this role?" %></h5>
+      <%= f.text_area :req_skills, id:'text_box_md', cols: 10, rows: 10 %>
+    </section>
+    <section class="col-sacrificial1 span_1_of_16"></section>
+    <section class="col-sacrificial2 span_1_of_16"></section>
+    <section class="col span_7_of_16">
+      <h5><%= f.label "What motivates you to offer a one day experience?" %></h5>
+      <%= f.text_area :motivation, id:'text_box_md', cols: 10, rows: 10 %><br><br>
+      <h5><%= f.label "What do you think makes you suitable as a mentor for young people looking for a one day experience?" %></h5>
+      <%= f.text_area :suitability, id:'text_box_md', cols: 10, rows: 10 %><br><br>
+      <h5><%= f.label "What can a young person expect from one day in your role" %></h5>
+      <%= f.text_area :expectations, id:'text_box_md', cols: 10, rows: 10 %><br><br>
+      <h5><%= f.label "Please provide a paragraph or two describing, more fully, the one day experience on offer" %></h5>
+      <%= f.text_area :full_description, id:'text_box_lg', cols: 10, rows: 10 %>
+      <br>
+      <br>
+      <br>
+      <%= f.submit %>
+    </section>
+    
+  <% end %>
+</section>
+</section>
+<section class="col-sacrificial span_1_of_16"></section>
