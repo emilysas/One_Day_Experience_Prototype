@@ -9,7 +9,7 @@ nav#sidebar {
 	position:fixed;
 	border-right:1px solid white;
 	display: inline-block;
-	background-color: #2E5077;
+	background-color: #ECECEC;
 
 }
 
@@ -88,7 +88,7 @@ p.links {
   float: left;
   margin-left: 20%;
   font-weight: 300;
-  color: white;
+  color: #1C1E1D;
 }
 
 p.links:hover{
