@@ -4,7 +4,7 @@
 }
 
 #failed_search {
-	padding-top: 1em;
+	padding-top: 2em;
 	text-align: center;
 	color: white;
 }
@@ -15,11 +15,12 @@
 	left: 40%;
 	width:40%;
 	height:20%;
-	background-color: rgba(28, 30, 29, 0.9);
 }
 
 #search_for {
 	color: white;
+	display: block;
+	padding: 2em;
 }
 
 a {
@@ -29,4 +30,38 @@ a {
 
 #submit_search {
 	color: black;
+}
+
+#search-box-area {
+	width:100%;
+	height:200px;
+	display: block;
+	overflow: auto;
+	padding:5%;
+	padding-top: 0;
+	background-color: rgba(28, 30, 29, 0.7);
+	transition: background-color 0.5s ease;
+
+}
+
+#search-box-area:hover {
+	background-color: rgba(28, 30, 29, 0.9);
+}
+
+#search-icon-area {
+
+}
+
+.search_text {
+	color: black;
+	width: 20em;
+}
+
+#search-results-box {
+	background-color: rgba(28, 30, 29, 0.9);
+	transition: background-color 0.5s ease;
+}
+
+#search-results-box:hover {
+	background-color: rgba(28, 30, 29, 0.6);
 }
