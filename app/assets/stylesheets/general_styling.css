@@ -45,7 +45,7 @@ dark
 	
 	display: block;
 	overflow: auto;
-	padding:10%;
+	padding:7%;
 }
 
 .portrait {
@@ -74,6 +74,10 @@ dark
 .google_map_ind {
 	width:100px;
 	height:100px;
+}
+
+.highlight {
+	color:#6ABEDB;
 }
 
 
