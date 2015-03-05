@@ -1,0 +1,19 @@
+<column class="col-sacrificial span_2_of_16">
+</column>
+<%i=1%>
+ <% @visits.each do |visit| %>
+ <p>
+    <%= i %>. 
+    <strong>Student id : </strong><%= visit.student_id %>
+    <strong> Professional id : </strong><%= visit.profile_id %>
+    <strong>Visit date : </strong><%= visit.date %>
+    <strong>Status :</strong>
+    <select class='status-change' id="<%= visit.id %>">
+      <option value="pending" <%= selected="true" if visit.status == 'pending' %> >Pending</option>
+      <option value="accepted" <%= selected="true" if visit.status == 'accepted' %> >Accept</option>
+      <option value="rejected" <%= selected="true" if visit.status == 'rejected' %> >Reject</option>
+      <option value="completed" <%= selected="true" if visit.status == 'completed' %> >Completed</option>
+    </select>
+    <% i+=1; %>
+</p>
+<% end %>
