@@ -9,10 +9,10 @@
 	color: white;
 }
 
-#searchbox {
+#searchcontainer {
 	position: absolute;
-	top: 40%;
-	left: 40%;
+	top: 23%;
+	left: 30%;
 	width:40%;
 	height:20%;
 }
@@ -67,8 +67,6 @@ a {
 }
 
 #search-examples {
-  /*position: absolute;*/
-  top: 10%;
-  /*left: 32%;*/
+	padding-bottom: 2em;
   width: 100%;
 }
