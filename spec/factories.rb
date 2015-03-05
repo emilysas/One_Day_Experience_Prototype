@@ -38,6 +38,7 @@ FactoryGirl.define do
     address "50-52 Commercial Street, London E1"
     latitude 51.5173816
     longitude -0.0735848
+    sector 
   end
 
   factory :admin do
