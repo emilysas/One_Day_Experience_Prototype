@@ -73,11 +73,12 @@
 
 <script>
 function buildMap() {
-  var handler = Gmaps.build('Google');
+  var handler = Gmaps.build('Google', { scrollwheel: false, zoomControl:   false });
   handler.buildMap({ internal: {id: 'map'}}, function(){
     markers = handler.addMarkers(<%= raw @hash.to_json %>);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
+    handler.getMap().setZoom(15); 
   });
 };
 </script>
