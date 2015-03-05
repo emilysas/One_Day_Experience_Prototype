@@ -61,6 +61,7 @@
 	  <section class="edit">
 	    <% if current_professional == @profile.professional %>
 	      <%= link_to "Edit Profile", edit_my_profile_path %>
+	      <a href="/visits/<%= @profile.id %>">See my visits</a>
 	      <%= link_to "Delete Profile", my_profile_path, method: :delete%>
 	    <% end %>
 	  </section>
