@@ -2,7 +2,7 @@
 class SearchController < ApplicationController
   def search
     @query = params[:q]
-    params[:q] ? @profiles = Profile.search(params[:q]) : @profiles = []
+    @query ? @profiles = Profile.search(@query) : @profiles = []
     find_search_markers(@profiles)
   end
 
