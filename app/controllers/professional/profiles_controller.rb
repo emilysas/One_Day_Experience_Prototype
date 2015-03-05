@@ -20,6 +20,7 @@ class Professional::ProfilesController < ApplicationController
 
   def show
     @profile = current_professional.profile
+    render "/profiles/show"
   end
 
   def edit
