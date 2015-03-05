@@ -1,4 +1,12 @@
+	
+
 $(document).ready(function(){
+	var sectorImageWidth = $('#profile-image--sector').css('width')
+	
+	$('#profile-image--sector').css('height',sectorImageWidth);
+	$('#profile-text--individual').css('height',sectorImageWidth);
+	
+
 	if ($("#darkPage").length){
     $(document).ready(function(){
     	console.log('ready');
@@ -11,5 +19,7 @@ $(document).ready(function(){
 		$('#photo-field-link').css('display','none')
 		$('#google_map').css('visibility','visible')
 	});
+
+	
 
 });

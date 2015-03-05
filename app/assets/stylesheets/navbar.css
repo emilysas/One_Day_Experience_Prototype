@@ -1,4 +1,8 @@
-
+img.logo {
+	margin-right: auto;
+	margin-left: auto;
+	position: fixed;
+}
 
 nav#sidebar {
 	z-index: 1;
@@ -14,11 +18,15 @@ nav#sidebar {
 
 
 
-ul.vertical_align {
+icons.vertical_align {
+	width:auto;
 	position: relative;
-	top:50%;
-	transform: translateY(-70%);
-	padding-left: 0px;
+	top: 30%;
+	transform: translateY(-50%);
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	
 	/*margin: auto;*/
 	margin-left: 1.5em;
 }
