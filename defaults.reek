@@ -1,0 +1,32 @@
+IrresponsibleModule:
+  enabled: false
+TooManyStatements:
+  exclude:
+    - "CreateVisits#change"
+    - "DeviseCreateProfessionals#change"
+    - "DeviseCreateStudents#change"
+    - "CreateProfiles#change"
+    - "AddAttachmentImageToProfiles#self"
+    - "CreateFavorites#change"
+    - "DeviseCreateAdmins#change"
+    - "CreateSectors#change"
+UncommunicativeVariableName:
+  exclude:
+    - "CreateVisits#change"
+    - "DeviseCreateProfessionals#change"
+    - "DeviseCreateStudents#change"
+    - "CreateProfiles#change"
+    - "AddAttachmentImageToProfiles#self"
+    - "CreateFavorites#change"
+    - "DeviseCreateAdmins#change"
+    - "CreateSectors#change"
+FeatureEnvy:
+  exclude:
+    - "CreateVisits#change"
+    - "DeviseCreateProfessionals#change"
+    - "DeviseCreateStudents#change"
+    - "CreateProfiles#change"
+    - "AddAttachmentImageToProfiles#self"
+    - "CreateFavorites#change"
+    - "DeviseCreateAdmins#change"
+    - "CreateSectors#change"
