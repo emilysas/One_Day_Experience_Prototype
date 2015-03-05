@@ -13,7 +13,7 @@
 
 	<feature id="main_photo" class="photo_field vertical_align">
 		<div align="middle" id="photo-field-link">
-			<%= image_tag @profile.image.url(:medium) %>
+			<%= image_tag @profile.sector.image.url(:medium), :class=>"profile_sector_image"%>
 		</div>
 	</feature>
 
@@ -75,7 +75,8 @@
 	    <% if current_professional == @profile.professional %>
 	      <%= link_to "Edit Profile", edit_my_profile_path %>
 	      <a href="/visits/<%= @profile.id %>">See my visits</a>
-	      <%= link_to "Delete Profile", my_profile_path, method: :delete%>
+				<a href='#' class="delete_profile_confirmation">Delete Profile</a>
+	      <%= link_to "Delete Profile", my_profile_path, method: :delete, :class=>"delete_profile"%>
 	    <% end %>
 	  </section>
 	</section>
