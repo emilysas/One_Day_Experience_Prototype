@@ -1,0 +1,81 @@
+<% if @query == nil %>
+
+  <column class="col-sacrificial1 span_1_of_16">
+  </column>
+  <column class="col-sacrificial1 span_3_of_16">
+  </column>
+  <column class="col-sacrificial1 span_1_of_16">
+  </column>
+
+  <column class="col-sacrificial span_6_of_16" >
+
+    <profile id="profile-text--individual" class="vertical_align dark">
+      <%= form_for search_path, method: :get do |f| %>
+        <p id="search_box">
+        <%= f.label "search_for", :id=>"search_for"%>
+        <%= text_field_tag :q, params[:q] %>
+        <%= submit_tag "Go", name: nil, id: "submit_search" %>
+      </p>
+      <% end %>
+    </profile>
+
+  </column>
+
+  <column class="col-sacrificial span_5_of_16 ">
+
+<% end %>
+
+<% if @query != nil %>  
+
+  <% if @profiles != nil && @profiles.size <= 0 %>
+
+    <column class="col-sacrificial1 span_1_of_16">
+    </column>
+    <column class="col-sacrificial1 span_3_of_16">
+    </column>
+    <column class="col-sacrificial1 span_1_of_16">
+    </column>
+
+    <column class="col-sacrificial span_6_of_16 ">
+
+      <profile id="profile-text--individual" class="vertical_align dark">
+        <%= form_for search_path, method: :get do |f| %>
+          <p id="search_box">
+          <%= f.label "search_for", :id=>"search_for"%>
+          <%= text_field_tag :q, params[:q] %>
+          <%= submit_tag "Go", name: nil, id: "submit_search" %>
+        </p>
+        <% end %>
+        <p id="failed_search">There are no profiles that match your search.</p>
+      </profile>
+
+    </column>
+
+    <column class="col-sacrificial span_5_of_16 ">
+      
+   
+
+  <% else %>
+      
+    <column class="col-sacrificial1 span_1_of_16"></column>
+
+    <column class="col short span_14_of_16">
+
+    <div style='width: 100%;'>
+        <div id="map" class="profiles_map" ></div>
+    </div>
+
+    <grid>
+      <div class="container">
+        <% @profiles.each do |profile| %>
+          <section class="new-card-form">
+            <a href="/profiles/<%= profile.id %>" id="profile_link"><h5><%= profile.name %></h5></a>
+            <h5><span class="sub"><%= profile.company %> </span></h5>
+            <p> <%= profile.info %> </p>
+          </section>
+        <% end %>
+      </div>
+    </grid>
+<% end %>
+<% end %>
+

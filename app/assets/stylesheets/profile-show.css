@@ -52,7 +52,8 @@
   padding:15px;
   min-width: 100px;
   width:31%;
-  background-color: white;
+  background-color: rgba(28, 30, 29, 0.9);
+  color: white;
 }
 
 .profiles_map{
