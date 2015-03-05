@@ -1,41 +1,47 @@
 <column class="col-sacrificial1 span_1_of_16"></column>
+<column class="col-sacrificial1 span_1_of_16"></column>
+<column class="col-sacrificial1 span_1_of_16"></column>
 
-<column class="col-sacrificial1 span_15_of_16">
+
+<column class="col-sacrificial1 span_10_of_16">
   <section>
 
   <signin>
-
+  
   <h2 id="login">Log in</h2>
 
+  <br>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
-      <%= f.label :email, :class => "formlabels" %><br />
-      <%= f.email_field :email, autofocus: true %>
+      <%= f.label :email, :class => "formlabels" %><br></br>
+      <%= f.email_field :email, autofocus: true %><br></br>
     </div>
 
     <div class="field">
-      <%= f.label :password, :class => "formlabels" %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
+      <%= f.label :password, :class => "formlabels" %><br></br>
+      <%= f.password_field :password, autocomplete: "off" %><br></br>
     </div>
 
     <% if devise_mapping.rememberable? -%>
       <div class="field">
         <%= f.check_box :remember_me, :class => "formlabels" %>
-        <%= f.label :remember_me %>
+        <%= f.label :remember_me %><br></br>
       </div>
     <% end -%>
 
     <div class="actions">
-      <%= f.submit "Log in" %>
+      <%= f.submit "Log in" %><br>
     </div>
   <% end %>
 
-  <links id="loginlinks">
-  <%= render "devise/shared/links" %>
-
+  <links id="loginlinks"><br>
+    <%= render "devise/shared/links" %>
   </links>
 
   </signin>
 
   </section>
   </column>
+<column class="col-sacrificial1 span_1_of_16"></column>
+<column class="col-sacrificial1 span_1_of_16"></column>
+<column class="col-sacrificial1 span_1_of_16"></column>

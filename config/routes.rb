@@ -40,7 +40,8 @@ Rails.application.routes.draw do
   end
 
   resources :profiles, only: [:index, :show], constraints: { id: /\d+/ }
-
+  
+  get :about, to: 'application#about'
   get :sign_up_gate, to: 'application#sign_up_gate', as: :sign_up_gate
   get :sign_in_gate, to: 'application#sign_in_gate', as: :sign_in_gate
   get :map, to: 'profiles#map'

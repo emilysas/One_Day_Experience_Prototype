@@ -1,33 +1,36 @@
 <column class="col-sacrificial1 span_1_of_16"></column>
+<column class="col-sacrificial1 span_1_of_16"></column>
+<column class="col-sacrificial1 span_1_of_16"></column>
 
-<column class="col-sacrificial1 span_15_of_16">
+<column class="col-sacrificial1 span_10_of_16">
 <section>
-  <h2>Sign me up</h2>
-
+<signup>
+  <h2 id="register">Sign me up</h2>
+ <br></br>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
 
     <div class="field">
-      <%= f.label :name %><br />
-      <%= f.text_field :name %>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %><br></br>
     </div>
 
     <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
+      <%= f.label :email %><br>
+      <%= f.email_field :email, autofocus: true %><br></br>
     </div>
 
     <div class="field">
-      <%= f.label :password %>
+      <%= f.label :password %><br>
       <% if @validatable %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
+      <% end %><br>
+      <%= f.password_field :password, autocomplete: "off" %><br></br>
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      <%= f.label :password_confirmation %><br>
+      <%= f.password_field :password_confirmation, autocomplete: "off" %><br></br>
     </div>
 
     <div class="actions">
@@ -36,5 +39,9 @@
   <% end %>
 
   <%= render "students/shared/links" %>
+  </signup>
 </section>
 </column>
+<column class="col-sacrificial1 span_1_of_16"></column>
+<column class="col-sacrificial1 span_1_of_16"></column>
+<column class="col-sacrificial1 span_1_of_16"></column>

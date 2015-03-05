@@ -1,11 +1,10 @@
-/*form {
-	text-align: center;
-}
 
-#login {
+
+#login, #register {
+	margin-top: 30vh;
 	text-align: center;
-	padding: 1em;
 }
+ 
  signin {
  	padding: 1em;
  	position: absolute;
@@ -29,6 +28,7 @@
 
  .actions {
  	padding-bottom: 1em;
+ 	text-align: center;
  }
 
  .field {
@@ -36,9 +36,5 @@
  }
 
  #loginlinks {
- 	text-align: center;
- }
-
- #register {
  	text-align: center;
  }*/
