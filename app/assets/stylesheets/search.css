@@ -1,13 +1,32 @@
 #search_box {
+	/*padding-top: 2em;*/
 	text-align: center;
-	position: absolute;
-	left: 46%;
-	top: 50%;
 }
 
 #failed_search {
+	padding-top: 1em;
 	text-align: center;
+	color: white;
+}
+
+#searchbox {
 	position: absolute;
-	left: 46%;
-	top: 52%;
+	top: 40%;
+	left: 40%;
+	width:40%;
+	height:20%;
+	background-color: rgba(28, 30, 29, 0.9);
+}
+
+#search_for {
+	color: white;
+}
+
+a {
+  color:inherit;
+  text-decoration: none;
+ }
+
+#submit_search {
+	color: black;
 }
