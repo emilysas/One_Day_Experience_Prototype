@@ -17,8 +17,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    profile = profile_verified
-    find_marker(profile)
+    profile_verified
     @visit = Visit.new
   end
 
@@ -32,6 +31,7 @@ private
     possible_profile = Profile.find(params[:id])
     if possible_profile.verified
       @profile = possible_profile
+      find_marker(@profile)
     else
       redirect_to '/'
       flash[:notice] = "This profile has not yet been verified"

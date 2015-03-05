@@ -5,6 +5,13 @@
 </icon>
 </a>
 
+<%= link_to about_path do%>
+	<icon id="about-icon" class="icons jsicons" >
+		<img class="icon" src="/images/icons/icons-03.svg"/>
+		<p class="links">About</p>
+	</icon>
+<% end %>
+
 <% if !professional_signed_in? && !student_signed_in? && !admin_signed_in? %>
 	<%= link_to sign_in_gate_path do%>
 		<icon id="how-wide" class="icons--signin jsicons" >
