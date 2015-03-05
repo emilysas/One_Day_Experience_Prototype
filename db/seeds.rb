@@ -44,3 +44,4 @@ profiles = Profile.create([
   {name: "Kieran Goodacre", sector_id: 9, verified: true, image: File.open(Rails.root+'public/images/kieran.jpg') , info: "Teaching ski is my life", full_description: "Private ski instructor, I also teach group classes twice a week in the winter season",address: "168-172 Old Street, London, EC1V 9BP" , company: "Mountain Supreme" , professional_id: 10, job: "Ski Instructor", req_quals: "Not required but helps having a physical education diploma", req_skills: "Good physical condition", expectations: "We will go in the morning on the mountain and pair on teaching a group of beginner students basic skills and safety in skiing" }
   ])
 
+
