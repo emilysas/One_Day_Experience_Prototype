@@ -28,7 +28,7 @@ module ProfileHelper
   end
 
 	def profile_params
-    params.require(:profile).permit(:name, :image, :info, :company, :full_description, :address, :verified,
+    params.require(:profile).permit(:name, :sector_id, :image, :info, :company, :full_description, :address, :verified,
       :job, :motivation, :suitability, :academic_back, :req_quals, :req_skills, :expectations)
   end
 end
