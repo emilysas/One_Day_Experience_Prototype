@@ -14,7 +14,7 @@
       <%= form_for search_path, method: :get do |f| %>
         <p id="search_box">
         <%= f.label "search_for", :id=>"search_for"%>
-        <%= text_field_tag :q, params[:q], :class=>"search_text", :placeholder => "Mechanic" %>
+        <%= text_field_tag :q, params[:q], :class=>"search_text", :placeholder => "Mechanic..." %>
         <%= submit_tag "Go", name: nil, id: "submit_search" %>
       </p>
       <% end %>
@@ -43,7 +43,7 @@
         <%= form_for search_path, method: :get do |f| %>
           <p id="search_box">
           <%= f.label "search_for", :id=>"search_for"%>
-          <%= text_field_tag :q, params[:q], :class=>"search_text", :placeholder => "Mechanic" %>
+          <%= text_field_tag :q, params[:q], :class=>"search_text", :placeholder => "Mechanic..." %>
           <%= submit_tag "Go", name: nil, id: "submit_search" %>
         </p>
         <% end %>
