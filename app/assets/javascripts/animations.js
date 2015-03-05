@@ -1,9 +1,3 @@
-
-
-$('#test-circle2').click(function() {
-	expandCircle();
-})
-
 var expandCircle = function () {
 
 	$('#test-circle2').css({ 
@@ -14,6 +8,10 @@ var expandCircle = function () {
 		width:150, 
 		height:150, 
 		opacity:0 
-	},2000,function(){expandCircle();})
+	},2000,function(){expandCircle();});
 
 };
+
+$('#test-circle2').click(function() {
+	expandCircle();
+});

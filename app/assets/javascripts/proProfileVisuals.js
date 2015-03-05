@@ -1,7 +1,7 @@
 	
 
 $(document).ready(function(){
-	var sectorImageWidth = $('#profile-image--sector').css('width')
+	var sectorImageWidth = $('#profile-image--sector').css('width');
 	
 	$('#profile-image--sector').css('height',sectorImageWidth);
 	$('#profile-text--individual').css('height',sectorImageWidth);
@@ -16,8 +16,8 @@ $(document).ready(function(){
 	}
 
 	$('#jsLocationButton').click(function(){
-		$('#photo-field-link').css('display','none')
-		$('#google_map').css('visibility','visible')
+		$('#photo-field-link').css('display','none');
+		$('#google_map').css('visibility','visible');
 	});
 
 	

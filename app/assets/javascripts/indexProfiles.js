@@ -1,8 +1,8 @@
 var getProfileInfo = function (pageNumber, objectNumber) {
 
   $.get("/profiles.json?page="+pageNumber, function( data ) {    
-    console.log(data);
-    if (data.length <= 0) console.log("End of line, last action ");
+    // console.log(data);
+    // if (data.length <= 0) console.log("End of line, last action ");
 
     // display basic info
     $('#buddy-name').html(data[objectNumber].name);
@@ -19,7 +19,7 @@ var getProfileInfo = function (pageNumber, objectNumber) {
 };
 // This document is for the loading of profile info on the index page
 $(document).ready(function(){  
-  var lastAction="right";
+  // var lastAction="right";
   var pageNumber = 1;
   var objectNumber = 0;
   getProfileInfo(pageNumber, objectNumber);
