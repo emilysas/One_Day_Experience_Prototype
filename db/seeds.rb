@@ -33,3 +33,4 @@ profiles = Profile.create([
   {name: "Jonny Lakin", sector_id: 11, verified: false, image: File.open(Rails.root+'public/images/jonny.jpg'), info: "Knows everything there is to know about bikes" , full_description: "I've long had a passion for bikes, and spend my time repairing broken bicyles as well as making custom-built bikes for discerning customers", address: "1 Church Street, Stoke Newington, London N16" , company: "Steer Me Right", professional_id: 5, job: "Mechanic", req_quals: "None", req_skills: "Good with hands, good customer service, an interest in understanding how things work", expectations: "You'll learn the basics of how to make and repair bicycles, experience first class customer service, and maybe help design a new bicycle" }
   ])
 
+
