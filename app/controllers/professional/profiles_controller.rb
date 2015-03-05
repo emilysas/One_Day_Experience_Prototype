@@ -1,6 +1,8 @@
 # The Professional Profile Controller is responsible for allowing a professional to create, update and delete a profile
+require 'profile_helper'
 
 class Professional::ProfilesController < ApplicationController
+  include ProfileHelper
   before_action :authenticate_professional!
 
   def new
@@ -40,8 +42,4 @@ class Professional::ProfilesController < ApplicationController
     flash[:notice] = "Your profile has been deleted successfully"
   end
 
-  def profile_params
-    params.require(:profile).permit(:name, :image, :info, :company, :full_description, :work_address, 
-      :job, :motivation, :suitability, :academic_back, :req_quals, :req_skills, :expectations)
-  end
 end
