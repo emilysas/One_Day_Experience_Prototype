@@ -11,6 +11,7 @@ var getProfileInfo = function (pageNumber, objectNumber) {
     $('#profile-pic').attr("src", data[objectNumber].image_url);
     $("#field-img").attr("src", "images/sectors/"+data[objectNumber].sector_id+".jpg");
     $("#photo-field-link").attr("href","/profiles/"+data[objectNumber].id);
+    console.log("images/sectors/"+data[objectNumber].sector_id+".jpg");
     
   }, "json");
   
