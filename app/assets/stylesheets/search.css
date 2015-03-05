@@ -1,4 +1,13 @@
-#search_header {
+#search_box {
 	text-align: center;
+	position: absolute;
+	left: 46%;
 	top: 50%;
+}
+
+#failed_search {
+	text-align: center;
+	position: absolute;
+	left: 46%;
+	top: 52%;
 }
