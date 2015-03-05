@@ -21,7 +21,8 @@ nav#sidebar {
 icons.vertical_align {
 	width:auto;
 	position: relative;
-	top:30%;
+	top: 30%;
+	transform: translateY(-50%);
 	display: block;
 	margin-left: auto;
 	margin-right: auto;

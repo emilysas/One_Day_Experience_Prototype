@@ -12,4 +12,10 @@ $(document).ready(function(){
 		$('#google_map').css('visibility','visible')
 	});
 
+	var sectorImageWidth = $('#profile-image--sector').css('width')
+	
+	$('#profile-image--sector').css('height',sectorImageWidth)
+	$('#profile-text--individual').css('height',sectorImageWidth)
+	console.log(width)
+
 });

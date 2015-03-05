@@ -2,9 +2,54 @@
 	<script>$(document).ready(buildMap);</script>
 <% end %>
 
+
+<!-- New profile page -->
+<column class="col-sacrificial1 span_1_of_16">
+</column>
+<column class="col-sacrificial1 span_1_of_16">
+</column>
+
+<column class="col-sacrificial span_5_of_16 ">
+	<profile id="profile-image--sector" class="vertical_align">
+		<%= image_tag @profile.sector.image.url(:medium), :class=>"profile_sector_image landscape"%>
+	</profile>
+</column>
+<column class="col-sacrificial span_7_of_16 ">
+	<profile id="profile-text--individual" class="vertical_align dark">
+
+		
+	  <summaryHead class="headline_info professional_info">
+	    <h3><%= @profile.job %>, <span class="sub"><%= @profile.name %></span></h3>
+	    <h5>
+	    	<%= @profile.company %>
+	    	
+	    </h5>
+	    <h5 class="sub">
+	    		Located at: <%= @profile.address %>
+	    </h5>
+	  </summaryHead>
+	  <content class="profile-full_info">
+	    <h5>Summary: </h5>
+	    <p><%= @profile.info %></p>
+	    <em>More about the day: </em></br>
+	    <p><%= @profile.full_description %></p>
+	    <em>What you can expect on your day with us: </em></br>
+	    <p><%= @profile.expectations %></p>
+	    <em>People in my profession require the following qualifications (not necessary for your one day experience): </em><br>
+	    <p><%= @profile.req_quals %></p>
+	    <em>People in my profession, often have the following skills: </em></br>
+	    <p><%= @profile.req_skills %></p>
+	  </content>
+
+	</profile>
+</column>
+<column class="col-sacrificial span_16_of_16">
+</column>
+<column class="col-sacrificial span_16_of_16">
+</column>
 <!-- Profile page as seen by student -->
 
-<tag id="darkPage"><tag>
+<!-- <tag id="darkPage"><tag> -->
 
 <column class="col-sacrificial span_1_of_16 dark">
 </column>
@@ -14,14 +59,11 @@
 	<feature id="main_photo" class="photo_field vertical_align">
 		<div align="middle" id="photo-field-link">
 			<%= image_tag @profile.sector.image.url(:medium), :class=>"profile_sector_image"%>
+			
 		</div>
 	</feature>
 
-	<map id="google_map" class="">
-		<div class="individual-map">
-	    <div id="map" class="profiles_map"></div>
-	  </div>
-	</map>
+	
 
 </column>
 
