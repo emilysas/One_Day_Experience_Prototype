@@ -26,7 +26,7 @@ class Profile < ActiveRecord::Base
       indexes :company, analyzer: 'english'
       indexes :req_quals, analyzer: 'english'
       indexes :req_skills, analyzer: 'english'
-      indexes :work_address, analyzer: 'english'
+      indexes :address, analyzer: 'english'
       indexes :job, analyzer: 'english'
     end
   end
@@ -43,7 +43,7 @@ class Profile < ActiveRecord::Base
         query: {
           multi_match: {
             query: query,
-            fields: ['name', 'full_description', 'info', 'company', 'req_quals', 'req_skills', 'work_address', 'job']
+            fields: ['name', 'full_description', 'info', 'company', 'req_quals', 'req_skills', 'address', 'job']
           }
         }
       }
