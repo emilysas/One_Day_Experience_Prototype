@@ -1,5 +1,8 @@
+require 'profile_helper'
 #The Student Profiles Controller is responsible for allowing students to send emails via the profile pages
 class Student::ProfilesController < ApplicationController
+  include ProfileHelper
+
   before_action :authenticate_student!
   
   def send_email
@@ -11,11 +14,6 @@ class Student::ProfilesController < ApplicationController
   end
 
   private
-
-  def profile_params
-    params.require(:profile).permit(:name, :image, :info, :company, :full_description, :work_address, :verified,
-      :job, :motivation, :suitability, :academic_back, :req_quals, :req_skills, :expectations)
-  end
 
   def post_email(professional, student)
     StudentMailer.intro_email(professional, student).deliver_now
