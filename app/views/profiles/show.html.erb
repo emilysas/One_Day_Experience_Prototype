@@ -10,11 +10,19 @@
 </column>
 
 <column class="col--profile-image span_5_of_16 dark">
-	<feature class="photo_field vertical_align">
+
+	<feature id="main_photo" class="photo_field vertical_align">
 		<div align="middle" id="photo-field-link">
 			<%= image_tag @profile.image.url(:medium) %>
 		</div>
 	</feature>
+
+	<map id="google_map" class="">
+		<div class="individual-map">
+	    <div id="map" class="profiles_map"></div>
+	  </div>
+	</map>
+
 </column>
 
 <column class="col-sacrificial span_10_of_16 ">
@@ -23,7 +31,7 @@
 	    <h4><%= @profile.name %></h4>
 	    <h5>
 	    	<%= @profile.company %>
-	    	<span class="sub">
+	    	<span id="jsLocationButton" class="sub">
 	    		Located at: <%= @profile.address %>
 	    	</span>
 	    </h5>
@@ -40,9 +48,7 @@
 	    <em>People in my profession, often have the following skills: </em></br>
 	    <p><%= @profile.req_skills %></p>
 	  </content>
-		  <div style='width: 800px;'>
-		    <div id="map" style='width: 800px; height: 400px;'></div>
-		  </div>
+		  
 	  <section class="email">
 	    <% if current_student %>
 	      <%= link_to "Register Interest", send_email_profile_path(@profile) %>
@@ -79,11 +85,12 @@
 
 <script>
 function buildMap() {
-  var handler = Gmaps.build('Google');
+  var handler = Gmaps.build('Google', { scrollwheel: false, zoomControl:   false });
   handler.buildMap({ internal: {id: 'map'}}, function(){
     markers = handler.addMarkers(<%= raw @hash.to_json %>);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
+    handler.getMap().setZoom(15); 
   });
 };
 </script>

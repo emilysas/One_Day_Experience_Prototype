@@ -1,15 +1,15 @@
 <% content_for :script do %>
 	<script>$(document).ready(buildMap);</script>
 <% end %>
-
-<div style='width: 800px;'>
-    <div id="map" style='width: 800px; height: 400px;'></div>
+<column class="col-sacrificial1 span_1_of_16"></column>
+<div style='width: 100%;'>
+    <div id="map" class="span_14_of_16" style='height: 400px;'></div>
 </div>
-
+<column class="col-sacrificial1 span_1_of_16"></column>
 <script>
 function buildMap() {
   var handler = Gmaps.build('Google');
-  handler.buildMap({ internal: {id: 'map'}}, function(){
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
     markers = handler.addMarkers(<%= raw @hash.to_json %>);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();

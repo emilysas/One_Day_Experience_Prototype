@@ -4,6 +4,7 @@ class ProfilesController < ApplicationController
   def index
     @profiles = Profile.where(:verified=>true)
     @result = @profiles.paginate(:page => params[:page], :per_page => 3).select([:id, :name, :company, :info, :job, :image_file_name, :sector_id])
+    find_all_markers
     respond_to do |format|
       format.html { 
         
@@ -45,7 +46,7 @@ private
   end
 
   def find_all_markers
-    @profiles = Profile.all
+    @profiles = Profile.where(:verified=>true)
     @hash = Gmaps4rails.build_markers(@profiles) do |profile, marker|
       marker.lat profile.latitude
       marker.lng profile.longitude
