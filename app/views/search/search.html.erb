@@ -1,28 +1,61 @@
-<column class="col-sacrificial1 span_1_of_16"></column>
-<h1 id="search_header">Profiles search</h1>
+<% content_for :script do %>
+  <script>$(document).ready(buildMap);</script>
+<% end %>
+
+<% if @query == nil %>
+
   <%= form_for search_path, method: :get do |f| %>
-  <p>
+  <p id="search_box">
   <%= f.label "search_for"%>
   <%= text_field_tag :q, params[:q] %>
   <%= submit_tag "Go", name: nil %>
   </p>
   <% end %>
+<% end %>
 
-<grid>
-  <% if @query != nil %>
-  <div class="container">
-    <% if @profiles != nil && @profiles.size <= 0 %>
-      <p>There are no profiles that match your search.</p>
-    <% else %>
-      <% @profiles.each do |profile| %>
-        <section class="new-card-form span_4_of_16">
-          <h5> <a href="/profiles/<%= profile.id %>"><%= profile.name %> </a></h5>
-          <strong>Info:</strong> <%= profile.info %> <br/>
-          <strong>Company:</strong> <%= profile.company %> <br/>
-          <strong>Location:</strong> <%= profile.address %> <br/>
-        </section>
-      <% end %>
+<% if @query != nil %>  
+  <% if @profiles != nil && @profiles.size <= 0 %>
+    <%= form_for search_path, method: :get do |f| %>
+      <p id="search_box">
+        <%= f.label "search_for"%>
+        <%= text_field_tag :q, params[:q] %>
+        <%= submit_tag "Go", name: nil %>
+      </p>
     <% end %>
-  </div>
+
+    <p id="failed_search">There are no profiles that match your search.</p>
+    
+    <% else %>
+      <column class="col-sacrificial1 span_1_of_16"></column>
+
+      <column class="col short span_14_of_16">
+
+      <div style='width: 100%;'>
+          <div id="map" class="profiles_map" ></div>
+      </div>
+
+      <grid>
+        <div class="container">
+          <% @profiles.each do |profile| %>
+            <section class="new-card-form">
+              <a href="/profiles/<%= profile.id %>" id="profile_link"><h5><%= profile.name %></h5></a>
+              <h5><span class="sub"><%= profile.company %> </span></h5>
+              <p> <%= profile.info %> </p>
+            </section>
+          <% end %>
+        </div>
+      </grid>
   <% end %>
-</grid>
+<% end %>
+
+<script>
+  function buildMap() {
+    var handler = Gmaps.build('Google', { scrollwheel: false, zoomControl:   false });
+    handler.buildMap({ internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers(<%= raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      handler.getMap().setZoom(15); 
+    });
+  };
+</script>

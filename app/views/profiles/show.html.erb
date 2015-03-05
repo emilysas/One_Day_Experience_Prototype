@@ -93,7 +93,7 @@
 		  
 	  <section class="email">
 	    <% if current_student %>
-	      <%= link_to "Register Interest", send_email_profile_path(@profile) %>
+	      <%= link_to "Register Interest", send_email_profile_path(@profile), data:{confirm: "We are about to send an email to #{@profile.name}, registering your interest in a day of work experience with him/her. \n\nThe email will include your name and email address so that they are able to contact you. \n\nPlease confirm that you wish to send this email"} %>
 	      <!-- Adding this profile to favorites -->
 	      <%- unless current_student.favorite_profiles.exists?(@profile.id) -%>
 					<%= link_to 'Add to favorites', favorite_profile_path(@profile), method: :post %>
@@ -118,7 +118,7 @@
 	      <%= link_to "Edit Profile", edit_my_profile_path %>
 	      <a href="/visits/<%= @profile.id %>">See my visits</a>
 				<a href='#' class="delete_profile_confirmation">Delete Profile</a>
-	      <%= link_to "Delete Profile", my_profile_path, method: :delete, :class=>"delete_profile"%>
+	      <%= link_to "", my_profile_path, method: :delete, :class=>"delete_profile"%>
 	    <% end %>
 	  </section>
 	</section>
