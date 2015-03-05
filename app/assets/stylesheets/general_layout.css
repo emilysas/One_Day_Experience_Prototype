@@ -6,6 +6,10 @@ body {
 	background-color: #ECECEC;
 }
 
+img {
+vertical-align: top;
+}
+
 *, *:before, *:after {
   box-sizing: inherit;
 }	

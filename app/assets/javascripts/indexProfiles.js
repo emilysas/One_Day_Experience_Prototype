@@ -6,6 +6,7 @@ var getProfileInfo = function (pageNumber, objectNumber) {
     $('#buddy-name').html(data[objectNumber].name);
     $('#buddy-company').html(data[objectNumber].company);
     $('#buddy-info').html(data[objectNumber].info);
+    $('#buddy-job').html(data[objectNumber].job);
 
     // display image
     $('#profile-pic').attr("src", data[objectNumber].image_url);

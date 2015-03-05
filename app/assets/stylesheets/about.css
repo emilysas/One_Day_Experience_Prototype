@@ -21,6 +21,11 @@ spacer.small {
   display: block;
 }
 
+spacer.tiny {
+  height: 5px;
+  display: block;
+}
+
 img#site-img {
   display: block;
   height: 300px;

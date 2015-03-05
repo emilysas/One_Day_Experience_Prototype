@@ -23,6 +23,22 @@ dark
 	margin: 0px;
 }
 
+
+spacer.large {
+  height:25px;
+  display: block;
+}
+
+spacer.small {
+  height: 10px;
+  display: block;
+}
+
+spacer.tiny {
+  height: 5px;
+  display: block;
+}
+
 #alert_bar {
 	padding:0px;
 	clear: both;
@@ -44,7 +60,7 @@ dark
 	height:200px;
 	
 	display: block;
-	overflow: auto;
+	overflow: scroll;
 	padding:7%;
 }
 
@@ -57,12 +73,20 @@ dark
 }
 
 .headline_info{
-	
+	display: inline-block;
+	overflow: hidden;
+}
+
+.profile-thumb {
+	display: inline-block;
+	overflow: hidden;
+	border-radius: 50%;
+
 }
 
 .profile-full_info {
 	width:100%;
-	height:75%;
+	height:65%;
 	background-color: #262827;
 	display: block;
 	overflow: auto;
@@ -80,6 +104,10 @@ dark
 	color:#6ABEDB;
 }
 
+
+#field-img {
+	
+}
 
 
 
