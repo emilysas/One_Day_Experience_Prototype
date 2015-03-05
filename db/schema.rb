@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150304144318) do
+
+# ActiveRecord::Schema.define(version: 20150304144318) do
+
+ActiveRecord::Schema.define(version: 20150303234939) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -123,7 +126,21 @@ ActiveRecord::Schema.define(version: 20150304144318) do
   add_index "students", ["email"], name: "index_students_on_email", unique: true, using: :btree
   add_index "students", ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true, using: :btree
 
+  create_table "visits", force: :cascade do |t|
+    t.integer  "student_id"
+    t.integer  "profile_id"
+    t.date     "date"
+    t.string   "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "visits", ["profile_id"], name: "index_visits_on_profile_id", using: :btree
+  add_index "visits", ["student_id"], name: "index_visits_on_student_id", using: :btree
+
   add_foreign_key "favorites", "students"
   add_foreign_key "profiles", "professionals"
   add_foreign_key "profiles", "sectors"
+  add_foreign_key "visits", "profiles"
+  add_foreign_key "visits", "students"
 end

@@ -37,7 +37,6 @@
 	    <p><%= @profile.req_quals %></p>
 	    <em>People in my profession, often have the following skills: </em></br>
 	    <p><%= @profile.req_skills %></p>
-	    
 	  </content>
 	  <section style='width: 800px;'>
       <section id="map" style='width: 800px; height: 400px;'></section>
@@ -56,7 +55,8 @@
 	  </section>
 	  <section class="edit">
 	    <% if current_professional == @profile.professional %>
-	      <%= link_to "Edit Profile", edit_my_profile_path %>
+	      <%= link_to "Edit Profile", edit_my_profile_path %><br>
+	      <a href="/visits/<%= @profile.id %>">See my visits</a>
 	      <a href='#' class="delete_profile_confirmation"></a>
 	      <%= link_to "Delete Profile", my_profile_path, method: :delete, :class=>"delete_profile"  %>
 	    <% end %>

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :admins
   devise_for :students, :controllers => {:omniauth_callbacks => "students/omniauth_callbacks"}
   devise_for :professionals, :controllers => { :registrations => "registrations" }
+  resources :visits
 
   root to: 'application#index'
   
@@ -44,7 +45,9 @@ Rails.application.routes.draw do
   get :sign_in_gate, to: 'application#sign_in_gate', as: :sign_in_gate
   get :map, to: 'profiles#map'
   get :search, to: 'search#search'
+  get :visits, to: 'visits#index'
 
 end  
+
 
 

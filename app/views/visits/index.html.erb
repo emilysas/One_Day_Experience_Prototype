@@ -1,0 +1,13 @@
+<column class="col-sacrificial span_2_of_16 dark">
+</column>
+<%i=0%>
+ <% @visits.each do |visit| %>
+ <p>
+
+    <%= i %> Student id : <%= visit.student_id %>
+    Professional id : <%= visit.profile_id %>
+    Visit date : <%= visit.date %>
+    Status : <%= visit.status %>
+    <% i+=1; %>
+</p>
+<% end %>

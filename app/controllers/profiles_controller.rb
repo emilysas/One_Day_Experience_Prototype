@@ -17,6 +17,7 @@ class ProfilesController < ApplicationController
   def show
     profile = profile_verified
     find_marker(profile)
+    @visit = Visit.new
   end
 
   def map

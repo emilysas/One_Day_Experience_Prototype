@@ -6,6 +6,7 @@ class Profile < ActiveRecord::Base
 
   belongs_to :professional
   belongs_to :sector
+  has_many :visits, dependent: :destroy
 
   validates_presence_of :name, message: "- Please provide your name"
   validates_presence_of :job, message: "- Please select your profession"

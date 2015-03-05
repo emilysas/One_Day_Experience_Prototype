@@ -41,3 +41,6 @@ end
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem 'bonsai-elasticsearch-rails'
+
+# For date picker
+gem 'jquery-ui-rails'

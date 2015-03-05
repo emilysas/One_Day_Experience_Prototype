@@ -2,6 +2,8 @@
 	<script>$(document).ready(buildMap);</script>
 <% end %>
 
+<!-- Profile page as seen by student -->
+
 <tag id="darkPage"><tag>
 
 <column class="col-sacrificial span_1_of_16 dark">
@@ -50,6 +52,15 @@
 				<%- else -%>
 					<%= link_to 'Remove from favorites', favorite_profile_path(@profile), method: :delete %>
 				<%- end -%>
+				<!-- Add a visit --><br>
+				<%= form_for @visit do |f| %>  
+				  <%= f.label :date %>
+				  <%= f.text_field :date %>
+				  <%= f.hidden_field :student_id, value: current_student.id %>
+				  <%= f.hidden_field :profile_id, value: @profile.id %>
+				  <%= f.hidden_field :status, value: 'pending' %>
+				  <%= f.submit 'Create visit' %>
+				<% end %>
 	    <% else %>
 	      <h5>Please <%= link_to "sign in", new_student_session_path %> to contact <%= @profile.name %></h5>
 	    <% end %>
@@ -57,6 +68,7 @@
 	  <section class="edit">
 	    <% if current_professional == @profile.professional %>
 	      <%= link_to "Edit Profile", edit_my_profile_path %>
+	      <a href="/visits/<%= @profile.id %>">See my visits</a>
 	      <%= link_to "Delete Profile", my_profile_path, method: :delete%>
 	    <% end %>
 	  </section>
