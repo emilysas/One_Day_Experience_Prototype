@@ -49,7 +49,6 @@ feature 'An Administrator' do
       click_link 'profile_link'
       click_link 'Unverify'
       visit unverified_profiles_path
-      save_and_open_page
       expect(page).to have_content('Emily')
     end
 

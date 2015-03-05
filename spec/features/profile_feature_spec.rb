@@ -31,10 +31,10 @@ feature 'Profiles' do
 
     it "should allow a professional to create a profile" do
       visit new_my_profile_path
-      fill_in "Name", with: "Emily"
-      fill_in "Job", with: "Software Engineer"
-      fill_in "Company", with: "Makers Academy"
-      fill_in "Address", with: "Commercial Street, London"
+      fill_in "profile[name]", with: "Emily"
+      fill_in "profile[job]", with: "Software Engineer"
+      fill_in "profile[company]", with: "Makers Academy"
+      fill_in "profile[address]", with: "Commercial Street, London"
       click_button 'Create Profile'
       expect(Profile.last.company).to eq "Makers Academy"
     end
@@ -55,17 +55,17 @@ feature 'Profiles' do
     end
 
     it "should not allow a professional to create a profile unless the 'name' field is filled in" do
-      fill_in "Job", with: "Software Engineer"
-      fill_in "Company", with: "Makers Academy"
-      fill_in "Address", with: "Commercial Street, London"
+      fill_in "profile[job]", with: "Software Engineer"
+      fill_in "profile[company]", with: "Makers Academy"
+      fill_in "profile[address]", with: "Commercial Street, London"
       click_button 'Create Profile'
       expect(page).to have_content('Please provide your name')
     end
 
-    it "should not allow a professional to create a profile unless the 'profession' field is filled in" do    
-      fill_in "Name", with: "Emily"
-      fill_in "Company", with: "Makers Academy"
-      fill_in "Address", with: "Commercial Street, London"
+    it "should not allow a professional to create a profile unless the 'job' field is filled in" do    
+      fill_in "profile[name]", with: "Emily"
+      fill_in "profile[company]", with: "Makers Academy"
+      fill_in "profile[address]", with: "Commercial Street, London"
       click_button 'Create Profile'
       expect(page).to have_content("Please select your profession")
     end
@@ -100,7 +100,7 @@ feature 'Profiles' do
     it "a professional can edit their profile" do
       visit my_profile_path
       click_link "Edit Profile"
-      fill_in "Company", with: "My Company"
+      fill_in "profile[company]", with: "My Company"
       click_button 'Update Profile'
       expect(page).to have_content("My Company")
     end
