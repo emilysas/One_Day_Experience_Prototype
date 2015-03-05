@@ -45,7 +45,7 @@ private
   end
 
   def find_all_markers
-    @profiles = Profile.all
+    @profiles = Profile.where(:verified=>true)
     @hash = Gmaps4rails.build_markers(@profiles) do |profile, marker|
       marker.lat profile.latitude
       marker.lng profile.longitude
