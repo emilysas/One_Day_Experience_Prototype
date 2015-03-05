@@ -13,7 +13,7 @@
 
 	<feature id="main_photo" class="photo_field vertical_align">
 		<div align="middle" id="photo-field-link">
-			<%= image_tag @profile.image.url(:medium) %>
+			<%= image_tag @profile.sector.image.url(:medium), :class=>"profile_sector_image"%>
 		</div>
 	</feature>
 
