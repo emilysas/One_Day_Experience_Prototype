@@ -57,7 +57,12 @@
   min-width: 100px;
   width:31%;
   background-color: rgba(28, 30, 29, 0.9);
+  transition: background-color 0.3s ease;
   color: white;
+}
+
+.new-card-form:hover {
+	background-color: rgba(28, 30, 29, 0.8);
 }
 
 .profiles_map{
