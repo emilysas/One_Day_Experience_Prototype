@@ -1,4 +1,4 @@
-module ProfileHelper
+class ProfilesBaseController < ApplicationController
 
 	def profile_verified
     possible_profile = Profile.find(params[:id])
@@ -10,6 +10,11 @@ module ProfileHelper
     end
   end  
 
+	def profile_params
+    params.require(:profile).permit(:name, :professional_id, :sector_id, :image, :info, :company, :full_description, :address, :verified,
+      :job, :motivation, :suitability, :academic_back, :req_quals, :req_skills, :expectations)
+  end
+
   def find_marker(profile)
     @hash = Gmaps4rails.build_markers(profile) do |profile, marker|
       marker.lat profile.latitude
@@ -18,17 +23,12 @@ module ProfileHelper
     end
   end
 
-  def find_all_markers
-    @profiles = Profile.where(:verified=>true)
-    @hash = Gmaps4rails.build_markers(@profiles) do |profile, marker|
+  def find_all_markers(profiles)
+    @hash = Gmaps4rails.build_markers(profiles) do |profile, marker|
       marker.lat profile.latitude
       marker.lng profile.longitude
       marker.title profile.name
     end
   end
-
-	def profile_params
-    params.require(:profile).permit(:name, :professional_id, :sector_id, :image, :info, :company, :full_description, :address, :verified,
-      :job, :motivation, :suitability, :academic_back, :req_quals, :req_skills, :expectations)
-  end
+  
 end

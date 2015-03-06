@@ -1,8 +1,9 @@
 # The Professional Profile Controller is responsible for allowing a professional to create, update and delete a profile
-require 'profile_helper'
 
 class Professional::ProfilesController < ApplicationController
+
   include ProfileHelper
+
   before_action :authenticate_professional!
 
   def new
