@@ -22,7 +22,9 @@ class ProfilesController < ApplicationController
   end
 
   def show
+
     profile_verified
+    find_marker(@profile)
     @visit = Visit.new
   end
 
