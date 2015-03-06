@@ -26,7 +26,6 @@
 	text-align: left;
 	padding-left: 3%;
 	position: relative;
-	
 
 }
 
@@ -68,9 +67,25 @@
 
 .profiles_map{
 	width: 100%;
-	height: 200px;
+	height: 40vh;
 }
 
 .delete_profile {
 	visibility: hidden;
 }
+
+.email {
+	padding-top: 1em;
+	margin:0;
+	padding-bottom: 0;
+	padding-right: 1em;
+	font-weight: 300;
+	font-size: 13px;
+	font-family: 'Open Sans', sans-serif;
+	float: right;
+}
+
+.email_links {
+	padding-right: 1em;
+}
+
