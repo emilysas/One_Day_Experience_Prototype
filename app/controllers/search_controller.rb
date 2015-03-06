@@ -5,7 +5,7 @@ class SearchController < ProfilesBaseController
   def search
     @query = params[:q]
     @query ? @profiles = Profile.search(@query) : @profiles = []
-    find_all_markers(@profiles)
+    @hash = find_markers(@profiles)
   end
 
 end

@@ -5,7 +5,7 @@ class ProfilesController < ProfilesBaseController
   def index
     @profiles = Profile.where(:verified=>true)
     @result = @profiles.paginate(:page => params[:page], :per_page => 3).select([:id, :name, :company, :info, :job, :image_file_name, :sector_id])
-    find_all_markers(@profiles)
+    @hash = find_markers(@profiles)
     respond
   end
 
@@ -20,8 +20,18 @@ class ProfilesController < ProfilesBaseController
   end
 
   def show
-    profile_verified
+    allow_only_verified_profile
     @visit = Visit.new
   end
+
+  def allow_only_verified_profile
+    possible_profile = Profile.find(params[:id])
+    if possible_profile.verified
+      @profile = possible_profile
+    else
+      redirect_to '/'
+      flash[:notice] = "This profile has not yet been verified"
+    end
+  end 
 
 end
