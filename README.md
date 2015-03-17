@@ -9,6 +9,10 @@ This is a project for [One Day from openIDEO](https://openideo.com/challenge/you
 - <a href="#team-members">Team Members</a>
 - <a href="#technologies">Technologies</a>
 
+![Screenshot1](/app/public/images/screenshot1)
+![Screenshot2](/app/public/images/screenshot2)
+![Screenshot3](/app/public/images/screenshot3)
+
 
 ##What does it do?
 It connects young people searching for a job inspiration with professionals that are ready to share their passion for a one-day in-work experience
